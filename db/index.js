@@ -27,25 +27,44 @@ let ready;
 async function init() {
   if (ready) return ready;
 
-  ready = (async () => {
-    let instance;
-    if (MD_TOKEN) {
-      // Pass the token directly in the connection string rather than only via
-      // the `motherduck_token` env var - more reliable across cold starts and
-      // avoids any env-var casing/timing pitfalls in serverless environments.
-      instance = await DuckDBInstance.create(`md:${MD_DB_NAME}?motherduck_token=${encodeURIComponent(MD_TOKEN)}`);
-    } else {
-      const dataDir = path.dirname(LOCAL_DB_PATH);
-      if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-      instance = await DuckDBInstance.create(LOCAL_DB_PATH);
-    }
-    connection = await instance.connect();
-    const schema = fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8");
-    // DuckDB's simple protocol allows multiple ;-separated statements in one run() call
-    await connection.run(schema);
-  })();
+  ready = withTimeout(
+    (async () => {
+      let instance;
+      if (MD_TOKEN) {
+        // Pass the token directly in the connection string rather than only via
+        // the `motherduck_token` env var - more reliable across cold starts and
+        // avoids any env-var casing/timing pitfalls in serverless environments.
+        instance = await DuckDBInstance.create(`md:${MD_DB_NAME}?motherduck_token=${encodeURIComponent(MD_TOKEN)}`);
+      } else {
+        const dataDir = path.dirname(LOCAL_DB_PATH);
+        if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+        instance = await DuckDBInstance.create(LOCAL_DB_PATH);
+      }
+      connection = await instance.connect();
+      const schema = fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8");
+      // DuckDB's simple protocol allows multiple ;-separated statements in one run() call
+      await connection.run(schema);
+    })(),
+    45000,
+    "Database connection timed out after 45s. If this is a MotherDuck connection, the most " +
+    "likely cause is a cold start still downloading the 'motherduck' extension, or the " +
+    "MOTHERDUCK_TOKEN being invalid/missing. Check your Vercel project's environment " +
+    "variables (and redeploy after changing them - Vercel doesn't pick up env var " +
+    "changes on existing deployments)."
+  );
+
+  // If init fails, don't cache the rejected promise - let the next request retry
+  // cleanly rather than being stuck replaying the same failure forever.
+  ready.catch(() => { ready = null; });
 
   return ready;
+}
+
+function withTimeout(promise, ms, message) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error(message)), ms)),
+  ]);
 }
 
 // Diagnostic helper - actually queries which database/schema this connection

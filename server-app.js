@@ -37,11 +37,18 @@ app.get("/api/v1/health", async (req, res) => {
   try {
     const db = require("./db");
     const info = await db.whereAmI();
+    // Single round trip for all table counts instead of 6 sequential ones -
+    // matters a lot on a networked connection like MotherDuck.
+    const countRows = await db.all(`
+      SELECT 'contacts' AS t, COUNT(*) AS n FROM contacts
+      UNION ALL SELECT 'properties', COUNT(*) FROM properties
+      UNION ALL SELECT 'leads', COUNT(*) FROM leads
+      UNION ALL SELECT 'deals', COUNT(*) FROM deals
+      UNION ALL SELECT 'tasks', COUNT(*) FROM tasks
+      UNION ALL SELECT 'financials', COUNT(*) FROM financials
+    `);
     const counts = {};
-    for (const t of ["contacts", "properties", "leads", "deals", "tasks", "financials"]) {
-      const rows = await db.all(`SELECT COUNT(*) AS n FROM ${t}`);
-      counts[t] = Number(rows[0].n);
-    }
+    countRows.forEach((r) => { counts[r.t] = Number(r.n); });
     res.json({
       ok: true,
       mode,
