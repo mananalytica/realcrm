@@ -29,9 +29,42 @@ the whole `data/` folder) any time to start over with an empty database.
 No `.env` file is required for local testing. Copy `.env.example` to `.env`
 only if you want to change the port or the local DB file path.
 
-### Load sample data (10,000 contacts + realistic pipeline)
+### Import data via CSV (works on Vercel too — no shell access needed)
 
-Want to see the dashboard fully populated instead of starting from zero?
+Open **Import Data** in the sidebar. Pick a table, choose a CSV file, and
+upload. This hits `/api/v1/import/:table` under the hood, so it works
+identically whether you're running locally or on your deployed Vercel URL —
+useful for loading data into a MotherDuck-backed production database without
+needing a terminal.
+
+Notes:
+- CSV headers must match the table's column names (the Import page shows the
+  expected columns once you pick a table).
+- An `id` column is optional — include one if you want rows in one file to
+  reference rows in another (e.g. a deal's `buyer_contact_id` matching a
+  contact's `id`). Omit it and one is generated automatically.
+- Check "Replace existing data in this table" to clear the table before
+  importing, or leave it unchecked to append.
+- If you're loading a full related dataset, upload in this order: **Contacts
+  → Properties → Leads → Deals → Tasks → Financials** (each later file can
+  reference IDs from the ones before it).
+
+To generate your own sample CSVs (e.g. a smaller batch, or a different
+random sample) instead of using the pre-generated ones:
+
+```bash
+node scripts/export-csv.js ./sample-data 1000
+```
+
+The second argument is the base contact count — everything else (properties,
+leads, deals, tasks, financials) scales proportionally with the same
+realistic conversion-funnel shape described below. Files land in
+`./sample-data/` by default.
+
+### Load sample data straight into the database (no CSV, no Vercel)
+
+Want to see the dashboard fully populated on a *local* run instead of
+starting from zero?
 
 ```bash
 npm run seed
@@ -53,6 +86,11 @@ netting roughly **1.7–2% overall lead-to-close**, which is a realistic range
 for a solo agent working mixed cold/warm inbound leads. Re-run `npm run seed`
 any time to regenerate a fresh random dataset.
 
+`npm run seed` writes directly to whatever database is configured
+(`MOTHERDUCK_TOKEN` set → MotherDuck; otherwise the local file) — same
+switch as running the app itself. If you don't have terminal access to your
+Vercel deployment's environment, use the CSV import method above instead.
+
 ## Project structure
 
 ```
@@ -61,9 +99,13 @@ server-app.js      The actual Express app (shared by local + Vercel)
 api/index.js        Vercel serverless entry point, wraps server-app.js
 db/schema.sql      All table definitions
 db/index.js        DB connection + query helpers (switches local <-> MotherDuck)
+db/generators.js   Shared synthetic-data generator (used by seed + CSV export)
+db/table-configs.js Column whitelist/types for CSV import
+db/seed.js         Writes the generator's output straight into the DB
+scripts/export-csv.js  Writes the generator's output as CSV files instead
 routes/            One file per module (contacts, properties, leads, deals,
-                    tasks, documents, financials, dashboard) + a shared
-                    CRUD-router factory so each module stays a few lines
+                    tasks, documents, financials, dashboard, import) + a
+                    shared CRUD-router factory so each module stays a few lines
 public/            Static frontend (one HTML page per module, shared css/js)
 ```
 
@@ -139,5 +181,7 @@ Plus:
 ```
 GET  /api/v1/dashboard           aggregated dashboard data
 POST /api/v1/documents-upload    multipart file upload, returns { file_url }
+GET  /api/v1/import/tables       lists importable tables + expected CSV columns
+POST /api/v1/import/:table       multipart CSV upload; field "file", optional field "replace"="true"
 GET  /api/v1/health              { ok, mode: "local-duckdb" | "motherduck" }
 ```

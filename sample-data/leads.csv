@@ -1,0 +1,582 @@
+id,contact_id,status,requirements,lead_score,created_at
+f5947548-dcf3-43c9-86af-a096df2424a0,f4c85a9a-b8cd-40f8-8101-90627d1b2a62,new,"17 Sq Yd plot in Model Town, budget 2.8Cr-3.5Cr",22,2025-09-12 20:59:12
+2627b784-b213-4132-95b4-c41bff51112e,d7910876-39bb-48c4-9b9f-4204c19b788c,qualified,"14 Sq Ft house in Model Town, budget 1.6Cr-2.1Cr",84,2026-08-11 21:28:37
+8c1155ad-998b-4e03-aba7-4c172703126c,458ea346-fad5-4c04-8f36-fe764a3254c6,qualified,"4 Marla house in Wapda Town, budget 1.8Cr-2.3Cr",84,2026-02-03 09:17:02
+36cf85e3-5dfb-468c-a9b2-4368e829a63e,e499d8a8-0dff-461e-b5e7-e9519af6eefe,new,"12 Kanal apartment in Askari 14, budget 1.1Cr-2.4Cr",35,2026-08-20 12:29:14
+62f99c6e-5d0a-4223-9717-0e0ec448b824,869191d0-8ab6-494d-a553-86b00b6f6bee,converted,"10 Sq Ft house in F-11, budget 2.6Cr-3.8Cr",74,2025-08-28 18:12:19
+45e375e0-9ae7-43e5-b00c-72f59b5795f0,c6bb3bca-d735-4134-baef-25e98e869d8e,new,"10 Kanal house in DHA Rawalpindi, budget 1.9Cr-2.2Cr",27,2025-11-16 12:44:36
+0848a971-e5ea-48a4-a609-8f9b764a6f5c,a435d880-0150-4465-add7-1f1983a501ad,unqualified,"15 Sq Ft plot in Wapda Town, budget 0.7Cr-1.3Cr",23,2026-04-16 13:21:11
+71d9830a-031e-4025-a7fd-602a6d49ed3d,6b3cbc15-3d94-4181-957e-52fab9b91c56,unqualified,"19 Kanal plot in Valencia Town, budget 2.8Cr-3.8Cr",0,2025-11-04 09:16:45
+6283e732-e5f0-4754-9799-3dbd209d932a,11a41fd8-7c7f-44e3-96ee-7aecea4cc955,unqualified,"5 Sq Ft apartment in Askari 14, budget 1.8Cr-3.0Cr",25,2025-09-07 18:46:38
+4b78e16f-1bc0-4fa8-b1d8-3eeb61a46a1f,8ea97a9e-4cfc-4d49-9cc5-1970f2a147d6,new,"13 Sq Ft apartment in Valencia Town, budget 1.1Cr-2.2Cr",28,2025-09-26 11:51:55
+eae5dd97-9348-4f8b-ae67-6a6d3aeded3c,f6a1799d-f309-4db9-9054-57b21258228f,unqualified,"12 Sq Yd house in Bahria Town Lahore, budget 1.4Cr-2.4Cr",24,2026-06-09 08:26:07
+4556cd39-8248-4e06-98d2-3ce3ac2b5bc0,6c66a194-ca64-4d88-89a7-ffbac754e020,qualified,"10 Marla apartment in Askari 5, budget 2.1Cr-2.9Cr",55,2026-01-03 09:16:58
+b557c5d9-2151-4dd3-8b48-567a0e6bbb00,105a6da5-c2d6-4ddd-8426-e62f20d4775a,qualified,"13 Kanal apartment in North Nazimabad, budget 0.5Cr-1.1Cr",77,2025-09-15 12:22:46
+54d618b5-0d85-4945-a323-fc96e4356a93,060691b1-6111-498f-a804-0f893d388870,qualified,"7 Kanal house in F-10, budget 0.4Cr-0.9Cr",78,2025-09-17 12:54:21
+b57a5956-10ac-461b-9dce-88d20580669f,c261c2c3-a28c-4aee-9b2e-f6ad218a5e2b,converted,"20 Kanal house in Bosan Road, budget 2.6Cr-3.4Cr",95,2026-06-18 19:19:35
+c8a7fc8d-6e84-4440-88e6-7b10f8551f27,a48428a5-ccc4-47e9-a2e3-4234a5c623ee,unqualified,"8 Kanal apartment in Gulberg, budget 2.1Cr-2.6Cr",30,2026-01-25 21:52:28
+e724c86b-d887-4af6-8482-56d95f6f7485,87c86b11-a150-4216-a627-684163ae8bbc,new,"19 Kanal house in G-11, budget 3.0Cr-4.3Cr",20,2026-06-28 11:42:15
+e740fe98-3018-4751-9fd3-01a65cf4a21f,5c7aa15a-28a0-416d-99c1-1b13f7e7d5fc,new,"4 Sq Ft house in Johar Town, budget 0.5Cr-1.4Cr",22,2026-06-12 09:26:20
+4ca8136e-f804-4e13-b963-2a2ed9365ba5,71289020-200d-4cc3-915a-f73540c7e58a,new,"6 Kanal apartment in Wapda City, budget 2.9Cr-3.6Cr",38,2026-08-19 11:15:22
+d0a089a8-f886-44c5-856e-ad44dbba3f3b,4791e4d3-1fcd-49d1-9cab-4e49b20dea1e,converted,"11 Sq Yd house in Askari 5, budget 2.1Cr-3.3Cr",88,2026-03-30 10:32:31
+476433d1-34cf-4ffd-a361-c454b6ef9258,0a2a1607-e183-477a-ac7c-7c59416fadc1,qualified,"7 Sq Yd house in DHA Karachi, budget 1.5Cr-2.1Cr",61,2026-02-01 21:36:10
+f5071b84-0892-4087-9e34-4b14765f29f0,6adf2d04-aef5-410d-b5ae-e2f27a39ccaa,new,"13 Marla plot in North Nazimabad, budget 2.7Cr-3.8Cr",24,2025-10-15 08:58:46
+b16d410f-cb3b-48e2-889b-f84669a9176e,4e27d5f9-e864-41cf-9146-d46fe2b8d902,new,"7 Sq Ft house in DHA Lahore, budget 2.9Cr-3.0Cr",21,2026-02-15 15:14:21
+06039613-1a61-4f81-96b5-cb6c927c0d47,02f5f140-8620-4f79-8c48-e834409204a5,qualified,"7 Marla house in Gulberg, budget 1.3Cr-2.8Cr",68,2026-08-20 12:56:18
+bf05ee72-f940-4318-8b3f-be242fad110e,04111099-a056-4b42-9e4f-2e9efbe30d6f,qualified,"7 Kanal apartment in Bahria Town Karachi, budget 1.0Cr-1.6Cr",76,2026-06-07 17:26:38
+c613bff4-1510-4a0f-a341-9f121249742e,0b30981c-8e74-48c6-9cdd-53022dc191de,new,"20 Kanal house in Clifton, budget 1.7Cr-3.0Cr",45,2026-08-18 09:42:16
+b63b63ab-750d-4eab-b286-b54fb6a1a4b8,e22802f8-b354-400a-84a1-a87e68f95308,unqualified,"10 Sq Ft house in DHA Karachi, budget 2.1Cr-2.2Cr",4,2026-03-06 19:19:10
+564308b3-c314-4188-b2d6-a48c4bd1cc52,a5d0e05b-dc93-45f4-8a40-1071e2d82784,qualified,"9 Sq Ft house in Askari 5, budget 0.8Cr-1.4Cr",52,2026-06-15 19:06:19
+3fb4d1a6-aef0-4017-8d69-6c9761feb2f1,e21295ed-98e6-4a82-98d2-efe6533a2141,qualified,"8 Sq Yd house in Bahria Town Rawalpindi, budget 0.4Cr-0.7Cr",56,2026-07-20 18:07:36
+2f0196e6-777d-4065-9d49-4487d82e1a51,67d752f8-92fb-48df-9945-c47494bb6302,converted,"14 Marla plot in Chaklala Scheme 3, budget 1.6Cr-1.8Cr",77,2026-05-01 18:55:31
+b929fd5d-7472-4423-be21-321ba557e0c4,08e56ffc-4dba-4e9a-8280-db197f0e72fd,new,"17 Sq Ft house in North Nazimabad, budget 2.6Cr-3.9Cr",39,2026-06-19 10:20:28
+38b370c5-e7a8-40b4-9d0a-a52eef5facac,feb720de-c524-475b-9880-bc7ee8cce22e,unqualified,"5 Marla apartment in F-11, budget 2.8Cr-4.0Cr",3,2026-04-28 12:23:45
+06ac6ca5-3b52-45bf-a944-1c723f2b1eeb,9777a3ed-015c-45c6-a8a5-a3065c24dd79,unqualified,"20 Kanal plot in DHA Rawalpindi, budget 1.6Cr-2.8Cr",14,2026-08-17 10:38:36
+e216169f-8aca-4c1d-92e9-e2197619afab,97edd080-5f30-496d-80a2-d5628836960c,qualified,"16 Sq Ft plot in Madina Town, budget 0.9Cr-1.8Cr",62,2026-04-09 10:06:49
+d7e6436d-d616-4c4d-bc0f-6cb8bff2721e,71651a49-3400-4c2e-9d7a-b28cab3285ea,new,"6 Kanal plot in Johar Town, budget 1.9Cr-2.0Cr",28,2026-04-20 09:13:58
+40d3e017-5eb5-4c0c-986e-72f4f8258f5b,741bee10-81c7-4b70-a8cd-00a57d114058,qualified,"8 Kanal plot in PECHS, budget 2.8Cr-3.1Cr",77,2025-08-27 21:48:21
+45a9a3ac-a337-4b38-8498-5f5324871355,7080e930-5c8b-46a8-980f-64e47dc9444f,converted,"20 Sq Yd house in Wapda Town, budget 2.3Cr-3.2Cr",91,2025-11-19 17:36:35
+a00aeee7-7ca2-4ce3-9f17-6624fd090568,14753f59-1513-4101-97b2-dd5d862993ae,new,"12 Sq Ft apartment in Askari 14, budget 1.1Cr-2.4Cr",37,2026-07-09 20:14:45
+aaffa2e4-4346-459c-98c4-929d72121930,fcef8471-4438-44b5-9aa8-a5b3e8e2a087,new,"8 Sq Ft apartment in Valencia Town, budget 1.1Cr-2.4Cr",32,2026-02-28 09:12:24
+9c006d69-5765-40f2-81d6-be0f53620878,21c38ede-a0b4-4b23-b908-abfafb651b79,new,"16 Sq Ft apartment in Bahria Town Karachi, budget 0.5Cr-1.3Cr",34,2026-04-12 18:22:25
+a4ce4fca-2f54-4777-a5bc-b77fc1a01422,682bf729-6f69-45c2-ba0e-6709b5dfdfd6,qualified,"15 Kanal plot in Bahria Town Karachi, budget 0.6Cr-1.8Cr",64,2025-12-21 11:35:40
+df6b90f2-3681-4e8c-be71-01780af8e477,125c602b-f37a-4d26-aa7a-61519c7c5455,qualified,"9 Kanal house in DHA Karachi, budget 2.2Cr-3.1Cr",77,2026-06-09 18:07:36
+ca1f7b54-18bb-4d08-8265-323dafdef619,3ca581e9-8b93-44c6-bd31-cff51790059e,new,"19 Marla apartment in DHA Islamabad, budget 1.7Cr-1.9Cr",21,2026-05-10 14:27:09
+361b4ce0-640f-49f5-8189-06c89a1a66c8,288c2bd0-d418-470c-a1b9-f0dd9c23ae56,converted,"18 Sq Ft apartment in Model Town, budget 1.2Cr-2.3Cr",100,2026-04-16 17:33:55
+46f22143-3af1-449b-8b5c-684fae97ac81,1a5ad441-b99a-4b54-a317-96955e4de488,new,"16 Kanal plot in Cantt, budget 1.0Cr-1.7Cr",49,2026-05-16 21:02:34
+cd38f87f-e742-4e73-9252-f8ec2159e320,0061b76b-520d-4a76-86f3-e63fce9a4d3d,unqualified,"20 Marla plot in Model Town Gujranwala, budget 3.0Cr-4.3Cr",27,2026-07-05 21:44:39
+768f1047-e10e-4f45-b523-7d15950c4753,465cda46-f0ef-4111-82c9-1f9dff8f46de,unqualified,"3 Sq Ft house in University Town, budget 1.8Cr-1.9Cr",1,2026-08-12 19:23:34
+37c9792f-6372-4792-8ba8-cc1cb55b9a4f,d49c45b1-be25-480a-8100-aadb24247551,new,"16 Kanal apartment in Bahria Town Lahore, budget 1.4Cr-2.0Cr",28,2026-08-18 17:54:42
+437d7c9a-4f59-41ab-9b17-7a5d81dc9847,2b7b9213-c52f-4d22-a748-b679f7026325,new,"16 Marla apartment in Clifton, budget 3.0Cr-3.7Cr",44,2026-01-27 16:15:05
+eeffa5a4-c8e4-4079-ace5-8ae2f60ef877,6975695d-11d2-42d9-a2c3-259e9f2d2c02,qualified,"6 Kanal apartment in Valencia Town, budget 2.1Cr-3.5Cr",54,2026-06-25 13:23:28
+feae3fa1-bc95-4116-90ee-ae256e1116fb,b745f15c-85ac-447b-b046-99539e3d622f,qualified,"15 Kanal apartment in Clifton, budget 1.5Cr-2.8Cr",68,2025-12-05 20:40:24
+1229d75a-fff7-4966-ab17-e8c31799506c,32be52e8-3ac9-4b86-90b5-fce43e311640,new,"14 Marla apartment in Valencia Town, budget 0.9Cr-2.2Cr",36,2026-07-22 11:16:03
+35bb3318-d889-40c3-9c31-c5f4b3c51423,ac84849b-309d-4bb0-8726-333ca4fe3e0b,new,"10 Kanal house in G-10, budget 2.6Cr-3.8Cr",32,2025-11-29 12:29:36
+72050a61-afde-431c-88c7-822f0fec3cb5,278eee33-fd01-46e8-a52d-79a989e5c5b3,unqualified,"5 Sq Yd house in Wapda Town, budget 1.8Cr-2.8Cr",23,2026-01-22 17:52:36
+13529a81-d556-45ea-856b-3a9d883f903e,efcf5df4-8751-443c-9b72-e41ef46360ee,new,"11 Sq Ft apartment in Wapda Town, budget 1.0Cr-2.3Cr",45,2026-06-19 15:34:07
+31851141-d47d-4176-a4bf-ad5025835758,f8bcc74a-d09f-4524-a18b-9f025dcc3a98,unqualified,"15 Kanal house in Askari 10, budget 0.3Cr-1.4Cr",29,2026-06-21 15:20:14
+9bb5adb6-d31e-4558-ad25-9d47db0ce07b,0bb4bca9-1917-4d21-8ac4-8330c2fda971,qualified,"15 Marla plot in Model Town, budget 1.9Cr-2.8Cr",74,2025-10-22 19:34:30
+4c2a1926-8b36-46ef-a436-79bf17587316,2d24123a-4d9c-414d-94e5-7f183e7d63a0,qualified,"16 Sq Yd apartment in Bahria Town Rawalpindi, budget 1.1Cr-1.8Cr",71,2026-08-08 19:50:14
+a02b3bb4-ad24-45af-914f-4b98b9d0b12d,225b4841-2c3b-4be7-a70d-301edcdafe48,qualified,"5 Sq Ft plot in Gulshan-e-Iqbal, budget 1.6Cr-2.5Cr",74,2026-05-10 17:08:35
+c09af3f8-89fe-43b0-9222-2c1a0bda34eb,d1cbe7c6-06b7-4c37-a932-c273b53f2a17,new,"10 Kanal plot in Gulberg, budget 1.9Cr-2.1Cr",45,2025-12-23 12:23:46
+6e78b47c-a0c9-44b9-a909-b43ac604515b,ce68036c-d504-4ea6-8a4a-bbb5d7dcd6a0,unqualified,"17 Sq Ft plot in Bosan Road, budget 2.8Cr-4.0Cr",6,2026-08-19 11:29:34
+b41dc172-8774-4866-a27f-5b71b24a62e4,f83cf0b6-a81b-46fe-842b-246e1e47532b,qualified,"3 Sq Ft plot in Wapda Town, budget 1.4Cr-2.7Cr",70,2026-02-06 15:11:29
+c06df2c7-ae4e-4467-af9c-15bc02ab8b85,0a586c68-705e-42eb-acc6-c2c07a3873da,converted,"11 Sq Yd plot in Bahria Town Islamabad, budget 2.3Cr-3.2Cr",86,2026-03-08 11:29:49
+a927e483-52f2-4544-a262-00bb1f11061f,b1e06f5c-4812-4f42-835b-2461c6384145,converted,"10 Kanal house in Madina Town, budget 2.3Cr-2.4Cr",80,2025-12-01 17:16:02
+0d37c65b-e75a-43ac-b215-5509763dc706,d9dcffde-64c2-4c4e-b3a4-ffc0279606a4,converted,"20 Sq Yd plot in PECHS, budget 1.1Cr-1.3Cr",90,2026-02-28 16:24:46
+c06cd587-a198-4c42-84d0-fed7cce14799,32535b4f-8556-48c3-987e-45844bfea709,new,"10 Sq Ft house in Valencia Town, budget 1.5Cr-2.2Cr",20,2025-08-31 12:21:29
+409afdfd-268e-43e4-8911-6abbc3c1ef73,e87954d8-cbbf-4e45-a008-2a4b808c6e66,new,"20 Marla apartment in Hayatabad, budget 1.3Cr-2.2Cr",27,2026-07-19 20:37:55
+f7d13bac-a527-4272-985d-81f32a409f34,19773736-26b2-4c0f-b649-8f6c41b6e1e3,new,"13 Sq Yd house in Model Town, budget 0.5Cr-1.4Cr",33,2026-07-24 20:46:13
+9c37f0e5-03c3-4b17-bede-d86d83cdbbd7,7ae7bbb5-d22b-439c-8ff6-fa2b3ed34b6c,new,"5 Kanal apartment in Cantt, budget 0.8Cr-2.2Cr",24,2025-08-30 15:02:38
+feaeb4e0-ef80-4045-b929-9fd52bdcdd8c,f98d9465-e7fb-4b25-ac73-745223b3e3b7,unqualified,"13 Sq Ft apartment in DHA Rawalpindi, budget 1.9Cr-2.3Cr",12,2026-07-23 14:30:19
+e559b1ef-bbab-4be8-92ce-e6c0dc0b8554,626c73de-daf8-4709-94cb-93b7cb58dc4a,qualified,"18 Kanal apartment in Chaklala Scheme 3, budget 0.3Cr-1.5Cr",83,2026-02-21 13:59:36
+7a5c5da6-c371-4638-8496-6565f824ef38,35b251b0-6a13-4887-a9e9-822f5ba316cd,qualified,"7 Sq Ft apartment in Model Town, budget 0.6Cr-2.1Cr",62,2026-06-25 18:49:47
+a5513126-6901-4b71-a813-3dbfb3345462,828f3b25-0eeb-4318-8960-2537ce85c38b,qualified,"12 Sq Yd plot in North Nazimabad, budget 1.6Cr-2.7Cr",80,2026-08-19 10:55:11
+d3c16c4b-0f70-45d5-8d9b-3a780476f579,a1c27504-dabe-4959-bd9d-982e9e1dbf73,new,"16 Kanal house in Gulberg, budget 0.9Cr-1.1Cr",23,2025-11-24 21:27:43
+1a30a440-2478-405f-9f1e-dbe3b12a69c9,f4ffd7d0-4451-49d9-940f-02856c87447d,qualified,"18 Sq Ft house in Gulberg, budget 0.7Cr-0.8Cr",63,2026-08-15 21:04:16
+7ba608ff-2925-43b1-9f58-e5f444e7f719,81fad49a-2d1a-42b6-b72e-9db76824d489,qualified,"6 Marla plot in Valencia Town, budget 1.4Cr-2.9Cr",60,2025-11-24 11:52:37
+36f58841-8bcb-454e-bf1c-d15e001bb0b2,c03ba334-0aa4-4d2b-ab81-e222bdb5874e,new,"12 Kanal apartment in Gulberg, budget 3.0Cr-4.0Cr",33,2026-04-27 10:17:15
+5d93cc77-d782-4622-a3db-35e47d547eed,10c1553e-88bf-4d35-820d-6e6e9d33cf1b,new,"4 Sq Yd house in Bahria Town Karachi, budget 1.0Cr-1.7Cr",20,2026-03-19 08:51:55
+f805d95f-1bed-4250-b140-63a42eda6d07,2276b017-2d4f-49c8-b4cb-68f9588d9498,qualified,"10 Sq Ft apartment in Bahria Town Rawalpindi, budget 0.5Cr-2.0Cr",53,2026-02-08 09:14:54
+c0f01d39-277a-4f8e-aa50-700f82c211a6,0398a0c8-0f27-49a1-9362-da70e86d44b7,new,"16 Sq Yd house in Gulberg, budget 2.7Cr-3.8Cr",26,2025-11-19 10:05:56
+7e48a565-f0aa-47a8-8a7f-6b0cb9ca4f50,48af9fc8-934c-4873-bdb1-5e97e2ed9651,qualified,"17 Marla plot in Johar Town, budget 2.8Cr-3.9Cr",67,2026-06-19 15:31:27
+5b4e6b15-82f4-4827-929d-38630bb25a49,221bd957-0c81-4c53-acee-031439cd15d9,qualified,"20 Sq Ft plot in DHA Islamabad, budget 2.3Cr-2.4Cr",78,2025-10-06 15:06:18
+db3cce07-4093-4d61-9dd3-5b87f341d5ad,17e98485-33b7-4a9a-8ee3-45ad7a898a02,qualified,"6 Sq Ft plot in Bosan Road, budget 0.6Cr-1.3Cr",68,2026-08-19 08:20:46
+c8265d68-be0f-46c2-8ad7-85201539551f,ab50f7d6-ff81-4732-a4ad-e7b7f8a35830,unqualified,"18 Kanal apartment in Wapda City, budget 1.4Cr-1.8Cr",1,2025-11-12 12:48:33
+5767ed82-04b2-4f49-bdfb-0220d864870a,f2bfda22-8647-46ed-949f-1c39be45cc29,qualified,"12 Marla apartment in Wapda City, budget 2.4Cr-3.3Cr",83,2026-07-06 13:12:11
+3199b65a-2167-402c-a08a-fbbc7206917f,9e1c6626-c68b-4f84-a981-2d5cdb68d87c,new,"18 Sq Ft plot in Gulshan-e-Iqbal, budget 1.6Cr-2.9Cr",39,2026-05-05 21:12:15
+d483702e-eb94-4d54-bfdf-52e1e5c0d693,4bbf1ef3-a92f-44e3-ac00-a231791a8f86,new,"7 Marla house in PECHS, budget 1.4Cr-1.9Cr",20,2026-06-30 12:09:54
+2ef8c3db-6163-45d3-8662-6baced121dec,e749ec04-af30-4b47-a556-90cb1b6d8dee,qualified,"16 Kanal apartment in Bahria Town Rawalpindi, budget 1.9Cr-2.8Cr",62,2026-05-06 16:26:59
+8f601644-61ee-4915-9b3e-2c537b0da13e,25950ad2-5a99-4c0c-8fb6-3e395ab312a1,unqualified,"19 Sq Yd plot in DHA Islamabad, budget 1.5Cr-2.9Cr",15,2026-07-29 18:03:56
+08f24c49-44ff-480e-94b3-de069cde767e,a0f2264a-92fc-4e90-a927-132d79dfee7a,new,"10 Sq Ft plot in Bahria Town Lahore, budget 0.6Cr-0.8Cr",35,2026-07-29 18:45:21
+5b8e851c-716e-438f-ac5d-5eed7a55ecc5,3ae19851-17a5-4090-b6ed-8fd9a0f0566d,qualified,"7 Sq Yd apartment in PECHS, budget 2.5Cr-3.1Cr",68,2025-11-29 09:26:55
+fd8503c9-91f2-45bf-9220-c22d08786a1c,083cc880-78a9-4f93-b2b4-b6004f2953ea,new,"19 Sq Ft plot in Bahria Town Rawalpindi, budget 1.9Cr-3.0Cr",49,2025-11-16 11:17:03
+6e9a354b-b60b-46bb-955b-c48a49fdbaf2,3c0c5acd-007c-49fb-9f53-d7cba4d0ae7f,new,"18 Marla apartment in Model Town Gujranwala, budget 2.4Cr-3.8Cr",32,2025-08-23 18:07:46
+cebbb3ea-713b-4f19-842d-7f2f678a11d6,8dbdc694-0010-4b37-bb10-1212b9890eb3,new,"14 Sq Ft plot in F-11, budget 3.0Cr-3.6Cr",44,2026-06-30 13:03:43
+1b312b30-3822-44f1-9314-b5586e6b40cf,33211edc-30fd-46c1-ac2d-87824c55e475,new,"13 Kanal house in G-11, budget 2.0Cr-3.3Cr",21,2026-01-07 14:49:32
+646b0d89-0719-49c2-bf23-647696197fcd,63e86c63-f582-498c-9af2-d23adfd89b6c,unqualified,"19 Kanal apartment in Askari 14, budget 0.8Cr-2.2Cr",30,2026-08-19 16:28:00
+e5c9bbc9-8f92-4adb-8814-eba3dacce94d,eaac82c2-7b84-4b06-af3d-62f69472fed2,converted,"13 Sq Ft house in DHA Lahore, budget 1.1Cr-1.7Cr",91,2026-04-26 10:00:01
+952a6e40-1830-4e0a-93d6-3f4e65adb910,9de6524a-d37e-4ad8-a420-3b7a8b1585ee,new,"8 Marla apartment in Johar Town, budget 2.1Cr-3.5Cr",24,2026-08-06 19:21:58
+d8f8bf55-d1e4-4cb2-86c6-bab45df191fa,5f04bdee-1bc5-4c3c-9e0e-811bd1ed3b62,qualified,"6 Sq Ft plot in Shadra Town, budget 0.5Cr-0.7Cr",80,2025-10-13 20:47:12
+9e242c24-82ac-474c-9c97-4a67754f698f,354f4545-e37e-45fd-b9bf-041757346d78,new,"6 Kanal apartment in PECHS, budget 2.7Cr-3.5Cr",28,2026-08-15 19:17:24
+1e5bd45d-a894-4936-97b9-7dcd133ad24e,6057a1cc-d6c5-455d-ac7a-3f6ffdee2623,converted,"14 Sq Ft apartment in North Nazimabad, budget 2.5Cr-3.2Cr",78,2026-01-30 14:57:56
+47607762-c5a4-416b-80a6-8df81f03e246,14b513a5-2b6e-4612-94f7-fe6d4215e9c5,qualified,"19 Sq Yd apartment in Askari 5, budget 1.6Cr-2.5Cr",53,2026-05-19 13:29:55
+48fc468c-31cb-4f81-b93c-926e68f65e9f,7ef53797-ea1b-43cb-8b65-691e66f38a25,qualified,"17 Sq Ft apartment in Bani Gala, budget 2.1Cr-3.6Cr",53,2026-03-10 10:07:01
+339f496b-847b-49f7-b6b1-95a6058d9920,2b5d6058-7f42-4882-838a-f94ccf71f01d,new,"19 Sq Ft plot in Wapda Town, budget 1.8Cr-2.1Cr",26,2025-09-27 14:04:03
+b47d256b-a169-4431-a605-66e48bb24100,84706f3d-5eac-47d1-ab65-30cd006351cc,new,"9 Kanal house in DHA Peshawar, budget 2.3Cr-3.1Cr",40,2025-11-03 12:43:10
+ae8a6ba3-de0c-4f54-ac3e-b29a6aa550a1,84a065ff-a2f5-4bcb-b859-b640831f9c80,new,"9 Kanal apartment in Wapda City, budget 1.1Cr-1.4Cr",33,2025-12-30 09:05:35
+7ab5a614-a165-4193-984e-5bec58adceca,4147c701-11d6-4dbb-a410-9353892e2146,unqualified,"14 Sq Ft apartment in DHA Lahore, budget 2.5Cr-3.6Cr",10,2026-07-29 20:00:15
+63bd7832-107f-4e9d-b197-2b9cc6c1e334,94384aba-dac4-4907-9416-781a02e03b9b,new,"13 Sq Yd plot in PECHS, budget 1.9Cr-2.3Cr",49,2025-10-17 14:45:52
+b8342ccc-24ee-4dc4-b7ab-b00f6a6dddf1,d3034b27-80f5-4fb6-8f8a-8124ca07e4ee,new,"16 Sq Yd plot in Satellite Town, budget 0.6Cr-0.9Cr",20,2026-07-08 20:19:40
+00d65ae8-805a-458c-b40f-cf90079ffb05,337b388f-257d-4786-b778-800c9cd72e37,new,"5 Marla apartment in Askari 5, budget 0.6Cr-1.4Cr",34,2026-06-26 19:13:18
+45a6009e-cc2e-4b34-9992-dfed27de1749,3f40aa29-e859-444b-9132-d52afc883c35,unqualified,"18 Marla plot in Model Town, budget 1.4Cr-2.5Cr",15,2026-01-27 19:34:57
+1396eb30-e93e-4493-abf2-722bc044eb03,93697ccf-ce75-4bfd-9119-8493dd656a0f,new,"3 Kanal apartment in Valencia Town, budget 0.7Cr-2.1Cr",39,2026-06-29 14:22:39
+04838e7f-02f1-4dc4-9aea-fb8ec62d9ce8,adcd02fb-6fce-4821-8743-f3bcc041c62e,new,"15 Sq Yd apartment in PECHS, budget 1.6Cr-3.1Cr",39,2026-06-25 16:18:51
+5580516c-f5e3-4ec1-82d0-6704d5b11018,d1de5571-db62-445a-9a83-3f8e1cb87e5f,new,"6 Marla apartment in Clifton, budget 2.4Cr-3.1Cr",33,2026-01-26 10:09:08
+0694f1cf-d0c1-4c1b-b065-fb611464dd2d,3c3903c8-b5de-475d-8c49-910caafb9e07,qualified,"19 Kanal apartment in Wapda Town, budget 1.1Cr-1.5Cr",71,2026-05-21 16:58:43
+1fc0b64f-b2ff-4b4c-8d56-d554d0305b2f,e9d3e8fd-73f7-4a9c-bd8e-fddb5fb0c782,new,"6 Sq Yd house in Jinnah Colony, budget 2.4Cr-3.6Cr",47,2026-04-08 21:28:16
+8b119e69-4e8d-4756-8b06-850bcb4a5e4c,fc2b8342-0b5d-4aa9-9b5b-e3d1c1428121,new,"3 Sq Yd plot in Bahria Town Karachi, budget 1.5Cr-1.7Cr",29,2026-08-14 18:08:03
+ac078a12-1f5f-4d77-b3e4-7f933028353a,9d62cf60-a77f-4c76-a230-74a7f9c0e15d,converted,"10 Sq Ft plot in Johar Town, budget 2.1Cr-2.6Cr",89,2026-02-27 08:41:49
+56095733-5691-4a01-b3e8-ae4c1fb82e57,554d7f4e-f005-40c8-b099-c4ac7af62d03,converted,"13 Kanal apartment in PECHS, budget 1.4Cr-2.4Cr",74,2026-05-02 08:05:14
+f947ab91-517b-4daa-bf8f-b3a2d0186b7e,e7d217ba-797a-4f5c-a862-acb1d810d054,qualified,"19 Kanal plot in Bahria Town Lahore, budget 2.4Cr-3.0Cr",72,2026-07-07 14:33:48
+1eccdd03-743b-4604-84fa-c203f1b9ab73,d6dde3bf-e92a-4e8b-857a-f80ce7cc7e36,qualified,"5 Marla plot in Jinnah Colony, budget 2.6Cr-4.1Cr",78,2026-06-27 17:12:25
+fbbfde6b-fd17-4c14-9434-2e895a8079e4,786b814c-14d2-48ff-9f04-b9de76e44750,new,"17 Kanal house in Gulberg, budget 1.2Cr-1.4Cr",26,2025-08-27 18:38:19
+15d5a6d0-ed59-4666-b9e1-8216426f1adc,364c562d-fa11-4a5f-9297-5ac57edbb20b,new,"19 Kanal plot in Johar Town, budget 0.8Cr-1.9Cr",39,2026-08-12 08:07:44
+1a91ca83-adbd-4e22-9592-b8fd8572fa61,42661c1c-c352-4e26-bedf-caf6ac4c4c4f,new,"16 Marla apartment in Gulberg, budget 1.5Cr-2.4Cr",47,2026-06-11 13:16:11
+c5c2d919-3346-45cd-8b86-9ee14153426b,78e83528-916c-4cfb-94dd-01a296b14dcc,unqualified,"13 Marla plot in Bani Gala, budget 1.7Cr-2.0Cr",17,2026-02-15 19:21:02
+1e9d9fdc-7df2-4aa0-9275-8b5d5c150806,359ebf6a-9359-4213-8ec9-2250b17caff9,qualified,"8 Sq Ft apartment in Bosan Road, budget 0.8Cr-1.2Cr",70,2025-09-09 11:30:22
+b51a0723-08ac-48ce-9d9c-222f92257487,6eec3061-b0fb-4ed2-b32e-e261e2a6fb1e,qualified,"20 Marla plot in Model Town Multan, budget 2.6Cr-4.1Cr",50,2026-08-20 09:19:55
+cbfc17a7-d8e0-4313-8e68-dc60a0b4f841,28fc110d-37b1-4053-82bb-853dc636243c,unqualified,"15 Sq Ft apartment in Bahria Town Karachi, budget 0.3Cr-1.2Cr",27,2026-05-21 09:52:02
+4265083f-246a-4c31-9df7-96956e0105a0,7f8eeb29-c676-4da8-a0e2-f3bfd5d67e45,unqualified,"11 Sq Ft house in G-10, budget 1.3Cr-1.7Cr",1,2026-04-07 08:41:26
+d5418954-eb6c-4610-9b6a-c12f7f845b0c,6c2c51a7-1448-419c-9d36-b12bbd4ec3ad,unqualified,"20 Kanal house in F-10, budget 1.4Cr-2.8Cr",19,2025-09-23 20:24:19
+718a3b16-502c-44ba-8219-37aa2b433aa7,a0a57f58-b0ce-4a8b-98b3-bf8fe5638d45,converted,"7 Sq Yd house in Gulberg, budget 1.7Cr-2.8Cr",71,2026-02-04 19:08:38
+fc0b09d6-93d6-4c40-9259-ae74d5a5597c,f3326f67-75da-4116-b83b-82bebebe1f0d,new,"4 Kanal house in Askari 10, budget 0.9Cr-2.1Cr",40,2025-10-03 19:06:48
+8ad07084-0a7a-43bd-af5b-ea7ee26549aa,4f5ab506-15f5-411f-8c2d-35259b87801d,qualified,"5 Marla apartment in DHA Karachi, budget 1.9Cr-2.2Cr",62,2026-08-14 20:46:21
+06d72fa2-9e82-405c-bc34-3b7d3d45cf74,8981c5a5-fb77-4521-ab35-74e68216cecc,unqualified,"14 Kanal apartment in Askari 5, budget 1.0Cr-1.3Cr",7,2026-04-21 20:10:05
+eb144b8d-63b0-4055-97dd-14c56e278c3c,c36b8e7c-9e61-4a64-aa10-08845bc2b26b,new,"4 Marla house in Bani Gala, budget 2.2Cr-2.7Cr",41,2025-09-23 19:52:49
+fe12524b-8efc-43f0-a17b-9f2c7ab8b1e5,b5729bba-13af-4176-a20d-f4575d1d12eb,new,"5 Sq Yd apartment in Askari 14, budget 1.6Cr-2.2Cr",44,2026-07-28 08:12:32
+3b87a368-a964-42b9-8909-4a8ca280eff2,1b2859a6-b29a-47b5-82a4-fcf04c0fb581,new,"14 Kanal house in Satellite Town, budget 0.6Cr-1.3Cr",36,2026-02-11 08:32:34
+594f6062-0ce0-472a-8de9-dd6bfaa4ba54,2d51b66f-9773-4b2a-8da8-ba7656687af0,qualified,"13 Sq Yd house in Wapda Town, budget 0.4Cr-0.9Cr",80,2026-02-14 14:04:07
+98c6ec9d-bfcc-492c-9f62-159d3fe70873,15d3d932-030c-4c90-8316-1f13e5a561f9,new,"18 Sq Yd plot in Askari 10, budget 1.6Cr-3.0Cr",30,2026-01-17 11:49:37
+29dcdf7a-ebe1-4b91-9d24-06e6ab789fce,b3383151-1e4f-41ae-9886-bd83654a7971,unqualified,"16 Marla apartment in DHA Lahore, budget 1.9Cr-2.0Cr",28,2026-08-20 21:56:24
+d606c13d-0f8f-4228-bd4d-8e08289b4c1c,b342d13b-41bb-4936-806f-b6c0c2762b55,new,"16 Sq Yd plot in Jinnah Colony, budget 0.3Cr-1.1Cr",28,2026-08-20 09:14:32
+f0e9e9dc-af26-4287-ae97-5754debc9f4c,329f8b2d-959b-446f-a27f-3cceaa944904,converted,"11 Marla house in Gulberg, budget 0.9Cr-1.7Cr",97,2025-11-28 11:28:41
+494544ab-b623-4d4c-8221-ba2fef0f4461,04f46972-077b-40e8-bfa8-e0d9881b4dbe,new,"17 Kanal house in Shadra Town, budget 1.9Cr-2.2Cr",38,2026-01-09 20:00:03
+128538aa-4797-412d-962c-4621113d1c27,ed47165e-05e1-473d-8eaa-4083f9cb1432,unqualified,"3 Sq Ft house in Shadra Town, budget 1.8Cr-2.0Cr",5,2026-07-27 14:23:08
+c6afe38f-d2cb-436b-b587-0a0fe434c954,98c563a8-3fab-4a96-8490-a3866d41047b,new,"10 Marla plot in Bahria Town Lahore, budget 1.3Cr-1.5Cr",26,2026-08-19 19:31:21
+3ab28ab6-2ccb-4397-8c73-2f7358416755,2841a7b9-2107-475b-8c14-2d1b9132a73a,unqualified,"10 Kanal house in G-10, budget 1.3Cr-1.9Cr",28,2026-04-07 10:29:47
+d7b4f84a-b482-4c7e-a5ed-5f2e05dec4ea,ef1aaebb-1bc6-4ab3-804d-190a7ddd278b,new,"18 Sq Yd apartment in Bahria Town Karachi, budget 0.5Cr-1.3Cr",46,2026-08-16 15:06:09
+9965ea45-dec2-445f-8b57-b77b97e12c31,cef8e97c-4c00-4b67-a75e-f99822d0cd20,new,"18 Marla apartment in Gulberg, budget 2.6Cr-3.1Cr",39,2025-11-22 16:48:52
+ca0f4aee-d881-4ac8-b22b-d768a05392bb,c6ed2311-69f7-4731-bd1f-0d577c50d591,qualified,"16 Sq Ft plot in Cantt, budget 1.9Cr-2.0Cr",77,2026-03-25 20:47:12
+923a7909-afe3-468e-a554-158909d6b363,f10d048b-f6ae-4d51-89b5-cbee84d54545,new,"8 Kanal house in Wapda Town, budget 1.3Cr-1.9Cr",36,2026-04-08 10:03:37
+9d48219e-6e26-469f-b72b-7dcd39ae46af,c863c26b-fed5-4690-baf5-d168660f704a,unqualified,"14 Kanal apartment in Johar Town, budget 0.4Cr-1.0Cr",15,2025-09-08 14:12:02
+b2d12ced-af1c-4dd3-9d0a-6a8ae14e8737,f32a047f-cfaf-43f6-8e7d-b43dd3f4817b,qualified,"13 Marla plot in Askari 5, budget 0.7Cr-1.2Cr",62,2026-08-20 10:57:27
+91d3e39f-d3ac-4058-bd70-b7c7ce40b575,38715cf6-642d-42e4-b865-c00edc236c4e,new,"7 Sq Yd apartment in DHA Islamabad, budget 2.8Cr-3.0Cr",46,2026-05-05 13:30:44
+0dad433d-9efd-49d4-a82e-76e13c66d310,ed5ee2c6-67e0-4f44-8f2e-e749e7e516e1,new,"5 Marla plot in Model Town, budget 0.4Cr-1.2Cr",26,2026-08-16 11:55:28
+b8d1323e-8b8d-436b-b64c-99d39f0a61c9,91ca3f55-d3f6-46ba-b520-9bf6d9899ce9,unqualified,"4 Sq Yd plot in Askari 14, budget 3.0Cr-4.0Cr",4,2026-04-11 17:46:05
+bce0eaef-4286-45d1-a4ed-5e149e22595f,6313538d-a980-41c9-9ed5-fbc56da92cb1,converted,"11 Sq Yd house in DHA Lahore, budget 0.8Cr-2.1Cr",76,2026-01-30 08:45:47
+df9dc3cf-8e31-4541-8fc7-f7b5483475e5,e9026674-fa24-4577-bf56-cdfdad420c43,unqualified,"8 Kanal apartment in Johar Town, budget 1.1Cr-2.1Cr",10,2026-06-12 08:10:31
+9c7ae524-9ecb-44a4-9159-e156aeba7adb,4871aa2a-a929-4487-bb54-e055bb28fd4d,unqualified,"19 Marla apartment in DHA Rawalpindi, budget 2.0Cr-2.8Cr",29,2026-06-20 14:47:51
+1f374fdf-9cc1-48b3-be78-d94904e8eae8,d9372640-3b2d-4efd-ac37-d325d1e57875,new,"7 Kanal house in Gulshan-e-Iqbal, budget 2.4Cr-3.8Cr",28,2025-10-07 20:48:16
+895ad1ce-ce65-4c88-9999-fe5a25dbf1ac,ed4d77fc-53a0-4dbe-b470-2aab77a3839e,new,"14 Sq Ft plot in DHA Lahore, budget 1.1Cr-2.3Cr",47,2025-12-04 09:41:58
+fdd3761d-a550-47d0-8a6b-e89d73d61da4,6784e51b-c010-4142-97ef-7cec87777bb6,new,"12 Sq Ft house in PECHS, budget 0.6Cr-1.9Cr",40,2025-10-10 14:10:37
+e0bb98df-31fe-4fb1-a006-4fe0006d660c,b5accdba-c908-41d7-b1f3-5bafab325d5c,new,"10 Marla apartment in DHA Karachi, budget 3.0Cr-3.7Cr",40,2025-11-22 15:36:51
+e7b43c51-ae22-4f34-8ae6-fc21ec58775b,de6396d4-370c-4801-a9ba-dee3cbf59f32,new,"17 Marla plot in Wapda City, budget 1.5Cr-1.7Cr",47,2025-12-01 14:30:15
+6145d8fc-88c5-47c1-b4db-d2d54b8d3802,85beef8a-2497-4c6f-9721-1772cb53c396,new,"4 Kanal apartment in DHA Rawalpindi, budget 2.6Cr-3.6Cr",45,2026-01-06 21:10:26
+d862639b-b996-4dec-887a-0e48bc3a15fa,95ea2de3-502b-4b98-a65d-851b035bc037,qualified,"5 Kanal plot in Model Town, budget 0.5Cr-1.5Cr",74,2026-02-22 08:00:31
+4ab08a44-9bd6-4ca8-b0e5-dad892e458fb,a24306b7-5850-4809-bf40-7b9ca0c9ced9,unqualified,"20 Sq Ft plot in Johar Town, budget 2.8Cr-3.9Cr",29,2026-06-07 12:04:05
+3f833c15-a188-433e-803a-51cb743e9930,914ebcc5-fd26-4a6c-a321-9862c271a674,unqualified,"8 Marla plot in North Nazimabad, budget 2.2Cr-2.7Cr",17,2026-01-15 10:16:06
+e234f9f5-7897-4a83-8b49-b94a8f946125,5d71a136-3ad4-4610-8ba8-a0a6562b8146,new,"17 Sq Ft plot in Bahria Town Lahore, budget 2.4Cr-2.6Cr",47,2026-08-12 20:26:56
+535cd4db-ce4a-4bf9-a7db-c4965187de16,eb0045bb-674f-4061-9da3-6b0cf374cc5d,unqualified,"3 Kanal plot in DHA Peshawar, budget 2.3Cr-2.5Cr",20,2026-08-20 12:31:21
+7fc9a1ea-8683-45f4-9020-5e65e9558930,23e2fbf3-190d-44a8-960a-5edcc26f5088,new,"20 Sq Ft house in Chaklala Scheme 3, budget 2.3Cr-2.5Cr",38,2026-08-15 15:20:40
+dc4f6aaf-f0c6-4e0e-82ce-2670e073508a,f81621a0-2d8e-438e-8828-85abed7d4038,unqualified,"4 Kanal plot in Askari 14, budget 1.9Cr-2.4Cr",12,2026-08-09 21:27:56
+ea0d9d73-2631-4536-97b8-51dc0a7de982,948c57e8-5a09-4977-a2d5-90713b432ea4,unqualified,"18 Marla house in Bahria Town Karachi, budget 1.4Cr-2.9Cr",20,2025-10-10 15:18:47
+20686fd5-f7d7-4a42-b2e2-85896b53bbdb,6930d1c1-dfec-4b49-99d9-56032a1bfaa4,new,"10 Sq Ft plot in Valencia Town, budget 1.0Cr-2.1Cr",28,2025-11-22 15:18:27
+97814302-4be4-4671-8103-c0f5925c847b,259d337f-8d83-4fa6-9133-dce270ed9813,unqualified,"7 Kanal plot in Chaklala Scheme 3, budget 1.4Cr-2.7Cr",16,2025-09-10 12:01:03
+4a7e50ce-d980-4f7d-96a5-3a0c26788c2a,d199b373-e36b-4d02-ac7e-59408bd1c673,new,"13 Sq Yd plot in Madina Town, budget 2.5Cr-3.3Cr",31,2026-05-10 10:30:20
+f5886333-3e7d-4198-962f-783212f5e638,c367b069-0135-4daf-92c5-8dc83e792e8f,unqualified,"14 Marla plot in PECHS, budget 1.8Cr-3.1Cr",24,2026-07-04 14:53:34
+7696285c-df76-46b8-baac-6e8c27263092,f773287c-b77a-49ea-8086-dbb35bb0b4a3,unqualified,"4 Sq Yd house in DHA Karachi, budget 0.6Cr-1.0Cr",2,2026-08-14 12:38:36
+9a2473a3-cfb4-4ef2-b4ca-d783955adf59,bc6c5d08-1c54-4260-b52d-1847cdb57cb5,new,"6 Sq Yd house in Askari 14, budget 0.9Cr-2.4Cr",44,2025-09-03 18:03:27
+fc8c3f87-a0d3-47d8-9c1a-eb55ed5a9501,ccb42468-bb81-4a67-a4c3-462bcc259cc4,qualified,"15 Kanal apartment in Bahria Town Karachi, budget 1.5Cr-2.1Cr",63,2026-01-14 15:44:24
+6d7c6918-f82c-4fce-bba6-e88f892a74e8,d7ab1f4a-1eb3-452e-b73a-d5389e98355b,qualified,"19 Sq Ft plot in Askari 10, budget 0.7Cr-1.8Cr",59,2025-10-30 20:53:59
+e7b0afba-8806-4b24-aa90-a9921295ff86,a647480a-d6a0-42cb-85d6-ecdef9bc24cb,qualified,"19 Sq Yd house in Model Town Multan, budget 0.7Cr-1.8Cr",66,2026-08-19 10:13:55
+0a776289-10f8-4a33-9212-931d18881c83,d55080bd-1fe6-41a1-94c8-b8511533c46d,converted,"18 Kanal apartment in DHA Karachi, budget 2.0Cr-2.8Cr",81,2025-11-22 18:24:28
+add56aa1-325b-4284-8b02-d584a2965a8c,bfe8bb0c-4829-45ee-a843-1dae954e610c,unqualified,"4 Sq Yd apartment in G-10, budget 0.6Cr-0.8Cr",23,2026-05-22 20:55:30
+0dc050d4-2b16-4004-80f2-8b902dd7c3cb,d906a91f-0ba4-486d-941c-a7ed3edc872e,new,"17 Marla plot in Johar Town, budget 1.9Cr-2.3Cr",29,2026-08-15 15:14:48
+0676677d-7b69-44bd-b63a-698585003688,4b00604e-5f0c-4472-aedb-3e423a6af089,new,"7 Sq Ft plot in Bosan Road, budget 2.2Cr-2.5Cr",45,2026-03-21 14:40:38
+dd8414e0-aeea-4d9d-b6dc-6c0a0c1360a2,2b4af847-5007-42b1-a105-47f81deebb59,qualified,"14 Sq Ft house in PECHS, budget 1.2Cr-2.6Cr",72,2025-10-12 20:02:48
+6b8ea4b2-5d7b-44c1-af32-ce80b51e855f,931eaa0b-a0d3-4b88-aca8-91bb2c527743,new,"7 Marla apartment in Gulshan-e-Iqbal, budget 2.5Cr-3.4Cr",24,2026-06-13 12:41:22
+653553c4-068d-494d-a300-0976fb520f02,28f891fd-ec4e-4425-9c30-a16762aa8c35,new,"6 Sq Yd plot in Gulberg, budget 2.9Cr-3.4Cr",34,2026-03-31 12:58:14
+d0fcd368-9aad-4a30-974a-2b2f4a60381c,0c9d8588-25f3-48aa-add6-bccc6d6b5f8f,new,"18 Marla plot in DHA Islamabad, budget 2.0Cr-3.1Cr",28,2026-07-06 21:32:22
+19a14a17-693e-4604-9890-f2a87838f688,a6c3e161-a092-4d9d-8018-151b172780e3,qualified,"12 Sq Ft apartment in Gulshan-e-Iqbal, budget 0.7Cr-2.0Cr",67,2026-04-30 15:36:56
+bd0b4eee-fe5c-4da2-bde0-86fef9582e0a,3aa04c6e-0168-419f-b8c1-f42e320d0988,qualified,"14 Kanal plot in Bahria Town Islamabad, budget 0.4Cr-1.3Cr",75,2025-12-03 18:32:36
+2ef160a0-07ed-49a1-9c43-10effb542600,180323af-6989-4e4e-92fe-0a18d2bc6591,new,"8 Kanal house in Bahria Town Rawalpindi, budget 0.4Cr-0.8Cr",37,2026-08-05 15:45:10
+61530e8f-4979-48c4-86bd-e9de4fcba135,a8fd6805-86d7-4bfc-83f2-57b9111f705a,new,"15 Sq Ft house in Bahria Town Lahore, budget 2.0Cr-3.1Cr",30,2026-04-01 13:48:45
+7eae3cbf-5459-4145-9980-37307e67fc5b,4aae2375-f950-4714-95d4-c2afdfcf543f,unqualified,"4 Kanal plot in DHA Karachi, budget 1.0Cr-2.5Cr",30,2026-05-09 17:28:27
+d83dc396-1322-4632-b7fa-5a3cf8f0a2c3,b5516334-b629-4faa-8bc9-bf44a8396723,new,"20 Kanal house in North Nazimabad, budget 1.7Cr-2.9Cr",34,2026-04-17 19:37:44
+c5be7219-0fda-49e8-bf71-9284154351bf,2315061c-240d-47bf-b07a-47dddcc115af,converted,"17 Sq Ft plot in Bahria Town Karachi, budget 2.1Cr-2.9Cr",86,2026-03-17 10:11:01
+05e841f2-f492-4829-bf00-3e648f36a822,11044b03-8005-4594-b927-ec8a44914b35,new,"6 Sq Yd house in Bahria Town Rawalpindi, budget 0.8Cr-1.2Cr",21,2026-05-12 19:45:09
+e063d190-3816-484c-be6a-f2d451650873,b33c3a76-64c3-4614-b20b-c3fc93b7ae75,qualified,"19 Sq Yd apartment in Bahria Town Lahore, budget 1.5Cr-2.8Cr",56,2026-06-15 21:50:29
+c9f1e75a-fe61-4299-ab16-6cd12567538c,d7269195-2678-4639-8322-dd10068595ab,converted,"7 Sq Yd plot in Jinnah Colony, budget 2.5Cr-3.0Cr",84,2026-07-06 19:19:46
+f06389dd-768a-444f-8a86-bc9dcdbe80e3,0ec5accd-a6a9-4c18-9f6c-9053edd2c40c,new,"16 Sq Yd apartment in Bahria Town Karachi, budget 1.1Cr-2.2Cr",28,2026-06-08 15:48:44
+26950c2b-beac-49b1-9516-d01fea47e835,fa5e7a91-4384-4a3e-bb27-baddb857a8dc,unqualified,"8 Kanal plot in Bahria Town Lahore, budget 0.9Cr-1.6Cr",16,2026-02-18 09:05:35
+e9e9b297-0afd-49fc-b6d3-7db912c3842d,60f85e97-da4b-4276-b6da-1b8b697736b3,qualified,"7 Kanal house in F-10, budget 2.1Cr-2.5Cr",84,2026-06-16 10:28:50
+deb1ba8f-efb4-4e5f-be5a-001e75ed31fa,c2c86e19-ea73-4a56-9465-28d5495fbc4e,new,"11 Marla plot in Bahria Town Rawalpindi, budget 3.0Cr-3.2Cr",38,2026-01-24 17:33:50
+5917f96d-a96b-4dd2-8293-a16c5c2cfeca,23e28675-ac3a-427e-99e2-5ecd7aaec00c,converted,"10 Kanal plot in Askari 10, budget 2.3Cr-3.5Cr",83,2025-11-20 16:17:09
+f9904db2-318b-4a8c-868d-00847e91b7e0,6837e150-a2d5-4e31-bbf7-b08043098250,new,"6 Marla house in Model Town Multan, budget 2.5Cr-2.7Cr",38,2026-07-11 13:11:24
+ac840f63-1d5d-4117-90ce-38502174be00,4ff46ba8-4f52-40a8-a57e-ec2b39b98c67,qualified,"8 Kanal house in PECHS, budget 0.5Cr-1.3Cr",56,2026-08-16 20:13:43
+c3940e9e-79ef-4b97-a565-653d72c26436,37dbabf9-01ea-41bf-a1b2-c3cdcb3a8ee1,new,"16 Marla apartment in North Nazimabad, budget 2.3Cr-2.6Cr",31,2025-12-02 20:40:22
+c4d681d4-8076-4607-9fa0-b62024465b84,c7cb5c41-e5c6-4e45-9f8e-47604883c46f,unqualified,"9 Sq Yd plot in Askari 14, budget 2.2Cr-2.9Cr",15,2026-01-05 12:10:18
+e8c624ad-7d5b-442c-89d3-c67519a83aca,d74f7e79-149e-4025-8dd6-0e75bf871556,qualified,"12 Sq Ft apartment in DHA Rawalpindi, budget 0.4Cr-1.8Cr",57,2026-01-12 09:46:49
+4ff9a571-c90a-4840-a656-2dcb2b5aaba5,5ce80b2f-a463-4974-a516-ccb79a7e2053,unqualified,"4 Sq Yd plot in Valencia Town, budget 2.8Cr-3.8Cr",16,2025-12-30 14:49:20
+bd6fa0a8-3a67-4772-a585-da3d8c1804c4,96c4159c-6885-4a34-9436-803a50c0bd6e,new,"7 Sq Ft house in Chaklala Scheme 3, budget 0.6Cr-0.8Cr",35,2026-06-06 18:49:53
+60793973-632a-4d25-ad2c-1b4ae4e41cf6,dcc18b6e-63c7-432a-927e-24760d2250f1,converted,"8 Kanal apartment in North Nazimabad, budget 2.7Cr-3.0Cr",100,2026-08-02 17:32:56
+842d91e5-1a1a-424c-8f62-87ec8ea321fb,fa13340f-da52-4ad4-bab0-f1f195660757,qualified,"16 Kanal apartment in Wapda Town, budget 0.4Cr-1.8Cr",55,2026-03-23 18:36:41
+e2d4649d-3f1b-464e-91e9-d7800d6a5f22,4494b4a2-6c37-457a-946a-00b4353b451a,qualified,"6 Marla house in Model Town Bahawalpur, budget 0.5Cr-1.6Cr",53,2025-10-26 19:57:21
+e6f2e281-7013-46a5-b37f-495e31d27fa4,b7da85d9-1d2b-473f-9fff-eb4b6b8634d9,new,"14 Sq Ft house in Askari 14, budget 1.3Cr-2.1Cr",29,2025-11-22 11:11:24
+bb3a7514-b633-46c2-9270-e9c543f6a940,44b215d0-5810-4ae2-8610-91bfb90534ae,new,"3 Kanal apartment in Wapda City, budget 2.5Cr-3.1Cr",45,2025-11-20 18:04:42
+197f211d-9546-4420-90eb-5f7e18931f3e,12c1e3fd-c49a-46c4-bd4e-7ce9537fca0e,new,"17 Kanal apartment in Model Town Gujranwala, budget 2.8Cr-3.5Cr",26,2025-09-27 16:41:42
+af84ff7e-ff6b-405b-8004-6360af87ae8c,26e4dc04-5ae7-48f0-b0f0-098519263236,new,"20 Sq Yd house in Gulgasht Colony, budget 0.9Cr-1.3Cr",45,2026-01-09 16:06:19
+739b0ad5-6367-4469-8eb4-452978a73442,fcd4e67b-1b08-4f0f-a993-4874b9479223,new,"11 Kanal plot in Gulberg, budget 2.3Cr-2.5Cr",44,2026-02-24 12:25:57
+de733993-8234-4257-8115-e209723a5117,ccf38825-c2d6-446d-83f9-e76c51dc743b,unqualified,"20 Sq Ft apartment in Gulberg, budget 2.4Cr-3.6Cr",28,2025-08-29 17:07:28
+65d36623-f94c-4313-ab52-e8b76c3c0040,11dd43aa-022b-4605-a108-6d79355ba31a,new,"20 Marla plot in Askari 10, budget 1.9Cr-3.2Cr",50,2025-11-01 15:37:11
+ef7ad54a-43a9-4350-9b68-b92b64f3d600,1049d32f-1e35-4a4a-adad-510f789cad9e,qualified,"4 Sq Yd plot in Wapda Town, budget 2.3Cr-3.7Cr",84,2026-04-22 17:30:58
+24b35fb9-eea8-4317-b860-75ba7c9cd243,f6a21a7e-c73a-4893-b494-31e56877f052,new,"13 Sq Ft house in Model Town, budget 2.9Cr-4.3Cr",42,2026-06-23 10:03:00
+dc698b57-835d-47bb-89ad-25f1efdd8e94,509b3aab-65d5-419c-9e87-2c1c22cf8494,new,"5 Kanal apartment in Valencia Town, budget 2.0Cr-3.0Cr",23,2026-08-11 13:03:32
+88bcec2e-a79f-41ef-b8c0-a3c78d85d867,beeb08cf-1526-4d18-bd80-8515e94b9227,unqualified,"7 Marla house in Valencia Town, budget 1.7Cr-3.1Cr",0,2026-05-04 16:46:17
+080962ea-19ac-42b2-9827-e20343bf581b,901982cf-46e0-4057-b680-b0684014b61c,converted,"13 Sq Ft plot in Madina Town, budget 2.7Cr-3.4Cr",96,2026-07-23 10:11:17
+385abf97-6eaf-44f4-9f8a-043e60cc1fcb,b7ebc981-5acc-48da-9d65-b6fd1d1b9a66,qualified,"19 Kanal house in Model Town, budget 1.7Cr-3.2Cr",75,2025-10-22 15:34:12
+df5d6427-2d68-48af-880e-b82d37dc9993,1bc99669-44d5-4040-a085-56028a71ba43,qualified,"14 Marla house in Bahria Town Karachi, budget 0.8Cr-1.2Cr",61,2026-05-15 09:54:43
+76f65d9d-11c0-489c-b17d-3639be5bb86a,2db7257a-a2f2-46a8-b35c-2b3309a9d9d3,new,"8 Sq Ft apartment in DHA Peshawar, budget 1.8Cr-1.9Cr",49,2025-09-14 10:44:01
+afa97b8e-c45c-40b7-a7cf-c09178c54092,3d2b507b-70a0-4dec-873c-7cd8984ab3d4,new,"8 Sq Yd plot in Bahria Town Lahore, budget 1.3Cr-2.0Cr",46,2026-02-13 09:17:05
+6258aed4-7a55-4381-8866-5eb2c2da4c2a,8a4d071a-8b9a-4ba5-a4c4-961dc772c202,qualified,"9 Marla house in Model Town, budget 2.3Cr-3.4Cr",83,2026-08-03 09:40:32
+4cfbaa70-c7b3-4c44-a7c2-f0dfb06fafc0,dbb228e2-e471-4ea6-8e2e-4e817f5ff6e9,converted,"14 Kanal apartment in Wapda Town, budget 1.2Cr-2.7Cr",83,2026-08-18 19:41:48
+90a5c0e7-66de-45c3-bbcf-b85969583374,0d49dba9-6eda-49c6-ba9c-003bebea1c90,unqualified,"10 Sq Yd house in DHA Lahore, budget 2.5Cr-3.2Cr",13,2026-04-13 12:09:11
+76f6bcf3-ed99-4f39-beb3-0db410504ed5,490f96fc-4587-4e6d-89e5-4978ac2677fb,new,"5 Kanal house in Johar Town, budget 2.1Cr-2.9Cr",34,2026-04-03 19:05:22
+44feb341-1681-4a22-a787-9f83836a1f18,8b5a67be-d4cd-4a99-b605-8e545fe86c5f,unqualified,"20 Kanal apartment in G-11, budget 1.7Cr-2.6Cr",15,2026-08-14 08:09:57
+bf752be0-6da2-4f39-92f9-e28383f87016,b64f4d69-0b8f-43e1-992a-4b8f179498b2,new,"8 Sq Yd plot in DHA Peshawar, budget 2.4Cr-2.8Cr",48,2025-08-22 13:15:46
+ee52b22b-af2d-4058-a751-a30a9ab52455,3a256a28-5bf8-4c03-8e76-799ab029d610,qualified,"8 Sq Ft plot in Bahria Town Karachi, budget 2.8Cr-3.8Cr",70,2026-04-16 14:00:26
+e8bf8fcb-08b7-4d26-bcdd-f460aeb5e0e5,ee5526dc-8a9c-450f-aae4-519d9103199f,qualified,"18 Sq Ft plot in Bahria Town Karachi, budget 2.7Cr-3.7Cr",85,2026-08-15 09:52:52
+f6b27004-9cd4-44b2-a06e-72d7de901e09,f154c483-bd60-4adc-966b-76379739aa9d,new,"16 Sq Yd plot in DHA Islamabad, budget 2.8Cr-4.1Cr",24,2025-12-23 21:16:12
+90a02976-3565-4dfc-8156-895a3af481a6,16366eda-2c9b-4f78-a590-cc461ab5f2c0,new,"15 Kanal apartment in Askari 14, budget 1.8Cr-2.0Cr",22,2026-03-20 18:14:00
+58244d9a-3470-4bc3-b3eb-5299cd94b4bf,f3efcba3-a2ab-4b64-8b8c-16a339709580,qualified,"11 Marla apartment in Johar Town, budget 1.6Cr-2.1Cr",71,2025-11-14 17:22:41
+d79da592-d891-416e-bc3f-cc994b4d6260,c77c7119-22da-49be-b46d-306de3c04ad6,qualified,"14 Marla plot in Askari 5, budget 1.8Cr-2.9Cr",63,2025-08-22 08:51:46
+b1f82922-ae62-4245-818d-4c2983dccbbb,07751341-91ae-44b3-b35f-0d0023500b63,new,"3 Sq Yd plot in North Nazimabad, budget 1.1Cr-1.5Cr",31,2025-11-30 15:35:15
+d92ffc7a-34bc-403a-8138-ab3520119570,d096769b-5a1f-4ea5-a86a-9f20915858dd,new,"12 Marla plot in DHA Peshawar, budget 0.8Cr-1.1Cr",33,2026-05-16 08:36:09
+e7be9a5e-d9eb-4c45-af88-2cd15901522d,6ebcf8c5-eda4-4828-bb3e-64a572c8d3aa,new,"13 Sq Ft plot in G-10, budget 1.1Cr-1.6Cr",39,2026-08-20 17:10:17
+6f6a5300-52f8-4a4e-85f6-fe43f4726cb6,e6be276d-a0f0-404d-8222-4da161b33d13,converted,"4 Marla apartment in Johar Town, budget 2.3Cr-3.4Cr",92,2026-06-25 08:05:04
+94b85af1-7d1f-42f0-8718-d5a9beb14bc2,5a46bbdc-cfff-4344-b135-90b5706d7276,converted,"13 Sq Ft house in Bahria Town Lahore, budget 1.2Cr-1.5Cr",91,2025-09-04 18:21:48
+a0a5a390-ebff-46bf-bd7c-f6135dcad4b8,12409a7a-c16f-4e9b-ab77-b2dc43cb71ec,qualified,"20 Kanal plot in Bahria Town Lahore, budget 1.7Cr-3.1Cr",52,2026-06-25 17:13:07
+a1318d3f-03f9-451c-9d12-9215b4602568,cad32d5e-4944-4cce-a961-cf98fff65548,new,"6 Sq Yd house in Wapda Town, budget 2.2Cr-2.5Cr",29,2026-07-16 18:01:37
+94b4949c-b5e0-4b10-927d-b42a4064ef8e,8d26bf28-fd52-4e9e-98e0-568a9ab9ce21,new,"13 Kanal house in Model Town Sialkot, budget 0.8Cr-1.7Cr",49,2025-11-16 11:31:29
+5708445c-4605-4827-bbb3-7b566ea5531c,f1a02003-1541-4fb4-a14a-e581c2d91726,converted,"5 Kanal apartment in Askari 14, budget 2.3Cr-2.9Cr",73,2025-09-25 10:12:43
+44d6bba1-9357-4ad7-a891-88bbb6376800,748e6b83-f0dd-400e-ac4c-f85ea0e194d5,unqualified,"6 Marla house in Askari 10, budget 1.9Cr-2.2Cr",4,2026-07-11 15:25:32
+64564710-b07b-4890-9c8a-e34000f990ae,6cfb0603-6dfc-4dec-915e-82a3ec357dd0,new,"5 Kanal apartment in DHA Rawalpindi, budget 2.9Cr-3.5Cr",20,2025-12-16 18:25:00
+36a7a2c8-3775-4c37-b3e9-a5002d6af9c7,76692ef8-534d-40db-b7e8-5021ffd68128,unqualified,"15 Kanal apartment in Valencia Town, budget 0.7Cr-2.0Cr",0,2026-02-10 08:11:03
+757b0c6d-f901-40a6-9ecc-f4ad6d89d141,f5a718a0-a4e9-4035-b35b-4c33091e4cf5,new,"20 Sq Yd house in DHA Lahore, budget 0.5Cr-1.2Cr",28,2025-08-25 10:30:34
+9a3e95af-fae8-4050-9665-cf0f8a83490e,6a1d0eed-4c36-4abf-b6da-2e30d0ff39c4,qualified,"18 Kanal apartment in Gulberg, budget 1.6Cr-2.5Cr",77,2026-05-02 11:56:23
+57f452fa-d9de-410e-a700-9e2250673b7d,0ea249c9-afc7-4568-b784-6b1b001976ef,qualified,"6 Sq Yd plot in Gulberg, budget 0.3Cr-1.3Cr",62,2026-06-07 18:19:21
+991475ed-6d34-4a69-82dc-01a7ba6f26f5,6ebeec46-43f4-4c09-bfc4-1a6be7a268f5,qualified,"11 Marla plot in Gulberg, budget 0.9Cr-1.1Cr",67,2026-06-04 16:02:53
+609720d4-12f5-4a59-b9b7-f7dccccb0814,37f0d676-4648-42fc-91c6-f000d9b75cb9,converted,"9 Kanal apartment in Bahria Town Lahore, budget 0.6Cr-1.3Cr",81,2025-11-24 20:16:40
+76ae46e9-5cae-4ea8-a3cb-d5fb646d2e75,49a0186d-ea11-4e14-8985-57fba6452cb0,converted,"12 Kanal plot in Askari 10, budget 0.9Cr-2.1Cr",91,2025-11-18 15:35:43
+c2f156fb-4c5c-430c-9073-a87eb29568ff,41364b46-6af5-42c3-89aa-d1d88875ff11,qualified,"4 Kanal house in Gulberg, budget 1.0Cr-2.5Cr",77,2026-06-17 09:11:41
+f34da7e6-a02b-40f4-ad7e-20f78db85c60,31881b8d-422b-4a69-9465-bddb9990a4e7,qualified,"20 Marla plot in Bahria Town Rawalpindi, budget 1.4Cr-1.9Cr",51,2026-04-02 15:40:15
+c694ec51-c2bf-4503-a662-569948aef672,afcd6556-164c-44e9-a11f-cb86f85cd2f9,qualified,"8 Marla apartment in Model Town, budget 1.5Cr-2.9Cr",85,2026-08-20 13:16:58
+67466a79-14bb-44f0-a0fb-a3a498b7cfa4,891cd4a2-a721-41c1-b1d6-d77b8e8bc850,qualified,"17 Sq Ft plot in Model Town, budget 0.9Cr-2.2Cr",70,2026-08-02 11:31:07
+dad12ed4-a8bd-47b9-9806-16d4e9606c0e,c3be1ecc-3fa2-4329-968a-a420a7330346,new,"3 Marla apartment in Valencia Town, budget 0.5Cr-1.3Cr",44,2026-03-07 13:02:43
+c217a056-27fb-4a65-b5c6-42776a37b719,88eaf5d3-f836-4da9-b325-ac52746f4d85,qualified,"20 Sq Yd house in Gulshan-e-Iqbal, budget 2.8Cr-3.4Cr",51,2025-11-24 11:42:50
+024799b1-844c-4973-86dd-9b56d87d013c,06b535a9-56a2-41b8-974f-578813a3f605,new,"8 Sq Yd apartment in Wapda Town, budget 2.2Cr-3.2Cr",43,2026-06-11 16:56:07
+faf3bb96-b360-45a3-8e03-e46b680000cd,2f287626-dded-49db-986e-a94f1a96558c,qualified,"9 Sq Ft house in DHA Lahore, budget 0.3Cr-1.0Cr",72,2025-12-12 13:18:32
+171fbc94-07c0-4677-918e-9438c37569d2,d808be6b-59ff-4906-8e15-15346f78a6b8,new,"12 Sq Ft apartment in Chaklala Scheme 3, budget 2.6Cr-3.1Cr",50,2026-08-14 19:00:39
+ab597e40-3c93-414c-94bf-d422f3752c07,270ecdef-60a0-4751-a709-7c70c68ac1af,new,"9 Sq Yd house in Askari 10, budget 1.7Cr-2.4Cr",33,2026-02-24 13:51:07
+6406074c-4853-41c2-9b25-2e8d6150af37,ccc3ba63-a41d-4bdd-b9e4-fc1e618927dd,new,"7 Kanal apartment in Askari 5, budget 0.9Cr-1.3Cr",46,2026-05-30 21:26:59
+fe7a152b-c45d-460d-ad53-1366560f9508,6a2822b1-36ff-4b8d-af94-8c567fc24094,unqualified,"9 Kanal plot in DHA Rawalpindi, budget 1.9Cr-2.9Cr",2,2026-02-22 10:30:04
+dc534378-c2ad-45d5-bf42-69b0ca66911a,e3c8a38a-2494-4034-aa3f-1b7debf4970a,new,"7 Marla house in DHA Islamabad, budget 1.2Cr-2.3Cr",43,2026-05-15 10:48:16
+b44e99a3-ef26-4e67-91e4-0db9a2077d2b,4180f6d4-98ac-47ce-8b08-7e67b05acda8,qualified,"15 Sq Ft apartment in Askari 10, budget 1.7Cr-2.4Cr",59,2026-01-16 19:54:38
+37d95ea7-0cfb-483b-a55b-6b9bee6aded2,abb818c8-1ca7-4e03-8c6b-c8f7d14f7af5,qualified,"12 Marla house in DHA Karachi, budget 0.9Cr-1.4Cr",63,2026-05-26 11:41:07
+1971e2ff-cffb-4210-a122-0d4d88ac9989,bdd59425-cbb8-4585-aec0-89a7b86680db,qualified,"18 Sq Ft house in DHA Karachi, budget 0.7Cr-1.0Cr",78,2026-03-07 15:06:46
+0c7ce6ef-1eb3-4191-83d3-f87779266aa4,a5070688-af11-4d02-ba7a-a52b7acc6c16,new,"3 Kanal house in DHA Lahore, budget 0.9Cr-1.1Cr",32,2025-11-20 18:45:08
+f46c07cc-c63c-40bc-9866-158a42d3dce4,f3e1b348-d0de-44de-9cf1-a0aed56ca243,converted,"12 Marla apartment in Model Town Sialkot, budget 1.8Cr-2.6Cr",82,2026-06-10 12:01:45
+2f55078d-d1a8-48a6-a89e-5d8184cb3d36,bfdf68de-f925-409c-889c-e99098bbaf19,qualified,"15 Sq Yd plot in Gulberg, budget 0.9Cr-1.2Cr",70,2026-01-29 19:09:06
+edc90b11-91af-42e2-9b0a-366df2f85c89,9ac60eaf-ab13-403e-b8c7-7544aba13e2b,new,"19 Sq Ft apartment in Bahria Town Islamabad, budget 1.9Cr-3.2Cr",24,2026-08-14 10:17:29
+1f4c723e-693a-4a31-9106-b37ae4f84921,ecc6b385-6e26-451f-b829-997c86f95b26,qualified,"16 Kanal apartment in Model Town, budget 0.6Cr-1.8Cr",55,2025-10-21 11:08:14
+1193d537-2e73-4e6f-acef-e5a73ce0e94f,078d48ee-c343-4dc6-9e08-6805a70734da,unqualified,"20 Marla apartment in G-10, budget 2.5Cr-2.9Cr",18,2025-10-08 15:56:54
+b1ac5878-6569-47cc-adef-ffbaa4516be8,52248252-901a-4f6d-b03f-f3a5537d5caf,unqualified,"14 Sq Yd apartment in Bahria Town Karachi, budget 0.9Cr-1.1Cr",3,2026-01-12 21:20:10
+6d13cb35-b2e6-40d3-8770-4e744931e625,639d7aeb-0517-476b-926d-3d5ebf361dd2,new,"6 Sq Ft apartment in PECHS, budget 0.8Cr-1.5Cr",40,2026-08-10 16:11:19
+4b43accb-2071-49bb-b944-6b423efe19e3,ed972656-4490-4e23-9c33-ae2a11718199,qualified,"17 Sq Yd house in DHA Islamabad, budget 2.2Cr-2.6Cr",76,2026-06-15 12:13:07
+e38b1040-cdc5-4cb1-8b34-b940b5851862,658b3d10-4f3a-4b0b-bd64-2ceb4254720f,new,"17 Sq Yd house in F-10, budget 1.6Cr-2.8Cr",40,2025-11-26 15:38:44
+af8acabb-5413-490a-b8a3-f2c86a99d7fd,70246212-a9b1-4b39-b107-cd29d8f63e50,qualified,"9 Kanal house in Wapda Town, budget 2.7Cr-2.9Cr",53,2026-08-19 08:53:46
+4c8d9478-c762-4779-abbd-717a13afae42,3dd26ac2-4ce6-44b9-a361-a3b2666ecf9f,new,"18 Sq Ft plot in Askari 14, budget 2.4Cr-3.4Cr",33,2026-04-30 14:44:22
+dbef2502-946f-44b9-9323-8c0ba8277cad,71ac2569-2b53-4b44-8c07-da4c33fb2d59,qualified,"16 Marla plot in Askari 14, budget 2.6Cr-3.3Cr",54,2026-07-07 20:13:58
+024905e7-9450-4a31-8230-eedbf39d95a6,58435fe4-962d-4c62-acf4-3da45eeeacaf,unqualified,"19 Sq Yd house in North Nazimabad, budget 1.6Cr-3.0Cr",4,2026-08-18 21:38:30
+5a37b5ca-d6d7-42e8-8d9e-66208d4ccdce,8d98de9b-a83d-4f66-a319-37bc2a8fb94d,new,"8 Sq Ft plot in Gulgasht Colony, budget 0.6Cr-1.9Cr",28,2026-01-22 18:10:13
+c45d6fe1-6d99-4f9c-8ac1-02f99d0668e9,e7be3cf1-39de-45ad-bd7d-a121f627191c,new,"9 Sq Yd apartment in DHA Karachi, budget 1.7Cr-1.8Cr",25,2026-06-07 18:19:17
+85e68d6b-9242-4809-9e36-210eec82f735,035584f2-94f4-43f2-8001-fed519c48ab5,unqualified,"13 Marla house in Model Town, budget 0.6Cr-1.0Cr",28,2026-08-08 15:07:36
+6a14854b-cb42-4fa2-ba8b-709dae3d2c5b,6f845f0f-7127-4637-9e35-c4e63bcb9588,new,"6 Sq Yd apartment in Wapda City, budget 1.0Cr-1.8Cr",24,2026-07-27 14:12:57
+d62966e6-ba12-4768-a34f-b8fe0de49ffc,6c372c15-d882-4c3a-bc44-f3e73a201a2f,qualified,"16 Sq Ft plot in Wapda Town, budget 2.1Cr-3.3Cr",57,2026-06-20 19:40:05
+fa376393-5ed7-43e7-95e6-32e118d504a4,4c2a7661-3620-42e1-b284-83ae3b99480c,unqualified,"18 Sq Ft house in DHA Lahore, budget 1.1Cr-2.3Cr",24,2026-07-31 19:36:01
+be6d164b-b331-47db-a7b2-8ca1a520ab11,06791752-c82e-4ab2-9494-d1b7dc7278da,new,"16 Sq Yd house in Bahria Town Karachi, budget 3.0Cr-3.2Cr",38,2026-07-01 18:05:46
+b7be2274-67fb-47c5-9720-36c1db8d6ad5,feacb5c3-e13b-4802-88ae-431045b67cc3,qualified,"14 Kanal plot in F-11, budget 2.7Cr-3.2Cr",63,2026-01-21 09:58:52
+cf759d31-e783-42fa-9ece-cadc8b35a666,b9068cea-37d1-486d-8076-92af7c2fde14,unqualified,"6 Sq Ft apartment in North Nazimabad, budget 1.5Cr-1.6Cr",10,2025-12-16 21:42:29
+9ca5b22d-2926-4cc1-9da8-aa04b0d7fd89,77497d5e-735a-4450-96c6-f70f9d599e94,qualified,"11 Sq Ft apartment in Hayatabad, budget 1.5Cr-2.9Cr",72,2026-06-28 12:35:03
+039f3209-6c81-4665-bedf-60d06d9d98ff,9ff8ad57-ff07-4c55-a375-065dae0c9013,unqualified,"3 Marla house in Clifton, budget 2.9Cr-4.3Cr",27,2025-12-11 16:11:24
+c48e9a6e-a044-49cd-84e2-9e030f96126a,d351861b-f2e6-424a-ba53-10b6eec2027f,new,"17 Kanal house in Jinnah Colony, budget 0.4Cr-1.8Cr",44,2026-04-15 13:46:05
+92cc9dd2-3c9a-41b4-b780-893f7e9f8898,e238ec70-fa65-476d-bf38-ed8f703fb7c0,new,"11 Sq Ft apartment in Chaklala Scheme 3, budget 2.8Cr-4.0Cr",41,2026-07-17 21:42:08
+2e86be8e-039e-4582-8a82-94363565f27a,29e3e242-3f51-4682-be77-f6f7dcbfe960,unqualified,"6 Kanal house in Bahria Town Karachi, budget 2.8Cr-3.6Cr",10,2026-04-06 11:57:39
+f3ceae75-e61a-4687-aa91-d63df48467e0,18032a45-3090-420c-adf2-70b2cbc33ff3,qualified,"8 Marla plot in Clifton, budget 1.6Cr-3.1Cr",55,2026-05-11 11:46:03
+b457376c-2531-410f-b76f-e6f7e853f288,e85abad3-0f7f-4f33-b93d-b95a024529f6,new,"14 Marla house in Clifton, budget 0.8Cr-1.5Cr",33,2026-04-20 14:20:51
+50eb2886-da2f-45da-a379-c6cbac6bdae3,594bd24d-1751-43bd-a3dc-4eb5b9047a39,qualified,"8 Marla apartment in PECHS, budget 1.1Cr-1.6Cr",78,2025-11-17 14:05:43
+e5c274c3-6496-4286-820e-baaa163d6d66,39be570b-9dd3-4f9e-8c6c-c982831524be,qualified,"7 Sq Yd apartment in Model Town Sialkot, budget 2.3Cr-2.7Cr",82,2026-04-25 09:25:09
+4bc58340-8d9d-4677-a131-0e15d58c104a,1804d670-79eb-424b-979e-f46737851102,qualified,"7 Kanal house in G-11, budget 1.8Cr-3.2Cr",61,2025-09-29 08:08:56
+6d027dfd-a593-4f52-846c-f04b70cd912e,c2571945-f208-4573-8ac6-e67800f749cd,converted,"3 Kanal apartment in Wapda Town, budget 2.4Cr-2.9Cr",74,2026-08-07 08:06:59
+04dea527-1906-47b3-ae6a-ccbe5f2d7f01,6ce4858a-2e0c-4553-8500-7cb31f768eef,qualified,"6 Kanal plot in Chaklala Scheme 3, budget 1.1Cr-1.5Cr",50,2026-03-10 18:13:09
+35689b52-8e12-4aa9-a04b-10b65202bd5c,3d65b88a-218b-4365-91c4-961c1c440369,qualified,"16 Marla plot in Valencia Town, budget 1.1Cr-1.5Cr",83,2025-09-25 18:18:25
+015e8634-2660-47f1-bc7d-237228e8e526,f0bbba59-4582-4bc2-902e-97d5010a9588,new,"15 Sq Ft apartment in Gulberg, budget 1.6Cr-2.6Cr",42,2025-10-11 12:09:27
+6ab3d2a6-107f-4157-a5b9-a7fa53e96361,bd78eb00-ea77-4fb1-a38b-a9bb202dbb46,qualified,"18 Sq Ft apartment in Bahria Town Karachi, budget 1.3Cr-1.7Cr",82,2026-01-11 09:06:03
+9560b61e-0615-46bb-a39e-0b257ef76a6d,003712dc-82f7-47ff-9400-36a7c7b8e62d,converted,"19 Sq Ft plot in DHA Karachi, budget 0.6Cr-0.9Cr",78,2026-04-26 14:30:31
+361ea174-13d3-456d-93b7-87e158b026d1,42b7d0e9-caec-46ab-b83a-eca499b9d836,qualified,"15 Marla apartment in University Town, budget 0.7Cr-2.0Cr",55,2025-12-25 13:04:18
+cfbe8d44-518f-4881-8c16-9c01ce43f351,49deec71-092c-47c1-8958-b4f76d2bd548,new,"15 Sq Yd apartment in PECHS, budget 2.3Cr-2.8Cr",39,2026-08-12 09:46:22
+819ee2ef-7108-48ae-b925-083ff116e518,ba6482ec-f60d-43be-b438-666fc55728e8,new,"4 Sq Yd apartment in Jinnah Colony, budget 2.4Cr-3.3Cr",34,2026-08-18 15:44:33
+cb8d5c86-d620-4490-be60-6d83315b61b7,e6ee0641-c661-44fa-81a4-4d3784e6a34e,qualified,"17 Marla plot in Wapda Town, budget 2.6Cr-3.0Cr",63,2025-12-16 12:19:55
+3d63d588-a881-4332-9938-d065faf6b08c,6da74fc2-c9a0-4c89-8ceb-eee1a921208c,new,"9 Sq Yd house in Wapda Town, budget 0.8Cr-1.4Cr",39,2026-05-29 10:14:16
+189d4e45-b689-4728-b2ee-44fe7b58cf11,cb93636e-6922-40c2-b394-45f17904b552,new,"5 Sq Yd plot in North Nazimabad, budget 1.6Cr-2.8Cr",21,2025-11-28 19:20:56
+ca7d992f-ea36-4d32-90b9-184099019326,bbf493df-5fc3-4310-bb93-9ae585d645ca,qualified,"15 Kanal plot in F-11, budget 2.6Cr-2.8Cr",58,2026-05-21 14:25:54
+71638d9e-66fd-4b76-a234-ff2ef3b16bad,b94427fc-126f-4c8a-9d85-503c66c30c53,qualified,"18 Kanal apartment in Cantt, budget 1.3Cr-2.1Cr",84,2026-05-23 11:52:58
+a9e69c98-557b-4753-ade6-b47afaf1510f,eb2c29ef-c6e5-48cd-be7d-c4f8bd81399c,converted,"17 Kanal apartment in Model Town, budget 1.6Cr-3.0Cr",81,2026-07-21 13:32:18
+5a6f6d1e-10d5-4ab2-81e6-5689faa3b4d6,c5f5bf34-3e74-4fe9-8273-a7dba629aa5c,qualified,"20 Sq Yd apartment in DHA Lahore, budget 2.0Cr-2.3Cr",66,2025-11-27 13:05:48
+b76822e7-802a-4774-a0ae-b95e5c23cebc,718229d4-1388-495c-a7d7-151e5f8a959e,new,"7 Sq Yd apartment in Gulberg, budget 1.9Cr-2.5Cr",45,2026-03-19 11:34:21
+841f3985-1012-4668-b9a7-159329e68a04,3de4f611-c6b0-41ae-9721-e7d0b979ba6f,new,"6 Sq Ft plot in Bahria Town Islamabad, budget 1.5Cr-2.5Cr",44,2026-01-14 08:42:58
+f1a1853f-70e1-40fe-b6fd-034fc5240de2,ebb1ea19-06b7-452d-9542-f66d409c4a04,qualified,"5 Sq Ft plot in North Nazimabad, budget 1.3Cr-2.4Cr",66,2026-03-13 15:24:50
+fc7d89ac-02f9-4795-b0b4-529a2fe2a588,dbfe31d7-c69c-41d5-bcbb-fd1869d64b41,qualified,"4 Kanal apartment in Jinnah Colony, budget 2.9Cr-3.2Cr",72,2026-04-23 12:20:45
+e02950ad-4601-470f-afbe-6fcc7d13e0fe,9db02c23-3af6-44e2-a708-3a3547b12f89,qualified,"9 Kanal plot in DHA Karachi, budget 1.7Cr-2.5Cr",67,2026-06-15 12:19:09
+5e2bd6b8-e4ee-49ff-84b9-a7a10fb18717,a30995a7-c522-4a02-867f-7df3f863f6ab,new,"4 Sq Yd apartment in DHA Islamabad, budget 1.7Cr-2.2Cr",39,2026-03-17 13:05:27
+9577fc4b-7007-42c6-892b-8c6e78ef2a67,80b64184-28d1-410d-9a33-13236614a2dc,qualified,"18 Sq Yd apartment in North Nazimabad, budget 2.3Cr-3.0Cr",60,2025-11-12 14:05:02
+ff27956f-aa7a-453d-9236-58e4bc84cc4f,7c62d0a3-655a-4b73-a369-c151eaeecd21,new,"3 Sq Yd plot in DHA Lahore, budget 2.0Cr-3.0Cr",37,2026-05-06 12:30:38
+27c4369f-e523-4a12-9bd1-413ce92929d0,db8ab4a8-5adf-41b8-9453-2f70ea8140aa,new,"15 Sq Ft apartment in Gulshan-e-Iqbal, budget 1.8Cr-3.2Cr",35,2026-02-01 19:36:18
+0c1b210e-dd6e-4681-88a9-67777960ddca,df697b91-f0ca-4fac-9285-ff8d5c0af67a,qualified,"9 Sq Yd plot in Askari 14, budget 2.7Cr-4.1Cr",69,2026-07-20 17:50:49
+0ad82f78-8028-46c0-adff-db0a946606b4,bdc62fac-ffaa-4d58-b913-b94ee91f175c,new,"18 Kanal house in Madina Town, budget 1.6Cr-1.8Cr",41,2025-08-25 17:17:47
+237fec18-d764-4aa6-8c9f-66142dbee8f6,e049858b-aeb2-4996-87e4-a27333037bfa,unqualified,"20 Sq Yd house in Bosan Road, budget 2.1Cr-2.8Cr",23,2026-07-03 09:19:36
+df815598-dd63-4473-9be9-c69f6921d0a5,af32a965-f073-4fa6-a27c-9a68b6681114,new,"8 Kanal apartment in Bahria Town Rawalpindi, budget 2.1Cr-3.0Cr",22,2026-01-22 19:25:32
+4174b4f7-87db-4d77-86c5-c81140b6e959,b08ccc3b-da1b-4e79-a6a6-0d487bcc60c7,converted,"20 Sq Ft apartment in Askari 14, budget 0.6Cr-1.6Cr",81,2026-04-21 09:09:24
+b80bb379-37ae-4f61-b4cb-a17a63339a3f,e8ac3071-54ac-4be0-b9d1-cd32ac277431,qualified,"6 Kanal apartment in Askari 5, budget 1.7Cr-2.4Cr",58,2025-10-17 11:04:28
+57df5419-1f32-4006-804d-816ebcbd3c92,d73c85c9-641d-438b-a24b-b33481ffb774,new,"5 Marla apartment in Gulberg, budget 3.0Cr-3.4Cr",27,2026-07-19 20:47:02
+6546e87f-834a-4e81-897d-971b515bff79,75411eb3-7e1d-48ce-ac5e-be4c85a5af76,converted,"16 Sq Yd house in DHA Karachi, budget 1.4Cr-2.4Cr",84,2026-08-14 09:02:48
+bbb59707-d04c-4473-8f46-3e20ea02fb46,04ad64b0-06c0-4c63-9e57-72bc03ca7809,converted,"3 Marla plot in Gulshan-e-Iqbal, budget 2.6Cr-3.6Cr",73,2026-05-26 08:25:49
+66ba58e5-7053-4c58-bc27-055bb111ae97,dd0827c3-2c30-44a8-985b-096bf7949ebc,new,"13 Sq Ft apartment in Satellite Town, budget 1.0Cr-1.2Cr",50,2026-01-19 11:05:54
+597b0cc8-5d10-461b-8c0f-7ab07e49a2ae,95c29270-3a41-4425-a533-893dfc411c10,new,"11 Sq Yd plot in Gulberg, budget 1.5Cr-1.8Cr",27,2026-06-27 10:13:16
+6672e9ed-6fc8-4e07-93ec-db559afabad9,aedfbc21-a008-48cf-af85-a0771e0e850b,qualified,"3 Kanal plot in DHA Lahore, budget 1.5Cr-2.0Cr",76,2026-05-16 20:52:38
+61544c1e-cc32-4df6-864d-cd1cf3d88d0e,241d2bb5-2de9-4c68-bedc-191fdfad7b62,qualified,"18 Sq Ft house in DHA Islamabad, budget 0.5Cr-0.8Cr",76,2026-08-01 20:01:57
+4b225654-cf1b-420b-9a98-6dcac3922d30,9d0637fe-517c-47d3-93ab-f209addae6bb,qualified,"19 Kanal plot in Wapda City, budget 1.0Cr-2.5Cr",61,2026-08-09 21:51:00
+ff7874e2-dffa-4654-8a14-6e4ab1c174be,b31ad3d7-7a3b-468f-ae54-acc3059cb323,new,"3 Sq Yd apartment in Gulshan-e-Iqbal, budget 2.5Cr-3.4Cr",24,2025-08-21 17:02:01
+d4b7a082-fc81-4778-a7f3-d8a91c5edb3a,1c6b9618-517d-456b-97bf-98d9696b1fae,new,"12 Sq Ft house in DHA Karachi, budget 0.6Cr-0.7Cr",37,2026-06-17 09:19:36
+601cbbd1-1b39-4bad-a7a0-677a632a4f5b,ff5bfede-4673-4e70-a02c-295a1021a6a5,new,"5 Kanal house in Gulshan-e-Iqbal, budget 2.6Cr-3.2Cr",23,2026-03-27 10:05:49
+fcc85ae4-d674-41be-be1e-c63f2653d952,caf0880e-2936-47b6-b275-79925c7035a0,qualified,"9 Marla house in Bahria Town Karachi, budget 0.4Cr-0.9Cr",65,2026-08-02 10:05:26
+56308de4-b33b-4cd7-9edb-5fbe1973273b,3364e99c-f649-4807-885f-eaa68b6fcf5e,qualified,"8 Sq Ft plot in Bahria Town Lahore, budget 1.0Cr-2.5Cr",79,2026-08-20 18:06:12
+0e9e35a2-cfd0-4b2b-b69c-bd0001180848,5e5a7068-efcc-4070-9c76-d404ec54bff3,new,"19 Kanal plot in Wapda City, budget 2.3Cr-2.6Cr",46,2026-06-04 17:58:20
+e2d19dd5-97cc-4309-bc96-cbaa636dd5de,0596bc9e-b5e4-4c7a-ba5e-9045b5b99698,qualified,"17 Marla plot in DHA Karachi, budget 1.5Cr-2.0Cr",82,2026-07-09 12:06:36
+d3e68c84-396d-43cd-a9c4-046af8a8c828,e5615c7f-3f4f-4b44-96fb-2f553644ed03,new,"19 Sq Ft house in Bani Gala, budget 1.5Cr-2.2Cr",31,2026-08-19 10:23:16
+70246162-9cdd-4b14-be20-a99365026c99,53f189ec-dfef-46f3-b108-912510091c90,new,"4 Sq Ft plot in Gulshan-e-Iqbal, budget 2.2Cr-2.9Cr",27,2025-10-23 11:52:25
+8d250b6c-11ac-4276-86f7-a07e80a1d75c,a9afa66b-cc43-4dd2-b55c-e504acb62420,new,"14 Kanal apartment in Askari 14, budget 2.3Cr-2.8Cr",29,2026-08-17 20:41:27
+0d74cdc6-a85c-43c5-9dba-fdf9c5e75428,2d657cc5-e763-4c34-bb50-58fc6c84225b,qualified,"10 Kanal plot in F-11, budget 0.6Cr-1.2Cr",63,2026-01-31 16:40:31
+85c8ecb0-8dbc-456c-bbb1-08d20a7e5f0a,2fd0c10e-3e8f-49a3-a4ea-9c38e2bd16f8,new,"3 Sq Yd plot in Askari 5, budget 1.7Cr-2.7Cr",24,2026-05-09 13:14:32
+65d6c80f-de70-4682-85a0-8c1911ca343f,a06322b9-9ade-4bb5-95f5-5ebff753175b,new,"15 Kanal plot in Bahria Town Lahore, budget 2.7Cr-3.3Cr",29,2026-08-11 10:03:38
+9148c612-3816-43d2-966e-ee467faaeaf4,f9536609-fdcc-455f-8ed2-0bf12ae25c18,new,"12 Sq Ft plot in Clifton, budget 0.9Cr-2.4Cr",40,2026-04-25 14:03:55
+3318548f-8ead-43ac-9dfb-259f35221f5e,3cf28551-11e4-43b6-a097-086134b8564b,unqualified,"8 Sq Yd house in DHA Lahore, budget 0.7Cr-1.9Cr",20,2026-04-28 20:11:02
+6be3c3d5-afd4-4eb2-8b4e-bfbb121c859f,6091ec90-01ae-4bbd-84c5-c919ba7ba886,unqualified,"9 Sq Ft plot in Gulshan-e-Iqbal, budget 0.8Cr-2.1Cr",19,2026-06-02 16:20:03
+e74152ac-9694-411a-b20e-f3b0355cc41b,8cfea22d-7130-4202-a176-656e538fed98,qualified,"3 Kanal apartment in Askari 14, budget 1.0Cr-1.9Cr",56,2026-02-02 17:37:17
+ddb7db95-d79e-4640-a964-3941a1edea3d,c37bd959-b6a3-4c47-ab67-1b84f39d67eb,qualified,"17 Marla plot in Chaklala Scheme 3, budget 2.5Cr-3.7Cr",61,2025-11-04 18:53:37
+f4625d3f-6acc-4b4e-95f1-4d495b7e1ce8,b96f1565-cd3d-4ed2-83b3-f86c6150aace,new,"4 Kanal apartment in Askari 5, budget 2.6Cr-3.2Cr",36,2026-05-08 12:41:57
+8089993d-b8bc-4829-bc06-00011ac2aa66,b2ce8720-b309-49cf-bf1e-5cf3355cfc19,new,"14 Marla apartment in G-11, budget 1.0Cr-2.1Cr",24,2026-08-17 21:09:22
+de46f90c-91ca-40e1-9578-a38462c273c0,cd73a89c-bea0-4ccd-8a23-cb232144bfbc,qualified,"11 Marla house in DHA Islamabad, budget 2.0Cr-2.7Cr",62,2026-08-20 08:28:47
+a3c2059c-d07a-420f-acb6-424f32dd8e9f,240b862b-3170-41c7-92d3-b5a24628def0,qualified,"13 Kanal plot in Askari 5, budget 1.8Cr-3.1Cr",66,2026-06-01 16:07:14
+60fa7e02-e4c8-4a2e-ba29-37315db63bf6,6f41f25f-59a4-43ef-8e78-50cbe459ac91,unqualified,"16 Sq Ft house in Wapda Town, budget 0.9Cr-2.0Cr",24,2026-02-03 15:22:44
+91812a7d-6c36-4a46-a1c7-19d98a9a1de5,fe51af77-4793-47ca-b541-1ee6efed8672,qualified,"6 Marla house in Bahria Town Rawalpindi, budget 2.8Cr-3.6Cr",65,2026-05-02 08:50:20
+b425136d-1eba-412d-93d1-f99af8b4838d,f65f5225-1f4d-404d-9c55-54eab3bceea5,qualified,"9 Sq Yd plot in Askari 14, budget 1.6Cr-2.1Cr",69,2026-08-19 20:02:56
+d697543b-5422-4b90-985e-89c650e8aeb4,ca2f2e37-93b6-4f63-8b29-53180c2d1cbc,new,"19 Sq Ft apartment in North Nazimabad, budget 2.3Cr-2.5Cr",40,2026-07-31 10:37:34
+51874374-5b1c-499a-b150-ec92692f5c06,f8c4f01b-1ac3-400c-83c1-d020261c568b,new,"12 Marla plot in DHA Lahore, budget 0.8Cr-1.8Cr",25,2026-05-02 21:56:45
+2aafe98a-e5f0-4a3e-b4b0-de78c3f5535c,c07c6f4b-af06-413a-a9cc-deb55651b960,new,"13 Marla plot in Model Town Gujranwala, budget 2.9Cr-3.4Cr",42,2026-03-26 11:34:15
+c084b3db-c0dc-46bc-a13d-6f2ab45889a8,bad8ff7f-815b-4422-88ca-493d8e4054cb,converted,"4 Marla plot in Bani Gala, budget 1.0Cr-2.5Cr",80,2026-08-20 18:31:08
+f5282264-547f-49af-94c4-1eef903e5b15,b794661d-d6e9-44d4-bca3-3653bcdf3f49,unqualified,"14 Sq Ft plot in DHA Karachi, budget 0.5Cr-1.2Cr",19,2026-04-27 11:44:24
+c1fdb58b-a30b-45d9-aeeb-5134c360d327,c99021de-2f72-4dcc-8078-c03995b69106,new,"20 Marla plot in F-11, budget 1.7Cr-2.4Cr",49,2026-07-06 10:52:51
+f1c7878a-f57f-4911-ac1c-e8939b0a0eba,f29ef226-ed41-4f26-8980-72293fc778ec,new,"9 Kanal apartment in Johar Town, budget 2.7Cr-3.8Cr",36,2026-07-22 11:11:15
+46304832-f810-4908-af8e-22b1e3888e18,216717f3-648e-410e-96c5-9f958fc1eb0f,unqualified,"19 Marla plot in Model Town Sialkot, budget 2.3Cr-2.9Cr",17,2026-07-04 18:42:00
+d1f8f40b-9d6f-4078-a59c-fc68260e1226,3bf6ba9c-297f-4f0f-83e3-b4b02beaa221,new,"9 Marla plot in Model Town, budget 1.2Cr-1.9Cr",32,2025-11-29 14:47:36
+b49e1c21-75ab-4963-bb9d-1c6282bf4c5a,7667eda9-01be-45e0-a9f3-1520822120b7,qualified,"15 Sq Ft house in Valencia Town, budget 0.8Cr-2.2Cr",53,2026-07-13 15:11:52
+12ae42a6-8879-4695-b478-2b8d6186db66,f9d976f7-5371-47e2-a770-bdad59e40a35,qualified,"4 Sq Yd apartment in Johar Town, budget 1.9Cr-2.5Cr",85,2026-03-11 16:08:03
+6e48bde2-8f35-48a8-a780-719e4a71de4d,d8ba1db1-38da-4df2-a0e3-a163088afab3,new,"14 Sq Ft plot in Gulberg, budget 2.1Cr-2.3Cr",21,2025-09-21 10:12:07
+33f3930f-e96c-43c0-bb7b-4a9de59935e2,94968ed1-0c59-4bd5-8499-4168898e8847,new,"9 Kanal house in Wapda Town, budget 2.1Cr-2.4Cr",36,2026-03-09 09:19:07
+68cee447-45f3-4aae-9da3-88a7dcbc5668,4b0ba91f-f419-4bf6-aa42-682c1b04f0da,unqualified,"18 Sq Ft house in Bahria Town Karachi, budget 1.6Cr-2.4Cr",28,2026-08-15 16:51:52
+09441815-7537-47af-9202-0c928545b861,6285dc36-327b-4b34-8bf5-6f97679efc91,converted,"14 Marla house in F-10, budget 2.0Cr-3.3Cr",85,2026-04-21 14:25:21
+b7eb7e52-4301-4414-93ec-4a7c10949f57,730fce86-8913-47d0-8828-24fa2e6c8516,qualified,"16 Sq Ft apartment in North Nazimabad, budget 0.6Cr-1.7Cr",62,2026-07-26 15:25:19
+07882d27-9281-4b05-af39-be2cf4e35fe5,e7d6cfac-b2d3-4fab-8904-c37d22f30bd9,converted,"10 Marla plot in DHA Karachi, budget 2.1Cr-3.3Cr",94,2025-10-31 17:29:14
+5d7fdbbf-9c5a-4075-91f0-546a6bdf6c3f,538762fd-bfbc-4f50-9ff0-ede073608c9b,converted,"5 Sq Yd house in Askari 14, budget 2.2Cr-2.6Cr",99,2025-09-06 13:27:41
+cda1b53d-9b5f-4489-ad45-6e73c8f2fe51,c13078c2-0cfb-4d9d-bb2d-4d34756fa7f9,new,"3 Marla plot in DHA Karachi, budget 0.6Cr-1.1Cr",25,2025-10-26 12:35:44
+d08fbd61-f67e-4de5-bb32-93ee8d110b9c,46191a7b-3368-4961-94a0-c85d37c84a90,qualified,"14 Kanal apartment in Model Town, budget 2.9Cr-3.4Cr",83,2026-07-14 20:32:00
+2b93ca54-eac4-4583-b817-be6a7d9a5181,49732762-e10d-4ecf-8c38-41087e634e6d,new,"4 Marla plot in Model Town, budget 2.3Cr-3.7Cr",25,2026-04-29 08:41:57
+6dbecfeb-eeca-4a2d-85c9-abe94642ef50,f1de56a8-45c9-436b-8af2-27ef37e7e407,new,"4 Kanal house in Model Town, budget 1.0Cr-1.6Cr",33,2026-03-08 19:24:04
+30b8e072-32e6-497f-98a1-85eaf5d752f2,d7bd7e38-d15d-48de-ba30-a9a064c95f4e,new,"11 Sq Ft plot in Satellite Town, budget 0.6Cr-1.4Cr",35,2025-11-05 18:19:30
+2ee28d4e-aba7-4501-a456-1d73821e7b88,0fb7272c-cb48-43f1-90e9-019c70df436f,new,"9 Marla plot in Bahria Town Rawalpindi, budget 0.8Cr-1.2Cr",34,2026-07-25 11:55:29
+1c4bbf20-d828-4824-b9d0-73e24bf2180d,9fafd664-bba1-44fd-bc1c-6f580ba0cb19,new,"17 Sq Yd house in DHA Lahore, budget 2.6Cr-3.5Cr",34,2025-10-20 11:58:14
+14208b85-54f0-485e-b921-dd4c712d94bd,9f1a3c3c-acc2-4894-b2ff-e09386c74d39,new,"20 Sq Ft plot in Askari 14, budget 1.8Cr-2.1Cr",41,2026-06-15 14:00:50
+292a4a6c-3c61-4d11-8b4a-f8bc78a51c6d,9f8c3270-0706-4e66-b0ee-03b06ce68879,qualified,"5 Kanal plot in Madina Town, budget 1.4Cr-2.6Cr",74,2026-04-29 17:21:17
+b1ae0e95-9968-4705-8f33-94538d06df71,113cce0e-9031-4719-b518-9d662f0a43b4,new,"7 Sq Yd apartment in Askari 10, budget 2.6Cr-4.0Cr",38,2025-09-04 09:11:49
+695ba07b-92a4-445a-b453-60f616e221af,769a2b62-dab3-4f4b-8b13-b1e9f4d45656,converted,"4 Sq Yd house in North Nazimabad, budget 0.5Cr-1.1Cr",83,2025-10-28 11:45:17
+3145371b-246f-41da-8c68-c289ccab6f53,21176cd8-bc89-482f-8830-2b41c58630c0,new,"13 Marla plot in DHA Lahore, budget 1.3Cr-1.7Cr",25,2026-01-10 10:35:22
+387d780b-67b4-4e03-b957-23a548a8b73d,549a9141-de05-472c-afd5-1ef8fff79ce6,new,"3 Kanal plot in Wapda Town, budget 1.6Cr-3.1Cr",45,2026-03-02 10:21:58
+577b6a04-ab55-490e-8728-a650c20b0bdd,3bd25c80-77c7-4f9f-9d48-adc954848c89,new,"13 Sq Yd house in Jinnah Colony, budget 1.3Cr-2.6Cr",28,2026-06-01 09:08:54
+1c00e3a6-cad8-4ec5-8961-ecebfce920ea,521c38df-4ef5-4875-854e-8f63bda12150,qualified,"9 Marla house in Bani Gala, budget 3.0Cr-3.3Cr",70,2026-08-11 15:02:29
+a614da51-46ce-481e-92bb-120fbfd9aaaa,3f986d33-59fc-47f6-a8bc-0a082ca96e80,new,"20 Sq Yd house in PECHS, budget 1.8Cr-1.9Cr",28,2026-03-01 17:16:16
+b8205816-9fcb-4f06-bc47-af2d89ac6195,b677ed3b-b6ee-43f7-a22d-3e99e0e4c28e,new,"14 Kanal apartment in Chaklala Scheme 3, budget 2.1Cr-2.6Cr",32,2026-08-20 12:57:39
+a1908e50-969f-4b48-9047-2ec2e60e2318,dd1b1811-a580-4287-9829-907cf74e1b62,qualified,"13 Sq Yd apartment in Gulgasht Colony, budget 0.8Cr-1.9Cr",70,2025-11-25 19:15:32
+4df4cf1a-c4cc-4a1f-b06d-92f59dc0517a,77706d3f-a496-4402-ad0c-7b48c75ee9dc,new,"20 Kanal house in North Nazimabad, budget 2.8Cr-3.7Cr",35,2026-03-19 12:36:45
+e81805c2-1f5e-4111-aa96-733cfc179734,2c8f7ad4-4fc5-4ed1-8467-a13373da8adc,unqualified,"7 Kanal house in F-10, budget 2.5Cr-3.7Cr",18,2026-04-15 21:36:21
+b2bf2493-452b-460f-9f3d-ff9b52bbff8d,f7f7374c-f5b1-486c-a11c-96210b463651,converted,"20 Marla house in G-10, budget 2.5Cr-3.0Cr",79,2026-08-12 19:40:58
+43b25ae7-bdb2-4a0a-8f38-f656b70d394b,0f86fff1-89b6-41f2-910a-776b0552e475,new,"14 Marla house in North Nazimabad, budget 1.7Cr-3.0Cr",33,2025-09-30 18:37:45
+1dd65590-f21e-4a95-958a-69b1c0840ee9,62d1ff54-c435-4073-9957-4e40a6d60606,converted,"4 Kanal plot in DHA Lahore, budget 0.8Cr-1.3Cr",94,2026-02-13 18:17:02
+4f8c113b-9db2-48b7-91b4-3062a0f69717,a2d3604b-625a-4211-a04b-02d3d40cc683,new,"3 Kanal apartment in Gulberg, budget 2.1Cr-3.2Cr",26,2026-06-02 16:58:58
+a42ba302-a558-4d77-8231-3cb37b379c6e,7042738e-459c-4c3b-90cc-0870ea8e9d6e,new,"16 Kanal house in Johar Town, budget 0.9Cr-2.4Cr",22,2026-03-25 08:00:19
+b44f985e-932e-4b69-91e0-78230478dffc,1f58bfaa-6363-4f40-9e80-080a2f8dc08d,new,"8 Marla house in North Nazimabad, budget 1.9Cr-2.5Cr",40,2026-03-01 16:11:18
+75fa35b9-8cad-4813-94ed-3ca7c6dff387,308eced6-98f6-4a18-8b43-6c80aea014be,unqualified,"6 Sq Ft plot in Valencia Town, budget 2.8Cr-3.4Cr",2,2026-01-27 19:43:43
+0d0bdf7c-14f5-47f8-a923-f27216ed4a34,e9b81b97-4e1e-4580-b7b5-587f77db23ce,qualified,"14 Kanal apartment in DHA Rawalpindi, budget 1.9Cr-2.8Cr",67,2026-05-23 17:04:56
+4c32ae81-d6fe-41aa-9681-d34c3d525109,4b0c692b-1232-48a8-a3e4-0304aaa0aecc,converted,"18 Sq Ft house in DHA Lahore, budget 2.5Cr-2.8Cr",76,2025-10-06 21:10:10
+7026f001-3135-4d75-80c6-e4d0f6da0771,6e1e340a-ce62-4534-a53f-5079fe706b75,unqualified,"3 Sq Yd house in Gulshan-e-Iqbal, budget 1.0Cr-1.1Cr",26,2025-11-07 12:59:51
+f02eabbf-a2a7-4aac-a4b4-a8f929968c94,62e4a077-119f-40d2-9fb5-3935b1d6a4a9,qualified,"7 Marla plot in DHA Karachi, budget 1.5Cr-2.9Cr",73,2026-01-20 20:09:54
+eac498f6-2247-4579-9bf4-cc1728b4e5a7,2aec6e4d-ad27-45a1-90cd-1465fc58aa3f,qualified,"17 Sq Yd house in DHA Lahore, budget 1.5Cr-1.7Cr",50,2026-04-11 17:32:12
+f203d332-1cc4-4b95-8203-b205f67ea4a6,d34b26fb-dbab-46cf-ba79-8192a042c5f6,qualified,"8 Sq Yd plot in F-10, budget 1.5Cr-2.2Cr",60,2026-01-11 11:50:20
+b53835fb-2c8f-4a30-86e9-30b062dd3a0d,2709c139-44de-4963-8e88-71206c624b58,converted,"6 Kanal house in DHA Rawalpindi, budget 0.4Cr-0.8Cr",75,2026-08-10 14:49:49
+ef06ec53-9e8e-4a85-b1f7-f0d70747aa5b,a4113491-9423-4a63-9bc4-4abb9fe646d4,new,"16 Sq Yd plot in Wapda Town, budget 1.1Cr-2.2Cr",29,2025-11-01 09:41:36
+f2dcb1f9-5259-4f12-a521-86693319a2e0,03dc80fc-ebb0-4720-85c4-e48bc7a1d133,new,"15 Sq Ft apartment in Madina Town, budget 2.4Cr-2.9Cr",22,2026-04-09 17:57:45
+a52542bf-6e42-46d6-9dc3-57208246d779,a0122a97-4188-4242-b516-7bcf788e1410,new,"3 Sq Yd house in Gulberg, budget 0.7Cr-2.0Cr",20,2025-11-21 21:20:17
+6dda9f8a-33c2-41f3-ba86-6ef27468505f,f658dcc8-9a2a-4457-8d40-57fd3c440d09,new,"20 Sq Yd apartment in Model Town, budget 1.0Cr-1.4Cr",47,2025-09-17 16:19:27
+ce90f44b-4381-474b-93c2-652cfd797167,a5404883-ce8a-442d-96e1-e965170067e5,unqualified,"8 Kanal plot in Bahria Town Rawalpindi, budget 0.9Cr-1.0Cr",25,2026-07-04 17:59:23
+8a2dfdbc-2e62-4b47-85d5-0be4ab684ef8,9478f809-1249-4e25-bc84-347ff76a12f5,new,"16 Kanal house in G-10, budget 0.4Cr-0.7Cr",37,2026-07-12 19:55:12
+e2a97bbd-747d-42dc-9ec6-5db94428bb78,309d24fb-e8a3-4c3b-a1b8-0f9cc2ab007c,new,"7 Marla house in University Town, budget 0.9Cr-1.8Cr",37,2026-05-19 11:22:59
+6f8eb3a8-f6cd-4616-bd1e-7c14bd8e4632,1a9d7306-77ed-41ed-8db3-95802444954e,new,"11 Sq Yd apartment in Clifton, budget 0.6Cr-1.3Cr",47,2026-07-23 21:00:23
+9edb9585-5731-4466-984e-8ae4d3bb0b11,8135c672-fd94-40e9-ad40-bd29a6b39258,qualified,"11 Sq Yd apartment in Jinnah Colony, budget 1.2Cr-2.5Cr",64,2025-10-11 21:12:24
+daaf75ef-99fe-43c6-b8cd-1ad809380179,10e9539a-c7e4-47d0-9d03-a585b2311260,new,"18 Marla house in Gulberg, budget 1.1Cr-1.4Cr",27,2026-06-18 08:48:17
+5bbc8c78-6bc8-40f0-83e4-d5f7403cc253,5f840f89-4a69-4894-b0b0-89bed617437a,qualified,"3 Sq Yd apartment in DHA Islamabad, budget 2.0Cr-3.2Cr",63,2026-08-17 12:37:05
+b461b05c-e355-4e2c-9a85-7aa2bcdfe69a,ed18d900-e3a8-4abc-a5ca-659be59f5a3e,new,"20 Marla house in F-11, budget 2.6Cr-3.1Cr",39,2026-08-02 17:39:28
+423338b6-cb03-4aa8-89d4-95004f6d089d,9fb0a09a-8f8e-4f91-b614-b5bd6c7e3258,qualified,"14 Marla plot in Madina Town, budget 1.2Cr-2.5Cr",82,2026-04-23 09:51:03
+af4e05d7-d834-4f5e-8ecd-13e0f7af7009,29d2edd9-8cb9-428f-89e6-e97838531b9b,new,"19 Marla plot in Bahria Town Karachi, budget 2.0Cr-2.6Cr",32,2026-03-05 16:02:56
+01b2fc00-5263-489b-b9b7-67e979c646dd,d9980e03-c8de-4bbb-abd5-990c61ba0e3e,unqualified,"18 Marla plot in Gulberg, budget 2.3Cr-2.5Cr",8,2026-08-05 18:01:35
+1b2896ae-e0fe-49d6-8ec2-633d46e2b579,aabfa6be-98cc-4da9-ab4e-f5fdc2eac792,new,"19 Marla apartment in Model Town Sialkot, budget 1.8Cr-2.6Cr",32,2026-02-15 11:00:35
+0532cf24-2e28-4585-bb3d-eb00a24de24f,5d403b31-117f-412f-bfd0-d1191df4dc5c,qualified,"10 Kanal house in Wapda Town, budget 0.4Cr-1.1Cr",53,2025-10-22 18:20:56
+c346ece3-6db4-42c2-914c-ab1004bba9de,3a218b7e-6ef3-4b05-8da7-79c73bf78b34,unqualified,"12 Sq Ft plot in Askari 10, budget 0.8Cr-1.9Cr",30,2026-08-01 17:41:37
+6be52720-5fac-4719-b7b6-753c06d802ad,2315567b-338f-48d5-9314-6d2980c55b97,qualified,"5 Kanal house in F-10, budget 1.3Cr-2.1Cr",76,2026-03-16 12:36:31
+974fbcc4-e4f3-4776-93c6-20a96739612c,d39e57e1-c93a-428a-a3ed-58414021e1aa,unqualified,"14 Marla apartment in Bahria Town Islamabad, budget 3.0Cr-4.3Cr",5,2026-01-01 10:58:37
+fdd07424-72ad-4ae4-91bc-cd010bf696e5,50aae858-8adf-4c7a-b90c-66a067190ce8,unqualified,"16 Sq Ft apartment in North Nazimabad, budget 1.5Cr-2.7Cr",2,2026-02-21 10:46:39
+0e356627-01cf-4d97-a022-875387530592,ce45f080-12d5-44f6-a5f5-81b8a832a676,new,"10 Sq Ft plot in Clifton, budget 2.4Cr-3.9Cr",41,2026-03-18 08:03:13
+87362c52-eb21-4712-944c-496057f727ed,3d78f6bf-fc6f-47ee-a739-67347af2beec,new,"19 Sq Ft plot in North Nazimabad, budget 0.5Cr-1.8Cr",30,2026-07-05 16:03:37
+8e19bf92-febb-4de0-b13b-91bc58ddb5b7,607e16e5-f164-44de-b774-e73c2cb83e4c,new,"4 Kanal house in Bosan Road, budget 2.0Cr-2.8Cr",32,2026-08-07 19:39:17
+508d069d-907f-44c5-b110-9a81c6daa000,e85d1ee9-6f54-4605-83d6-70998e91b84d,new,"15 Kanal plot in Gulshan-e-Iqbal, budget 0.5Cr-1.1Cr",20,2025-12-22 12:57:36
+591f18ae-1e8a-45e7-87d5-2cc7178c3e9a,e07e8865-6aff-41ad-a54f-f3f6624acc53,qualified,"19 Marla plot in Valencia Town, budget 2.5Cr-3.7Cr",55,2026-07-19 18:37:53
+712b5e05-6cde-4baa-a04c-5232898689b2,05cc5945-a998-4b31-a545-f55abcad50d8,qualified,"20 Sq Yd plot in DHA Lahore, budget 1.2Cr-1.6Cr",72,2026-04-05 21:31:27
+27490dea-eab1-41d4-881e-12782727b5bd,f1750536-60c6-46f4-93dc-aded92740676,converted,"20 Sq Ft house in Bahria Town Islamabad, budget 1.4Cr-1.6Cr",77,2025-11-19 17:38:21
+fe4d6c10-4ee3-47c4-ae03-8eb53f9c1d82,9388ce4c-a672-4d42-8a98-f2cb66075210,qualified,"13 Sq Ft plot in Valencia Town, budget 0.9Cr-2.4Cr",68,2026-08-20 15:54:29
+ce4bff8e-acc3-4115-b8ae-ff0559fe7ae6,c4ce179a-37f3-42ad-a6d7-e54b7299ed79,new,"9 Kanal plot in DHA Karachi, budget 1.4Cr-2.8Cr",41,2026-01-30 13:16:10
+001e3295-8b07-4014-8fe8-f477dc61c009,4cb8e8ea-735a-41e0-a9b4-4a3b99e331dd,new,"17 Sq Yd plot in Bahria Town Lahore, budget 2.0Cr-3.0Cr",29,2026-04-08 08:17:42
+4de5ac52-a9bb-4212-9b26-986e0209622b,fa3eece3-8414-41ae-93d6-21fbed364973,qualified,"11 Sq Yd house in Wapda City, budget 1.4Cr-2.1Cr",59,2025-12-03 11:17:11
+218a8b40-9cc8-40f3-8a55-eb2e73397c27,2699215e-285a-4602-bf68-f4b743dc44f6,converted,"11 Marla apartment in Jinnah Colony, budget 0.9Cr-2.2Cr",91,2026-07-19 21:08:13
+2f085d19-7816-4ab1-8ca6-c4db3cc96be3,161dae38-4dd8-4afa-be7d-7585940e3d88,new,"9 Sq Ft plot in Bahria Town Karachi, budget 2.4Cr-2.9Cr",49,2025-10-12 18:48:08
+125df6b9-80ba-44a6-9f11-08955d22f284,2062ef50-ec71-40b4-b008-e91afde5f1fd,new,"16 Sq Yd apartment in Cantt, budget 0.5Cr-1.2Cr",46,2026-01-05 17:57:56
+b24b22bf-4130-4484-824d-3d698c9a86ca,85642ae1-496f-4caa-b2ee-d3cb1b4bf499,new,"19 Marla plot in Chaklala Scheme 3, budget 1.1Cr-2.0Cr",24,2026-07-10 19:20:21
+f7b3aa3a-36b7-4d1a-b960-fed9467c446a,2d02203d-ee84-4999-b253-4ad231654094,qualified,"11 Kanal apartment in Bahria Town Karachi, budget 2.7Cr-2.9Cr",75,2026-08-14 15:04:19
+152b7faf-08ab-46a3-84cd-1024934e24ee,dcfccdab-1b95-41a9-bb2c-cad2723b2602,qualified,"5 Marla apartment in Chaklala Scheme 3, budget 1.0Cr-1.6Cr",78,2026-03-06 21:45:14
+7848bdb2-8f7e-4965-b555-5e2e3c476679,df4c1468-d324-4142-b50a-6463f6d862e8,new,"13 Sq Yd house in Gulberg, budget 1.9Cr-2.6Cr",26,2026-08-20 19:03:30
+3a5d9879-fa70-4d25-9ce0-4397f3e2803d,d5f93c22-3daf-4928-98da-a22aeafe83c5,unqualified,"17 Sq Ft plot in DHA Karachi, budget 0.3Cr-1.5Cr",9,2026-02-22 08:07:15
+59b05e25-6968-49bf-96bb-828dde8f5459,082176b0-ddeb-417f-8439-e7cb5d4a3387,converted,"16 Marla apartment in DHA Lahore, budget 1.7Cr-2.1Cr",97,2026-08-05 18:27:42
+5bd966cc-2024-40e9-8b01-baa569f4b23e,31ac9efc-581e-4ab8-8b35-98d0f7a58ad0,unqualified,"3 Sq Yd apartment in North Nazimabad, budget 2.7Cr-3.1Cr",24,2026-06-17 16:47:53
+22b8dac8-fc51-4248-ba8b-2ece64d76f61,1bd7c814-8fd3-4465-8bf6-79b86ab45e16,new,"13 Sq Ft plot in Askari 10, budget 0.4Cr-0.9Cr",34,2025-10-27 16:08:06
+3e10e61f-b8e3-440d-a8aa-6daca94a6082,0ed8001b-485f-437d-80e2-f976bd36e97a,qualified,"14 Marla plot in Gulshan-e-Iqbal, budget 2.6Cr-2.7Cr",64,2026-01-31 18:43:26
+545a5282-516b-4fbd-815c-469ca8f3c2f5,5f819692-3ccd-4d58-a234-315ccbb021ca,new,"3 Marla house in Valencia Town, budget 1.0Cr-2.3Cr",32,2026-05-25 17:05:02
+ce055d55-cb46-4dac-93c4-84e3c0c33da9,b78f0dff-c2f6-4cae-b8d8-ebe6eb0a0d2b,unqualified,"3 Kanal plot in Bahria Town Lahore, budget 1.0Cr-2.5Cr",17,2026-08-18 20:25:12
+b50fe2a9-4ce4-4735-8f8f-f8a0154be00f,7896e378-6570-42c4-a075-268b19ba0eb9,unqualified,"17 Sq Yd house in DHA Lahore, budget 2.8Cr-4.1Cr",12,2026-04-13 20:24:22
+db9e8997-8bc6-45a5-90d9-7e483ce64ba0,00a6bb40-c6a2-4af5-9f6d-8ac6ea2ac4f3,unqualified,"19 Sq Yd apartment in Bahria Town Karachi, budget 0.4Cr-1.3Cr",6,2026-05-06 19:12:01
+9d5d6753-2fa6-4f8f-99da-efd8f105853e,6a874d33-1f08-41ae-829b-211c77da582e,qualified,"10 Sq Yd house in Model Town Sialkot, budget 1.9Cr-2.4Cr",78,2026-01-30 15:43:39
+2e1f86da-172e-4865-820c-ae0eed28e263,9f12d1b3-dd5c-42b6-8005-26d46dc0e9e1,unqualified,"10 Sq Yd house in Valencia Town, budget 3.0Cr-4.4Cr",28,2026-06-07 16:23:00
+9a258e6d-6590-4500-bf36-5c6fe16fd497,23c64bca-a28c-400b-b4c5-30acf428fbbb,qualified,"18 Kanal apartment in Bahria Town Islamabad, budget 0.9Cr-1.8Cr",54,2026-04-21 14:10:09
+2cebb11e-95da-4ac4-9561-75ac9792f488,1e75d18c-6d99-4dab-83f8-64987a1d8b62,new,"16 Sq Ft plot in F-11, budget 2.8Cr-3.6Cr",44,2026-05-31 14:18:56
+1bbc9b03-b368-4f3c-8e29-1167e0aa4d70,8ed46ba7-ac13-4e0d-8ec0-4ada87ea2914,new,"7 Sq Ft house in Gulberg, budget 1.5Cr-1.6Cr",38,2026-05-13 13:59:46
+96b5b3e3-46bf-4118-9457-f3e833d29e2b,c5fe6eb0-c8c5-4abe-8f4c-bced0bdddfda,qualified,"8 Sq Ft house in DHA Rawalpindi, budget 0.7Cr-2.2Cr",78,2025-09-04 09:01:56
+7e7eca41-ddc2-4a49-84b0-b98385954a10,d9a1e3a7-0f75-4f15-8275-4a17b304822b,qualified,"19 Sq Yd house in Askari 10, budget 1.9Cr-2.2Cr",53,2026-06-20 13:15:45
+61ffc130-ac47-44cc-9934-67c7b2493c55,def1c8e0-fd3f-47bd-bb3a-24053ab9f7f8,new,"13 Sq Yd house in DHA Karachi, budget 2.3Cr-2.6Cr",21,2025-11-09 12:42:44
+1a2278fa-d990-4d60-8a54-4d348a7161f9,4e7cd099-a594-4488-8602-5dae714cb147,new,"20 Sq Ft apartment in Valencia Town, budget 1.4Cr-1.8Cr",42,2025-09-26 10:50:23
+60db1fb1-84a7-4eda-a966-7b527b42bada,984b1008-8cc5-425c-a195-8fe81ff3cfd3,new,"13 Marla house in Bahria Town Lahore, budget 2.1Cr-3.2Cr",20,2026-01-10 13:37:18
+fbb0aec6-df67-46f9-9abf-91f5bed3c70d,de10ac81-8905-4846-9b6c-f797561aedaa,qualified,"7 Kanal house in Satellite Town, budget 2.5Cr-2.7Cr",74,2026-03-11 20:35:05
+23c93378-e4f9-487d-bd27-da44825e2bee,923a45ac-7e45-45fd-90e9-599f61cd877e,qualified,"11 Sq Ft plot in Gulshan-e-Iqbal, budget 0.3Cr-1.4Cr",54,2026-01-12 12:45:29
+6d98251b-fd3e-44ea-936e-9dd6580a17de,6025252f-cbf9-4ca9-a7b5-0826112cd6b2,new,"7 Kanal house in Gulshan-e-Iqbal, budget 1.3Cr-1.6Cr",37,2025-11-24 17:35:45
+0ec8fc41-bb52-4c97-92ad-3b5f7d43fb06,afb81986-34ec-4ece-a3d6-9e993050cbe7,unqualified,"13 Sq Ft house in Gulgasht Colony, budget 2.5Cr-2.7Cr",17,2025-09-04 13:28:55
+2a7d6134-6be3-41a7-909e-d9d82b8f2aed,630e4eaa-65f0-4c25-b4ad-bae51688594c,unqualified,"13 Marla plot in DHA Lahore, budget 1.6Cr-2.5Cr",24,2026-04-20 11:33:47
+e5e4c53e-b73a-4391-9463-7ec304e6b312,5d10ca2f-eeb2-4e5f-a9d4-238b32bc164a,unqualified,"4 Kanal apartment in University Town, budget 0.8Cr-2.0Cr",30,2025-10-28 18:42:08
+b5a8de8b-f76c-4ed6-85cc-519818f5d5f0,c97f944d-e84d-43e5-b501-6a28d24d3fe4,new,"19 Kanal apartment in Model Town, budget 1.1Cr-1.5Cr",33,2026-08-13 10:25:21
+badd9017-adbe-4e67-b386-955aa4b78bb4,b3888de4-d884-463a-b363-fcda87b12492,qualified,"14 Marla house in Askari 14, budget 0.6Cr-0.7Cr",72,2026-08-03 11:41:37
+8c097a53-e928-423b-b3e0-f489b68e4e5d,6381e882-57d9-498e-8a12-1d3204c12836,qualified,"9 Sq Yd apartment in G-11, budget 2.4Cr-3.0Cr",58,2026-06-13 08:09:58
+c1419bfb-3b2f-478b-bacb-7239f3a7f6d9,b4546c01-8ec9-4c06-8063-df5aa9cf294a,new,"17 Sq Yd plot in Bahria Town Karachi, budget 0.4Cr-1.5Cr",27,2026-06-02 18:52:02
+3ce8a92d-9ac9-4ce5-b5ce-536d60fe5e21,7b024a7e-9394-45a0-a22f-e82ca9ff3ee3,qualified,"9 Marla house in F-10, budget 1.3Cr-2.7Cr",53,2026-08-08 16:08:54
+49e75d3d-8ac7-44b2-8d92-bf152d324d57,688353da-55cd-40c5-8169-f1cede186153,new,"20 Sq Yd plot in Bahria Town Lahore, budget 1.1Cr-1.3Cr",44,2026-06-10 21:52:51
+49fd6b0e-ccbc-4c62-8db5-07873947a33a,47c07b62-a727-4b03-b9f0-4330e0134d6c,new,"10 Marla plot in Jinnah Colony, budget 2.5Cr-3.7Cr",47,2025-12-21 11:45:57
+b8ab429d-31b9-490b-9730-e38f0f0c82de,82f008f2-990a-4326-961f-49c5cb39d08e,qualified,"8 Kanal house in Bani Gala, budget 1.9Cr-2.4Cr",54,2026-08-08 15:02:10
+874346f9-0bf6-4f69-a163-7fd18f04998e,fcd82052-8c6e-4428-8293-485f2f853202,new,"15 Sq Ft house in Chaklala Scheme 3, budget 1.4Cr-1.5Cr",41,2026-05-08 15:09:30
+e04b74d4-b63d-423e-be6b-aac0de9d1371,6da18e49-b6c1-45b6-a1b6-51a6e220afbc,qualified,"19 Sq Yd house in Askari 5, budget 2.5Cr-3.8Cr",51,2026-05-09 21:57:03
+26e65634-40b7-4d44-8394-661a39d33b71,1b33e30f-707c-459c-b2f6-9bd3a07f2c20,unqualified,"14 Kanal house in Chaklala Scheme 3, budget 1.4Cr-2.9Cr",12,2026-07-06 21:22:44
+24831b83-bf02-4765-a06c-3b4f96648d70,726e4e7b-205e-4802-bda0-52861ba13535,new,"10 Sq Yd apartment in Bahria Town Karachi, budget 1.8Cr-2.2Cr",31,2025-12-06 09:03:50
+86e8c687-6c8d-424c-a2dd-d13667d6165c,25b7ce89-a32d-4daa-ac33-702040990ce2,unqualified,"8 Kanal apartment in Clifton, budget 0.6Cr-0.8Cr",28,2026-04-11 16:00:59
+1813bbe0-1fc1-415e-81d2-a293da7d45a8,b052c1ae-5524-4b8f-b6d5-7be009675a06,qualified,"12 Sq Yd house in Satellite Town, budget 0.8Cr-1.7Cr",82,2025-11-16 13:44:28
+15e9e715-ec55-4ea0-9753-36a2817e5cbc,db7b94c5-0e36-45e6-af18-8b1985f8c6dd,new,"4 Marla house in Chaklala Scheme 3, budget 2.1Cr-2.5Cr",34,2026-07-20 13:03:43
+2535b720-1fe0-4af9-a1de-40faa1e5727d,5967db36-0ae3-4377-8b5a-edef7767387b,unqualified,"18 Sq Yd house in Johar Town, budget 2.1Cr-3.3Cr",6,2026-07-03 19:19:42
+421a55c9-12a8-4aff-bc52-9e74c3a8e790,1f039b30-29f4-47c5-b425-d6d95b3f619d,qualified,"3 Kanal house in G-10, budget 2.1Cr-3.0Cr",67,2026-08-14 11:18:52
+1d78e96a-1591-490f-a912-79de802b330e,9e7f2f0a-3320-4cf1-a88f-48e2c51571b1,qualified,"6 Sq Ft house in Model Town Gujranwala, budget 1.9Cr-3.4Cr",61,2026-08-01 15:26:30
+3705e342-212a-4105-b412-b74d32151d57,49489c37-5299-4b07-bd12-a8eaac34907b,qualified,"7 Sq Yd apartment in Clifton, budget 1.9Cr-2.8Cr",58,2026-02-26 15:53:39
+08838e81-4dcd-4b81-bfdd-af9818c4475f,6e69897d-9648-4aca-86cc-ed1fb82af7fc,new,"9 Sq Ft house in Askari 5, budget 1.1Cr-1.2Cr",44,2026-08-17 15:16:09
+219dcf47-9aee-4c90-a8e5-d63173420f59,912190e0-9fd8-48a8-909f-4d9ed154ac00,new,"17 Marla house in Valencia Town, budget 1.2Cr-2.1Cr",29,2025-11-16 19:44:47
+3bb217b7-099e-4f97-a84f-05422e52259f,613f6827-4baa-4fe1-b737-31d9ae21b0f4,converted,"5 Kanal apartment in F-10, budget 2.1Cr-3.6Cr",96,2026-08-12 10:00:42
+ba37eda8-6f61-4ad0-a83f-a2fbe75f0e90,0cba346a-36a3-4404-82db-1ade6614e836,qualified,"4 Marla house in Bahria Town Islamabad, budget 1.4Cr-2.0Cr",70,2026-03-27 15:26:57
+69dcaa36-ce50-44b7-a5f8-c5f4ff22e2fd,5ed73f49-ca3e-477f-9674-9e3edaccbd5d,converted,"5 Sq Yd apartment in Clifton, budget 2.4Cr-3.1Cr",85,2026-04-15 19:07:56
+204b83c5-1994-42fe-b705-040176a7041f,7f242e71-eb7f-40b7-abce-217b9893b837,qualified,"14 Marla plot in DHA Islamabad, budget 2.4Cr-3.7Cr",58,2026-02-02 16:50:47
+cfb7278c-f8b5-4a3c-8b4c-c64f569acc2f,c15159ee-1f12-4878-8934-fc104d5e297f,qualified,"20 Kanal house in Bahria Town Lahore, budget 2.6Cr-2.9Cr",84,2026-06-23 09:59:57
+ee6151d2-46f6-4b88-b1da-2554ea58ee1e,2092f2e8-8f6f-44e2-9a9c-18f0f52a0685,new,"4 Marla plot in Bahria Town Lahore, budget 0.4Cr-1.0Cr",34,2026-06-22 16:26:12
+db6ecaa9-705a-40a5-bb46-d3922a1b5dd4,aac20d8b-f1bd-4cb2-925e-ec612b79d084,new,"10 Marla plot in Wapda Town, budget 1.2Cr-2.0Cr",22,2026-05-02 12:49:33
+56e7a4a5-46db-441d-91d7-2e7bd62fd36b,dad0b2dd-a6a9-44f6-bc23-00ce1fa459ee,new,"7 Sq Yd apartment in Bahria Town Rawalpindi, budget 2.3Cr-3.2Cr",48,2026-03-22 17:38:27
+764cff8a-29f7-4c74-be9b-5e3913ec600f,7f0903e3-8a57-462e-b106-ef843899406d,converted,"14 Sq Yd plot in G-10, budget 1.6Cr-3.0Cr",85,2026-06-05 10:39:58
+360f4aca-9cde-4946-8f23-19b92ab84006,4bd62205-81cc-458d-a304-141bcb1ca311,new,"12 Kanal house in F-10, budget 1.7Cr-3.0Cr",31,2026-05-20 12:18:45
+a216a853-1d28-4ca6-9958-8f9ae863bf40,e3c0bda7-32f3-4dbf-a892-6da9393529a4,new,"13 Kanal house in DHA Lahore, budget 1.7Cr-3.1Cr",24,2026-05-31 14:19:55
+dd5ca4eb-1799-47fc-8aad-d01b8e9858b9,d188059e-b850-43b9-9a1a-f72a12b9c55a,qualified,"3 Sq Ft apartment in Askari 5, budget 1.9Cr-2.6Cr",82,2026-08-07 18:35:29
+46f66efc-ecd7-4be7-956c-7c8a419b1882,783c5ed7-5b63-4973-81c6-b01965a20a16,unqualified,"19 Sq Ft apartment in Model Town, budget 1.8Cr-2.6Cr",20,2026-02-06 19:05:11
+7ab9cf48-26c9-4faf-b1c2-664d32645ba7,9197d330-ccab-41e5-95aa-7b4a7abaf35f,unqualified,"7 Marla plot in North Nazimabad, budget 2.6Cr-3.6Cr",16,2026-03-13 21:35:12
+9e5e9adf-55c8-49e9-95c0-b440ff88bb16,c49498b5-57ae-4649-a922-254e8678ed36,new,"19 Kanal house in Bosan Road, budget 2.6Cr-3.8Cr",26,2026-01-08 12:36:41
+f3fa8daa-f6ea-4045-b76c-6400ccb3c8e1,3525309a-25c5-4e52-be56-ce9fdb28107b,unqualified,"11 Marla plot in Clifton, budget 1.5Cr-2.0Cr",30,2025-12-25 09:32:35
+c9cdff9e-fc3f-4428-9516-bd3cca9da901,41a2ca71-7e81-47ec-b3c9-1777703689bb,converted,"6 Sq Ft house in Valencia Town, budget 1.8Cr-2.2Cr",73,2026-05-05 14:41:28
+92830758-2c19-46b8-89b1-e677c7f3b117,2987c010-8a57-4edc-a31e-c86612058af5,unqualified,"19 Marla house in DHA Karachi, budget 0.8Cr-1.0Cr",2,2025-10-05 18:33:19
+dc1ffffe-7ee5-463e-8377-4950f0020c03,a84f27c6-4917-4d82-b60c-f504c5646e1c,qualified,"19 Marla house in Wapda Town, budget 2.4Cr-3.3Cr",52,2025-09-27 15:05:33
+71401185-49b2-4c52-9f2d-8db1fd13b30f,f629c795-c7d0-47aa-8857-dcf1b35717a1,new,"8 Sq Ft plot in Jinnah Colony, budget 1.4Cr-1.7Cr",43,2026-04-28 09:46:19
+9224f12a-e90c-4d88-8350-1f0feafb629b,85d300b4-6a7f-4ea8-9400-f7819b698026,qualified,"18 Kanal plot in Gulgasht Colony, budget 1.1Cr-1.8Cr",84,2026-01-07 19:00:15
+2f3d0c30-c005-4c75-b53d-df707a339da6,f406e8fe-5803-4186-a352-a2397c5802d7,new,"18 Sq Yd plot in Hayatabad, budget 2.2Cr-3.2Cr",37,2026-05-20 14:11:50
+fd5126fc-8c00-4772-a459-0f40f5c0256f,b58a7748-40b5-441b-bb3c-c2cabc6077ed,new,"14 Sq Yd house in Bahria Town Islamabad, budget 2.6Cr-4.0Cr",42,2026-03-06 13:03:11
+bc13d46f-d4b2-475f-9c28-5982455c5ab8,f3ef45be-2390-4f57-8cbc-4c0318f43a3e,new,"9 Sq Yd apartment in Askari 5, budget 2.4Cr-2.5Cr",47,2026-06-28 17:20:37
+0bd61b9c-1460-4e88-a8c3-13f3843f9bdd,72bcef9e-52a4-499f-805d-46477f8c1228,unqualified,"3 Kanal apartment in Model Town, budget 1.7Cr-2.0Cr",22,2025-11-15 09:11:51
+2e2c6d69-fa8f-4eb3-9dfd-a0701ef273eb,2d3569bd-5481-42a4-9668-4d7a287b80ce,new,"11 Kanal apartment in Model Town, budget 0.3Cr-0.6Cr",37,2026-08-18 21:23:36
+fbc7950e-20fe-4078-9baf-fa48fc11ce41,57bdb1b0-6420-495d-b7a9-97995b679704,new,"18 Sq Yd apartment in Madina Town, budget 1.8Cr-2.9Cr",29,2025-12-07 12:12:33
+05117146-819d-4938-9156-04befc812f9a,b1270d32-b002-4a0c-9560-56cd2990828b,qualified,"20 Sq Ft house in DHA Karachi, budget 2.7Cr-3.6Cr",83,2026-03-06 20:21:41
+5a792be3-8962-4d57-9db9-0812f02833d6,7a55dd82-8a29-4472-b2c1-87288776f031,new,"15 Kanal house in PECHS, budget 0.6Cr-1.0Cr",30,2026-03-30 12:12:58
+9809efad-16f5-4427-80fc-9c43271ff2cf,f760bf08-7e3e-471d-a16f-d20d544d5c99,qualified,"11 Marla plot in Bahria Town Lahore, budget 2.0Cr-2.6Cr",83,2026-08-11 17:11:23
+bc052b0f-9554-4051-ba44-0d2768e27924,e7c5092a-0242-4241-b814-74711a5e6d5b,qualified,"18 Marla apartment in Bahria Town Karachi, budget 0.8Cr-1.7Cr",71,2025-11-07 20:06:01
+f9389ca5-9b3d-4bbd-a8ec-84e1fb4c353d,3ef861a5-0c79-4a01-a062-ba18dba2dde3,new,"5 Marla house in F-10, budget 2.1Cr-2.6Cr",41,2026-06-28 16:34:36
+5605c4d1-b3d7-472e-911b-e9817b671fe7,6e8ffd8f-58fd-45db-8a6c-9ea526ccacf5,unqualified,"14 Sq Yd apartment in University Town, budget 0.8Cr-1.1Cr",15,2026-02-16 20:54:24
+089959cc-f300-4b75-a3de-a9c1e3373107,0e138ae8-146b-490e-8b59-bcd3862ea147,new,"8 Kanal apartment in Bahria Town Lahore, budget 2.2Cr-2.9Cr",35,2026-06-30 21:53:30
+216edc5c-de93-4387-af13-365e04ee3773,4f8618c4-e393-4c98-bf1c-12477f9fa703,new,"3 Kanal apartment in Bahria Town Lahore, budget 1.8Cr-2.7Cr",46,2026-04-27 17:34:02
+19b19b7a-378c-462c-94ed-44f625a7df23,82bf1629-9333-4bdb-8deb-13b99bebbff2,qualified,"20 Sq Yd plot in University Town, budget 1.3Cr-2.2Cr",72,2026-01-24 10:55:41
+33574838-20e6-45c0-aaeb-965030011f7d,96091aed-ce19-4173-bfde-399a8635af47,new,"7 Sq Ft house in Wapda City, budget 2.6Cr-3.0Cr",29,2025-10-27 14:03:40
+27d15e45-6ecc-45f6-9483-50c150ae843e,f975b7cd-5481-4c2b-95ea-07e51d6250a1,new,"9 Marla house in DHA Rawalpindi, budget 0.3Cr-1.2Cr",43,2025-10-07 14:23:20
+92de6c1d-0da3-442d-946c-aac2291224e0,0fc8bfa8-c75e-4398-bfd5-11132ff5c2d9,new,"12 Kanal apartment in Model Town Multan, budget 1.8Cr-1.9Cr",38,2025-09-23 19:21:52
+0b530984-5f63-4549-a888-d764fe733682,65756269-0eed-40c1-adce-edc85e5694f7,qualified,"5 Marla house in Bani Gala, budget 1.8Cr-2.9Cr",60,2025-10-08 08:11:02
+ffd5e20d-0383-4966-8ab7-4616d512d42d,fed18eb7-fc1f-4a5f-8d4b-d9b6fcd70cf7,new,"5 Marla apartment in North Nazimabad, budget 2.7Cr-3.8Cr",45,2026-07-02 09:15:17
+0f7efc0b-a144-4bf5-bb63-8c2f58cb9902,5b569579-ef16-4f26-99c7-d56b6bac8df1,new,"7 Kanal house in Bahria Town Lahore, budget 2.9Cr-4.0Cr",44,2026-08-20 13:23:56
+255868c6-2b13-48ed-a1bc-33440e87c0ca,4b643f39-4e28-4c6b-a4f1-09ca008dd74e,new,"4 Marla house in Gulberg, budget 1.3Cr-2.3Cr",45,2026-03-10 10:08:48
+eff24590-9644-40b5-adc5-1c4aac8e09d2,8d299bba-5e86-4fa5-afab-d22bb1e31313,converted,"19 Sq Ft apartment in Valencia Town, budget 0.5Cr-1.6Cr",81,2026-03-06 09:01:35
+1df3f572-7c59-4d28-bb49-d8c1239ab0fc,fd5d42b0-51a9-41b6-ab88-5ddc4ce05f37,new,"10 Marla house in F-11, budget 3.0Cr-4.5Cr",24,2026-03-09 11:54:06
+b365ee81-3801-4298-930e-b2c33ba7015b,15e7f427-e97a-4951-a682-48a1558a1357,new,"4 Kanal apartment in DHA Lahore, budget 2.1Cr-3.5Cr",47,2026-08-07 14:25:26
+67128401-4b1e-4d43-b337-65d608e75907,f580c454-bd06-4f8d-bc82-b2b348c3ae00,unqualified,"3 Sq Yd plot in North Nazimabad, budget 3.0Cr-4.3Cr",6,2026-05-07 09:03:16
+cd74f866-d7f1-4d0d-94ee-0cb44ea5b732,7e95177b-4cce-4624-a722-35577019d6b0,qualified,"19 Sq Ft plot in Johar Town, budget 1.0Cr-1.9Cr",66,2025-09-02 16:49:31
+1a791221-b413-4477-9689-28ddd1ce1a79,bcfabdee-6efa-4f30-9a21-d60c79699b37,new,"11 Marla apartment in F-10, budget 2.6Cr-3.9Cr",48,2026-04-27 19:05:33
+a9b15527-7b9e-4d2e-8425-476f308ad1ce,e99675b7-99d9-4631-87f3-deed6b14bbd6,unqualified,"11 Sq Yd plot in Bahria Town Islamabad, budget 1.8Cr-2.5Cr",16,2026-08-19 14:53:42
+c3db451a-e59a-4599-8229-c4d781006bfd,3afcdb8c-da27-4ebf-92e3-1473847e89bd,qualified,"20 Kanal plot in PECHS, budget 3.0Cr-4.1Cr",62,2026-06-16 21:45:14
+e749c18f-1e94-4244-871d-7513a9100280,427c09f5-8492-468c-9811-3f651b68e491,new,"10 Sq Ft apartment in Chaklala Scheme 3, budget 1.3Cr-2.1Cr",34,2026-08-03 14:25:28
+ac961640-e545-4125-993f-23445139154d,c802fcc9-e387-4236-b06d-ed8501583b71,converted,"7 Sq Ft house in DHA Karachi, budget 2.8Cr-3.7Cr",88,2026-04-13 15:16:43
+97012886-7349-4444-875c-f3b2bdb0626c,da4f3fbe-09fc-486e-8102-eaeb6c9eba69,unqualified,"17 Sq Yd plot in Bahria Town Rawalpindi, budget 1.8Cr-3.0Cr",8,2025-10-17 20:11:46
+5e00726f-8bf2-45e3-925d-1a103e789efe,cb1447e6-1451-4f9f-8699-ab058aab9ec3,new,"7 Kanal plot in Bahria Town Lahore, budget 0.8Cr-1.0Cr",38,2026-08-18 10:49:52
+7825078c-8ff2-4223-98e4-900c60c96a3b,ecf16b36-6494-4e3c-a614-bdac8b4c2133,new,"4 Kanal apartment in DHA Lahore, budget 1.4Cr-1.7Cr",43,2025-08-26 09:17:08
+2be58822-23cb-493c-83a9-e045644cd860,11d6a4fe-4072-4a00-884d-09782e22b290,new,"19 Marla plot in F-10, budget 2.7Cr-3.2Cr",38,2026-04-14 18:58:27
+d83a75a8-1fb9-4080-9eb1-67c3175e2af5,03b38100-9545-49dc-818f-1adcab05b9ed,unqualified,"19 Kanal plot in Model Town Sialkot, budget 0.6Cr-1.2Cr",20,2026-03-11 08:28:32
+61f3573e-0785-461f-abb1-99cd4a0f8d30,22fba2bf-be83-4a49-ab2c-751af4537800,converted,"20 Sq Ft house in G-11, budget 0.4Cr-1.3Cr",70,2026-07-28 15:58:47
+ed3e9e2d-1afe-497b-b24d-dad3d411ab2e,e3398f47-7f8c-4a7f-a349-c65731d4abd7,qualified,"4 Sq Ft plot in DHA Lahore, budget 1.0Cr-1.3Cr",63,2026-05-19 12:51:45
+c7e58678-71ec-4797-a375-a0b7516033e7,8f2aa14b-78e5-4ebd-9c6e-66ef6eebe930,new,"6 Kanal house in DHA Karachi, budget 2.2Cr-3.5Cr",35,2026-06-17 08:42:01
+bdb077e9-aa01-44db-960e-764e3c5408cf,932bdd52-0311-4b8b-933b-283153e7ba91,qualified,"13 Sq Yd apartment in Gulshan-e-Iqbal, budget 2.2Cr-2.4Cr",57,2026-07-25 19:43:34
+be6b3884-b3ce-4019-b271-db8c565ee399,e8a2dd7d-088b-49eb-b821-17ad0d641066,unqualified,"16 Kanal apartment in Valencia Town, budget 1.4Cr-2.0Cr",14,2025-09-10 21:32:47
+b5130ff9-2b7d-4bbe-a2fe-f10e9b751c05,49dde75d-aa17-430a-935c-b042395ee414,qualified,"16 Kanal apartment in Model Town, budget 2.5Cr-3.9Cr",58,2026-08-16 19:45:08
+b2d17b83-fa40-4cc1-b370-a0dbbdde16c5,aed6d23a-e70f-4de6-b153-10cb1b54359e,new,"6 Sq Yd house in DHA Rawalpindi, budget 0.6Cr-1.9Cr",30,2025-11-19 16:01:37
+807dbbf2-22a8-4212-8aea-78437bab3027,be75e04c-1de4-464d-922d-219297eaf9f0,new,"5 Kanal plot in Model Town, budget 0.9Cr-1.3Cr",37,2025-10-02 10:12:25
+04b34252-0b0d-43ea-8341-60a0850371ea,1118ebb9-634e-48a0-8665-fa8851f16df5,new,"3 Sq Ft apartment in Wapda City, budget 1.9Cr-3.1Cr",38,2026-03-01 14:14:48
+b7f93cfa-11dd-4b3d-a70b-1f636496e36b,3c0a86af-c756-42d6-9f82-96a6275b794e,new,"9 Kanal apartment in Askari 5, budget 2.9Cr-3.7Cr",50,2025-11-03 08:41:48
+aae227db-85ab-4594-ad4a-fd14fdb09cde,841de0b5-1456-40bf-b80a-250e24204125,converted,"6 Marla house in Askari 14, budget 1.0Cr-1.6Cr",93,2026-04-03 14:10:55
+bb644145-c702-4403-85f4-c7ec8c4c75fe,4c49c3f7-807c-467e-a60e-968d16e840f8,converted,"18 Kanal house in Model Town Sialkot, budget 1.5Cr-1.9Cr",71,2025-11-25 20:22:21
+3369ebe2-35fb-434c-965b-845b5b591fbc,9c54d181-8d47-40bb-96cd-680d0318ee4b,qualified,"11 Sq Ft apartment in Bahria Town Islamabad, budget 0.7Cr-0.9Cr",78,2026-06-10 08:52:07

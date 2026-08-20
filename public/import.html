@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Import Data · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="import">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Import Data</h1><div class="sub">Bulk-load contacts, properties, leads, deals, tasks, or financials from a CSV file</div></div>
+      </div>
+
+      <div class="card-panel" style="padding:20px; max-width:640px;">
+        <form id="form">
+          <div class="field" style="margin-bottom:14px;">
+            <label>Table to import into</label>
+            <select id="f-table" onchange="renderColumnHint()">
+              <option value="contacts">Contacts</option>
+              <option value="properties">Properties</option>
+              <option value="leads">Leads</option>
+              <option value="deals">Deals</option>
+              <option value="tasks">Tasks</option>
+              <option value="documents">Documents</option>
+              <option value="financials">Financials</option>
+            </select>
+          </div>
+
+          <div class="field" style="margin-bottom:14px;">
+            <label>CSV file</label>
+            <input id="f-file" type="file" accept=".csv" required />
+          </div>
+
+          <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-bottom:16px; cursor:pointer;">
+            <input type="checkbox" id="f-replace" style="width:auto;" />
+            Replace existing data in this table before importing (clears it first)
+          </label>
+
+          <button type="button" class="btn-ledger" onclick="doImport()">Upload &amp; Import</button>
+          <span id="status" class="muted" style="margin-left:12px;"></span>
+        </form>
+
+        <div id="column-hint" class="card-panel" style="margin-top:18px; padding:14px 16px; background:var(--file-manila); border:none; font-size:0.8rem;"></div>
+      </div>
+
+      <div class="card-panel" style="padding:20px; max-width:640px; margin-top:18px;">
+        <div class="section-title" style="font-size:0.95rem;">Import order, if loading a full dataset</div>
+        <p class="muted" style="margin:0 0 10px;">Later files reference IDs from earlier ones, so upload in this order for the links (buyer, property, deal) to resolve correctly:</p>
+        <ol style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--ink-soft);">
+          <li>Contacts</li>
+          <li>Properties</li>
+          <li>Leads</li>
+          <li>Deals</li>
+          <li>Tasks</li>
+          <li>Financials</li>
+        </ol>
+        <p class="muted" style="margin:10px 0 0;">Include an <code>id</code> column in your CSV if you want rows in later files to reference specific earlier rows (e.g. a deal's <code>buyer_contact_id</code> matching a contact's <code>id</code>). If you omit <code>id</code>, a new one is generated automatically.</p>
+      </div>
+    </main>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let TABLE_CONFIGS = [];
+
+async function loadConfigs() {
+  try {
+    TABLE_CONFIGS = await apiGet("/import/tables");
+    renderColumnHint();
+  } catch (err) { toast(err.message, true); }
+}
+
+function renderColumnHint() {
+  const table = document.getElementById("f-table").value;
+  const cfg = TABLE_CONFIGS.find((t) => t.table === table);
+  if (!cfg) return;
+  document.getElementById("column-hint").innerHTML = `
+    <strong>Expected columns for "${table}"</strong>
+    <div style="margin-top:8px; font-family:var(--font-mono); font-size:0.75rem; line-height:1.6; word-break:break-word;">
+      id (optional), ${cfg.columns.join(", ")}
+    </div>
+    ${cfg.required.length ? `<div class="muted" style="margin-top:8px;">Required: ${cfg.required.join(", ")}</div>` : ""}
+  `;
+}
+
+async function doImport() {
+  const table = document.getElementById("f-table").value;
+  const fileInput = document.getElementById("f-file");
+  const replace = document.getElementById("f-replace").checked;
+  const statusEl = document.getElementById("status");
+
+  if (!fileInput.files[0]) { toast("Choose a CSV file first", true); return; }
+
+  const fd = new FormData();
+  fd.append("file", fileInput.files[0]);
+  fd.append("replace", replace ? "true" : "false");
+
+  statusEl.textContent = "Uploading…";
+  try {
+    const res = await fetch(`/api/v1/import/${table}`, { method: "POST", body: fd });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Import failed");
+    statusEl.textContent = `Imported ${data.inserted} rows${data.skipped ? `, skipped ${data.skipped}` : ""}.`;
+    toast(`Imported ${data.inserted} rows into ${table}`);
+    if (data.errors && data.errors.length) {
+      console.warn("Import row errors:", data.errors);
+    }
+    fileInput.value = "";
+  } catch (err) {
+    statusEl.textContent = "";
+    toast(err.message, true);
+  }
+}
+
+loadConfigs();
+</script>
+</body>
+</html>

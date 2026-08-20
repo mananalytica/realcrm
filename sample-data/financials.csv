@@ -1,0 +1,52 @@
+id,entry_type,category,amount,deal_id,description,entry_date
+df016de8-9ec1-4c33-89b8-a46c1d609e29,token_held,other,3220000,71c42da7-c006-4f59-a48e-f4544405ed96,Token/bayana held - DHA Lahore,2026-07-14
+ae489c64-d307-401a-b97b-6a6d9786aa15,income,commission,961000,77a8d44e-00c8-460d-b529-33be97255cd4,Commission - G-10,2026-06-21
+32168804-264e-4a3d-beb9-11246a81095d,token_held,other,150000,819fc767-ed17-412a-a471-03bc835d1a72,Token/bayana held - DHA Karachi,2026-07-18
+52c7a10b-1338-4865-9c06-cd2662b5bffe,income,commission,62000,39d141fa-19dc-40fc-9403-fd09c09a227a,Commission - Bahria Town Karachi,2026-02-12
+f5dec64f-fe1c-4d38-9dc4-1f214a26b494,income,commission,113000,06bd942d-c50f-4c82-bf27-54f72fbf11ec,Commission - Clifton,2026-02-14
+a356134d-6706-4f29-88df-6b3392ce56a9,token_held,other,190000,091f740d-35d2-49dd-ac40-992b98ce7a98,Token/bayana held - F-10,2026-05-25
+09fd9178-5ab3-4b21-a0e5-5770f657543e,income,commission,1039000,f635f5c7-34c4-4a38-bc4e-4b818655151d,Commission - North Nazimabad,2026-06-23
+8e6bc2f6-96f1-4b02-887c-cd94484ad592,token_held,other,30000,3400ce71-38fe-4b69-8339-024ddfff552f,Token/bayana held - Model Town Multan,2026-07-10
+80bd22a1-2233-4bc8-874e-b0dd19c27100,token_held,other,2900000,896d030e-e814-4c00-8a13-debf45ee7b47,Token/bayana held - Model Town Bahawalpur,2026-06-12
+9083dc79-8681-4f5b-84eb-e88ab5b3c9b1,token_held,other,1590000,cb232aa9-eecf-4783-9c3b-e9d817699e13,Token/bayana held - Wapda City,2026-07-07
+692cb132-3508-41be-bde0-b6c95cfb47de,income,commission,180000,379decaf-23a8-49e7-b655-d828d16aeedd,Commission - DHA Islamabad,2026-07-10
+9abb37cc-4ce0-44b9-b2b2-000cd1b21c1e,income,commission,10000,02d7c349-7d8f-4631-b08d-78b316d4a9cc,Commission - Bahria Town Karachi,2026-04-18
+7248736b-d9b2-4f38-807e-73f937d88ff9,income,commission,835000,343d5824-e1d0-4f00-b34f-37fdc4cc9032,Commission - Jinnah Colony,2026-01-03
+7ae93e4d-620c-43d3-9a55-baad298d1d48,token_held,other,350000,d4c0cba3-59d7-4577-8d65-6cd2b7dfba28,Token/bayana held - Model Town,2026-06-15
+1d6e8771-10bf-413e-b5bf-e2a97c4c3675,income,commission,10000,f5bf5a28-5242-44fb-b1d1-7f293500feaf,Commission - Jinnah Colony,2026-04-15
+0d511152-a765-4d4a-a20d-b774ff597718,token_held,other,30000,d1ae49bf-e4c6-4f6e-b500-7b7431ef02aa,Token/bayana held - Gulberg,2026-05-25
+b6e92b9b-d5f0-4bd5-83e9-045c8e13e792,income,commission,284000,e6754cfb-75ff-4780-b901-c2e17ec23854,Commission - Clifton,2025-11-30
+72dd490d-b8f1-4656-89b4-0cd25a4d038c,income,commission,117000,84207490-3f63-45d8-b9b1-d925b0757649,Commission - Askari 5,2026-08-02
+901f7801-cbe1-4afb-976c-87cfca2e08cb,token_held,other,80000,7a556cd8-bbed-42e5-8709-a108148a8cc6,Token/bayana held - G-11,2026-07-01
+1c898bae-8f82-43c7-945c-4d2ed7fa238d,token_held,other,1480000,396f5617-3025-4ecd-9094-731adc6b9620,Token/bayana held - Gulberg,2026-06-30
+de019f79-e87b-4971-9aea-138513c311c1,income,commission,64000,681dbdaa-1e8b-41f0-a8ad-44926c471429,Commission - DHA Peshawar,2026-02-25
+ca7ef308-c8a6-4f93-87ff-d86ad9d78557,token_held,other,3100000,bfee5448-7b25-457b-87b1-246e8586e9bf,Token/bayana held - Wapda City,2026-06-22
+cd85a08e-e902-4b93-ada2-2ce4f74d5702,token_held,other,3460000,c696974f-59a6-47d0-8786-24088f786265,Token/bayana held - Model Town Gujranwala,2026-07-12
+1568fe40-c07f-48d9-97aa-ee721fe643fc,token_held,other,860000,d3a331cc-659b-451c-b38d-1c04280f5199,Token/bayana held - Askari 10,2026-05-25
+433817d1-a0c9-41d7-866e-494ab89a24de,income,commission,429000,b79e0e19-68be-4186-b0b2-d4cedb894427,Commission - Askari 14,2026-08-05
+1e51c256-beb3-4c22-9c69-30651c576388,expense,fuel,7513,,Site visit fuel,2026-07-14
+807733d4-76e7-40ba-8a0d-a3fda689a999,expense,marketing,28049,,Facebook ad boost,2026-08-20
+27b3bcf1-b04b-4997-8fec-1eaa922c272a,expense,marketing,13692,,Property photography,2026-05-09
+5b724919-82b3-4b8f-9735-acf3a5865c87,expense,fuel,5105,,Site visit fuel,2026-03-29
+032b1395-8a1f-4c8c-8dd8-21c195308343,expense,other,8972,,Misc office expense,2026-07-25
+9c0e34ab-df36-4866-b585-fc993c27d537,expense,fuel,3038,,Site visit fuel,2025-11-03
+54215e07-338d-4b62-b5b5-4d8234719a8d,expense,marketing,26772,,Property photography,2025-10-06
+e266a75e-1195-47bf-8c79-256fe1f300f5,expense,fuel,4093,,Site visit fuel,2026-04-15
+24f43d45-f0ab-4fc7-b693-ca8cd4da9620,expense,marketing,23189,,Signboard printing,2026-02-05
+438b6487-73c2-48c4-85da-95889805930f,expense,marketing,24744,,Signboard printing,2025-12-10
+8f354b7c-6e4d-41d6-9c28-07e4e0bb3516,expense,other,2832,,Misc office expense,2026-02-17
+d13142bd-8ab4-4069-83de-adbb15f58785,expense,other,9871,,Misc office expense,2025-10-28
+ad5a6889-fcd7-4b10-985d-97709078ec7f,expense,marketing,32592,,Zameen featured listing,2025-09-19
+8be14e4e-6da6-4bcb-8a2b-51f55e6bb3bf,expense,fuel,1361,,Site visit fuel,2026-03-06
+f8923f29-b7bd-4795-8317-92c1ef9618aa,expense,marketing,7739,,Signboard printing,2026-08-16
+17472a20-f082-4f7d-9c18-ec017a14ce25,expense,marketing,18236,,Facebook ad boost,2025-09-25
+41839b41-6fd1-488f-a9de-0f5692d99a0c,expense,marketing,10371,,Signboard printing,2025-09-14
+83905cae-44fb-4eef-955e-7be37e054409,expense,fuel,1558,,Site visit fuel,2025-12-20
+554a3145-2d24-43d2-95c5-4f694c796383,expense,marketing,19961,,Facebook ad boost,2026-07-18
+b74231b8-65da-4b0e-83d7-022537790bea,expense,marketing,22391,,Property photography,2026-06-14
+94113d73-ffe5-4402-953d-c3a5955b22c9,expense,marketing,12886,,Facebook ad boost,2026-05-01
+7f45fe38-a243-46b4-907a-baaa4b587821,expense,marketing,21657,,Property photography,2026-01-02
+7ed1b71e-d338-4747-b091-46708b3ab80b,expense,fuel,7745,,Site visit fuel,2026-04-09
+fb4f5a7a-035f-4a37-901a-aee03621e1b6,expense,fuel,7149,,Site visit fuel,2025-10-30
+0d3a366e-1f63-4de5-bca4-d3be9f16ddc9,expense,marketing,32185,,Signboard printing,2026-06-25
+11da1320-a3b1-4d53-8c61-73805b6833e7,expense,marketing,24550,,Signboard printing,2026-07-05
