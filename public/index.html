@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dashboard · Kaghazi CRM</title>
 <link rel="stylesheet" href="/css/style.css" />
+<style>
+  .clickable { cursor: pointer; transition: transform 0.1s ease, box-shadow 0.1s ease; }
+  .clickable:hover { box-shadow: 0 4px 14px rgba(28,35,33,0.12); transform: translateY(-1px); }
+  .stage-row { cursor: pointer; padding: 4px 6px; margin: 0 -6px; border-radius: 6px; }
+  .stage-row:hover { background: var(--ledger-green-tint); }
+  .list-row.clickable:hover { background: var(--ledger-green-tint); border-radius: 6px; }
+</style>
 </head>
 <body data-page="dashboard">
   <div class="shell">
@@ -22,26 +29,27 @@
       </div>
 
       <div class="stat-grid" id="stat-grid">
-        <div class="stat-card"><div class="label">Pipeline Value</div><div class="value" id="stat-pipeline">—</div></div>
-        <div class="stat-card"><div class="label">New Leads Today</div><div class="value" id="stat-leads">—</div></div>
-        <div class="stat-card"><div class="label">Site Visits Scheduled</div><div class="value" id="stat-visits">—</div></div>
-        <div class="stat-card"><div class="label">Commission This Month</div><div class="value" id="stat-commission">—</div></div>
-        <div class="stat-card"><div class="label">Tasks Due (3 days)</div><div class="value rust" id="stat-tasks">—</div></div>
+        <div class="stat-card clickable" id="card-pipeline" title="View all active deals"><div class="label">Pipeline Value</div><div class="value" id="stat-pipeline">—</div></div>
+        <div class="stat-card clickable" id="card-leads" title="View today's leads"><div class="label">New Leads Today</div><div class="value" id="stat-leads">—</div></div>
+        <div class="stat-card clickable" id="card-visits" title="View scheduled site visits"><div class="label">Site Visits Scheduled</div><div class="value" id="stat-visits">—</div></div>
+        <div class="stat-card clickable" id="card-commission" title="View this month's income"><div class="label">Commission This Month</div><div class="value" id="stat-commission">—</div></div>
+        <div class="stat-card clickable" id="card-tasks" title="View tasks due soon"><div class="label">Tasks Due (3 days)</div><div class="value rust" id="stat-tasks">—</div></div>
       </div>
 
       <div class="two-col">
         <div class="card-panel" style="padding:18px;">
-          <div class="section-title">Deals by stage</div>
+          <div class="section-title">Deals by stage <span class="muted" style="font-weight:400; font-size:0.75rem;">(click a stage to see its deals)</span></div>
           <div id="stage-bars"></div>
+          <div id="stage-detail" style="display:none; margin-top:14px; border-top:1px solid var(--line); padding-top:12px;"></div>
         </div>
         <div class="card-panel" style="padding:18px;">
-          <div class="section-title">Recent leads</div>
+          <div class="section-title">Recent leads <span class="muted" style="font-weight:400; font-size:0.75rem;">(click to open)</span></div>
           <div id="recent-leads"><div class="empty-state">No leads yet.</div></div>
         </div>
       </div>
 
       <div class="card-panel" style="padding:18px; margin-top:18px;">
-        <div class="section-title">Upcoming site visits</div>
+        <div class="section-title">Upcoming site visits <span class="muted" style="font-weight:400; font-size:0.75rem;">(click to open)</span></div>
         <div id="upcoming-visits"><div class="empty-state">Nothing scheduled.</div></div>
       </div>
     </main>
@@ -59,6 +67,40 @@ const STAGE_LABELS = {
   commission_received: "Commission Received", closed_won: "Closed Won", closed_lost: "Closed Lost",
 };
 
+let PROPS_CACHE = null, CONTACTS_CACHE = null;
+async function ensureLookups() {
+  if (!PROPS_CACHE) PROPS_CACHE = await apiGet("/properties");
+  if (!CONTACTS_CACHE) CONTACTS_CACHE = await apiGet("/contacts");
+}
+function propLabel(id) {
+  const p = PROPS_CACHE && PROPS_CACHE.find((x) => x.id === id);
+  return p ? ([p.society, p.phase].filter(Boolean).join(" ") || titleCase(p.property_type)) : "No property";
+}
+function contactLabel(id) {
+  const c = CONTACTS_CACHE && CONTACTS_CACHE.find((x) => x.id === id);
+  return c ? c.name : "—";
+}
+
+async function showStageDeals(stage) {
+  const panel = document.getElementById("stage-detail");
+  panel.style.display = "block";
+  panel.innerHTML = `<div class="empty-state">Loading ${STAGE_LABELS[stage] || stage} deals…</div>`;
+  try {
+    const [deals] = await Promise.all([apiGet(`/deals?stage=${encodeURIComponent(stage)}`), ensureLookups()]);
+    panel.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <strong style="font-size:0.85rem;">${STAGE_LABELS[stage] || titleCase(stage)} — ${deals.length} deal${deals.length === 1 ? "" : "s"}</strong>
+        <a href="/deals.html?stage=${encodeURIComponent(stage)}" class="muted" style="font-size:0.78rem;">Open in Pipeline →</a>
+      </div>
+      ${deals.length ? deals.map((d) => `
+        <div class="list-row clickable" onclick="location.href='/deals.html?open=${d.id}'">
+          <div><strong>${escapeHtml(propLabel(d.property_id))}</strong><div class="muted">${escapeHtml(contactLabel(d.buyer_contact_id))}</div></div>
+          <span class="pill">${fmtPKR(d.commission_amount)}</span>
+        </div>`).join("") : `<div class="empty-state">No deals in this stage.</div>`}
+    `;
+  } catch (err) { toast(err.message, true); }
+}
+
 async function loadDashboard() {
   try {
     const d = await apiGet("/dashboard");
@@ -68,10 +110,16 @@ async function loadDashboard() {
     document.getElementById("stat-commission").textContent = fmtPKR(d.commissionsThisMonth);
     document.getElementById("stat-tasks").textContent = d.tasksDue;
 
+    document.getElementById("card-pipeline").onclick = () => location.href = "/deals.html";
+    document.getElementById("card-leads").onclick = () => location.href = "/leads.html?filter=today";
+    document.getElementById("card-visits").onclick = () => location.href = "/deals.html?stage=site_visit_scheduled";
+    document.getElementById("card-commission").onclick = () => location.href = "/financials.html?filter=month";
+    document.getElementById("card-tasks").onclick = () => location.href = "/tasks.html?filter=due";
+
     const maxCount = Math.max(1, ...d.dealsByStage.map((s) => Number(s.count)));
     document.getElementById("stage-bars").innerHTML = d.dealsByStage.length
       ? d.dealsByStage.map((s) => `
-        <div style="margin-bottom:9px;">
+        <div class="stage-row" onclick="showStageDeals('${s.stage}')" style="margin-bottom:9px;">
           <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:3px;">
             <span>${STAGE_LABELS[s.stage] || titleCase(s.stage)}</span><span class="muted">${s.count}</span>
           </div>
@@ -83,18 +131,23 @@ async function loadDashboard() {
 
     document.getElementById("recent-leads").innerHTML = d.recentLeads.length
       ? d.recentLeads.map((l) => `
-        <div class="list-row">
+        <div class="list-row clickable" onclick="location.href='/leads.html?open=${l.id}'">
           <div><strong>${escapeHtml(l.contact_name || "Unknown")}</strong><div class="muted">${escapeHtml(l.contact_phone || "")}</div></div>
           <span class="pill">${titleCase(l.status)}</span>
         </div>`).join("")
       : `<div class="empty-state">No leads yet.</div>`;
 
     document.getElementById("upcoming-visits").innerHTML = d.upcomingSiteVisits.length
-      ? d.upcomingSiteVisits.map((t) => `
-        <div class="list-row">
+      ? d.upcomingSiteVisits.map((t) => {
+          const href = t.related_type === "deal" ? `/deals.html?open=${t.related_id}`
+            : t.related_type === "contact" ? `/contacts.html?open=${t.related_id}`
+            : `/tasks.html?open=${t.id}`;
+          return `
+        <div class="list-row clickable" onclick="location.href='${href}'">
           <div><strong>${escapeHtml(t.title)}</strong><div class="muted">${escapeHtml(t.contact_name || "")}</div></div>
           <span class="pill gold">${fmtDate(t.due_date)}</span>
-        </div>`).join("")
+        </div>`;
+        }).join("")
       : `<div class="empty-state">Nothing scheduled.</div>`;
   } catch (err) {
     toast(err.message, true);

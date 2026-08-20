@@ -63,6 +63,13 @@ async function load() {
   try {
     [ENTRIES, DEALS] = await Promise.all([apiGet("/financials"), apiGet("/deals")]);
     document.getElementById("f-deal_id").innerHTML = `<option value="">—</option>` + DEALS.map((d) => `<option value="${d.id}">Deal (${titleCase(d.stage)})</option>`).join("");
+    const params = new URLSearchParams(location.search);
+    if (params.get("filter") === "month") {
+      const now = new Date();
+      const ym = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+      ENTRIES = ENTRIES.filter((e) => (e.entry_date || "").startsWith(ym));
+      toast("Showing this month's entries only");
+    }
     renderStats();
     renderTable();
   } catch (err) { toast(err.message, true); }

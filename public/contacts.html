@@ -97,6 +97,9 @@ async function load() {
   try {
     CONTACTS = await apiGet("/contacts");
     renderTable();
+    const params = new URLSearchParams(location.search);
+    const openId = params.get("open");
+    if (openId) openEdit(openId);
   } catch (err) { toast(err.message, true); }
 }
 

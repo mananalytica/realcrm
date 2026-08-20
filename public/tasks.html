@@ -74,6 +74,16 @@ async function load() {
   try {
     [TASKS, CONTACTS, PROPS, DEALS] = await Promise.all([apiGet("/tasks"), apiGet("/contacts"), apiGet("/properties"), apiGet("/deals")]);
     renderTable();
+    const params = new URLSearchParams(location.search);
+    const openId = params.get("open");
+    const filter = params.get("filter");
+    if (filter === "due") {
+      const soon = new Date(); soon.setDate(soon.getDate() + 3);
+      TASKS = TASKS.filter((t) => t.status !== "completed" && t.status !== "cancelled" && t.due_date && new Date(t.due_date) <= soon);
+      renderTable();
+      toast("Showing tasks due within 3 days");
+    }
+    if (openId) openEdit(openId);
   } catch (err) { toast(err.message, true); }
 }
 

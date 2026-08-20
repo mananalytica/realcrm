@@ -125,6 +125,9 @@ async function load() {
     const contacts = await apiGet("/contacts");
     const sel = document.getElementById("f-owner_contact_id");
     sel.innerHTML = `<option value="">—</option>` + contacts.map((c) => `<option value="${c.id}">${escapeHtml(c.name)}</option>`).join("");
+    const params = new URLSearchParams(location.search);
+    const openId = params.get("open");
+    if (openId) openEdit(openId);
   } catch (err) { toast(err.message, true); }
 }
 

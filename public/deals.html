@@ -5,13 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Deals Pipeline · Kaghazi CRM</title>
 <link rel="stylesheet" href="/css/style.css" />
+<style>
+  .kanban-col.drag-over { background: var(--ledger-green-tint); outline: 2px dashed var(--ledger-green-soft); }
+  .kanban-card { position: relative; }
+  .kanban-card[draggable="true"] { cursor: grab; }
+  .kanban-card.dragging { opacity: 0.4; }
+  .kanban-col.highlight { outline: 2px solid var(--ledger-green-soft); }
+  .quick-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .quick-btn {
+    background: var(--ledger-green-tint); color: var(--ledger-green); border: 1px solid transparent;
+    border-radius: 999px; padding: 5px 12px; font-size: 0.76rem; font-weight: 600; cursor: pointer;
+  }
+  .quick-btn:hover { border-color: var(--ledger-green); }
+  .quick-btn.lost { background: var(--stamp-rust-tint); color: var(--stamp-rust); }
+  .quick-btn.won { background: var(--gold-seal-tint); color: var(--gold-seal); }
+</style>
 </head>
 <body data-page="deals">
   <div class="shell">
     <nav class="sidebar" id="sidebar-mount"></nav>
     <main class="main">
       <div class="topbar">
-        <div><h1>Deals Pipeline</h1><div class="sub">From first inquiry to commission received</div></div>
+        <div><h1>Deals Pipeline</h1><div class="sub">Drag a card to move its stage, or open it for full details. From first inquiry to commission received.</div></div>
         <button class="btn-ledger" onclick="openCreate()">+ New Deal</button>
       </div>
 
@@ -23,6 +38,7 @@
     <div class="modal-box" style="max-width:700px;">
       <div class="modal-head"><h3 id="modal-title">New Deal</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
       <div class="modal-body">
+        <div id="quick-actions-wrap"></div>
         <form id="form" class="form-grid">
           <input type="hidden" id="f-id" />
           <div class="field span-2"><label>Property</label><select id="f-property_id"><option value="">—</option></select></div>
@@ -71,10 +87,24 @@
 <script>
 const STAGES = [
   ["new_inquiry", "New Inquiry"], ["qualified", "Qualified"], ["site_visit_scheduled", "Site Visit"],
-  ["offer_made", "Offer Made"], ["token_bayana_received", "Token / Bayana"], ["due_diligence", "Due Diligence"],
-  ["sale_agreement", "Sale Agreement"], ["transfer_registry", "Transfer / Registry"],
+  ["site_visit_done", "Visit Done"], ["offer_made", "Offer Made"], ["token_bayana_received", "Token / Bayana"],
+  ["due_diligence", "Due Diligence"], ["sale_agreement", "Sale Agreement"], ["transfer_registry", "Transfer / Registry"],
   ["commission_received", "Commission Received"], ["closed_won", "Closed Won"], ["closed_lost", "Closed Lost"],
 ];
+// Suggested "next step" per stage - powers the quick-action buttons in the deal modal.
+// This is the pipeline's built-in move logic: each stage has one or two sensible next moves.
+const NEXT_STEPS = {
+  new_inquiry: [["qualified", "Mark Qualified"]],
+  qualified: [["site_visit_scheduled", "Schedule Site Visit"]],
+  site_visit_scheduled: [["site_visit_done", "Mark Visit Done"]],
+  site_visit_done: [["offer_made", "Offer Made"]],
+  offer_made: [["token_bayana_received", "Token Received"]],
+  token_bayana_received: [["due_diligence", "Start Due Diligence"]],
+  due_diligence: [["sale_agreement", "Sale Agreement Signed"]],
+  sale_agreement: [["transfer_registry", "Start Transfer/Registry"]],
+  transfer_registry: [["commission_received", "Commission Received"]],
+  commission_received: [["closed_won", "Close Won"]],
+};
 
 let DEALS = [], PROPS = [], CONTACTS = [];
 
@@ -87,7 +117,23 @@ async function load() {
       document.getElementById(id).innerHTML = `<option value="">—</option>` + CONTACTS.map((c) => `<option value="${c.id}">${escapeHtml(c.name)}</option>`).join("");
     });
     renderKanban();
+    handleDeepLinks();
   } catch (err) { toast(err.message, true); }
+}
+
+function handleDeepLinks() {
+  const params = new URLSearchParams(location.search);
+  const openId = params.get("open");
+  const stage = params.get("stage");
+  if (openId) openEdit(openId);
+  if (stage) {
+    const col = document.querySelector(`.kanban-col[data-stage="${stage}"]`);
+    if (col) {
+      col.classList.add("highlight");
+      col.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      setTimeout(() => col.classList.remove("highlight"), 2500);
+    }
+  }
 }
 
 function propertyLabel(id) {
@@ -102,16 +148,68 @@ function renderKanban() {
   el.innerHTML = STAGES.map(([key, label]) => {
     const deals = DEALS.filter((d) => d.stage === key);
     return `
-      <div class="kanban-col">
+      <div class="kanban-col" data-stage="${key}" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event, '${key}')">
         <h4>${label}<span>${deals.length}</span></h4>
         ${deals.map((d) => `
-          <div class="kanban-card" onclick="openEdit('${d.id}')">
+          <div class="kanban-card" draggable="true" ondragstart="onDragStart(event, '${d.id}')" ondragend="onDragEnd(event)" onclick="openEdit('${d.id}')">
             <div>${escapeHtml(propertyLabel(d.property_id))}</div>
             ${contactName(d.buyer_contact_id) ? `<div class="who">${escapeHtml(contactName(d.buyer_contact_id))}</div>` : ""}
             <div class="amt">${fmtPKR(d.commission_amount || (d.commission_percentage || 2))}${d.commission_amount ? "" : "%"}</div>
           </div>`).join("") || `<div class="muted" style="padding:6px;">Empty</div>`}
       </div>`;
   }).join("");
+}
+
+// ---------- Drag and drop ----------
+let draggedDealId = null;
+function onDragStart(e, dealId) {
+  draggedDealId = dealId;
+  e.target.classList.add("dragging");
+  e.dataTransfer.effectAllowed = "move";
+}
+function onDragEnd(e) { e.target.classList.remove("dragging"); }
+function onDragOver(e) { e.preventDefault(); e.currentTarget.classList.add("drag-over"); }
+function onDragLeave(e) { e.currentTarget.classList.remove("drag-over"); }
+async function onDrop(e, newStage) {
+  e.preventDefault();
+  e.currentTarget.classList.remove("drag-over");
+  if (!draggedDealId) return;
+  const deal = DEALS.find((d) => d.id === draggedDealId);
+  if (!deal || deal.stage === newStage) { draggedDealId = null; return; }
+  try {
+    await apiPut(`/deals/${draggedDealId}`, { stage: newStage });
+    toast(`Moved to ${STAGES.find(([k]) => k === newStage)?.[1] || newStage}`);
+    draggedDealId = null;
+    load();
+  } catch (err) {
+    toast(err.message, true);
+    draggedDealId = null;
+  }
+}
+
+// ---------- Quick actions inside the modal ----------
+function renderQuickActions(deal) {
+  const wrap = document.getElementById("quick-actions-wrap");
+  if (!deal) { wrap.innerHTML = ""; return; }
+  const nexts = NEXT_STEPS[deal.stage] || [];
+  const buttons = [];
+  nexts.forEach(([stage, label]) => buttons.push(`<button type="button" class="quick-btn" onclick="quickMove('${stage}')">${label} →</button>`));
+  if (!["closed_won", "closed_lost"].includes(deal.stage)) {
+    buttons.push(`<button type="button" class="quick-btn won" onclick="quickMove('closed_won')">Mark Won</button>`);
+    buttons.push(`<button type="button" class="quick-btn lost" onclick="quickMove('closed_lost')">Mark Lost</button>`);
+  }
+  wrap.innerHTML = buttons.length ? `<div class="quick-actions">${buttons.join("")}</div>` : "";
+}
+
+async function quickMove(newStage) {
+  const id = document.getElementById("f-id").value;
+  if (!id) return;
+  try {
+    await apiPut(`/deals/${id}`, { stage: newStage });
+    toast(`Moved to ${STAGES.find(([k]) => k === newStage)?.[1] || newStage}`);
+    closeModal("modal");
+    load();
+  } catch (err) { toast(err.message, true); }
 }
 
 const FIELDS = ["id","property_id","buyer_contact_id","seller_contact_id","deal_type","stage","token_amount",
@@ -124,6 +222,7 @@ function clearForm() {
   document.getElementById("f-stage").value = "new_inquiry";
   document.getElementById("f-commission_percentage").value = "2";
   document.getElementById("delete-btn").style.display = "none";
+  renderQuickActions(null);
 }
 
 function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Deal"; openModal("modal"); }
@@ -132,9 +231,10 @@ function openEdit(id) {
   const d = DEALS.find((x) => x.id === id);
   if (!d) return;
   clearForm();
-  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el && d[k] !== null && d[k] !== undefined) el.value = String(d[k]).slice(0,10) === d[k] ? d[k] : d[k]; });
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el && d[k] !== null && d[k] !== undefined) el.value = d[k]; });
   document.getElementById("modal-title").textContent = "Edit Deal";
   document.getElementById("delete-btn").style.display = "inline-block";
+  renderQuickActions(d);
   openModal("modal");
 }
 

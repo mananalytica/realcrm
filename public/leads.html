@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Leads · Kaghazi CRM</title>
 <link rel="stylesheet" href="/css/style.css" />
+<style>
+  .criteria-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .criteria-row:last-child { border-bottom: none; }
+  .criteria-row input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--ledger-green); }
+  .criteria-row label { font-size: 0.85rem; font-weight: 600; display: block; }
+  .criteria-row .hint { font-size: 0.76rem; color: var(--slate); margin-top: 2px; }
+  .score-preview { display: flex; align-items: center; justify-content: space-between; background: var(--file-manila); border-radius: 8px; padding: 10px 14px; margin-top: 14px; }
+  .score-preview .num { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+  .row-clickable:hover td { background: var(--ledger-green-tint); cursor: pointer; }
+</style>
 </head>
 <body data-page="leads">
   <div class="shell">
@@ -13,6 +23,12 @@
       <div class="topbar">
         <div><h1>Leads</h1><div class="sub">Qualify and prioritize incoming inquiries</div></div>
         <button class="btn-ledger" onclick="openCreate()">+ New Lead</button>
+      </div>
+
+      <div class="card-panel" style="padding:12px 16px; margin-bottom:14px; font-size:0.82rem; color:var(--ink-soft);">
+        <strong style="color:var(--ink);">Qualification criteria (BANT):</strong>
+        a lead needs at least 3 of 4 — confirmed <strong>B</strong>udget, is reachable (<strong>A</strong>ccess), has defined <strong>N</strong>eeds/requirements, and a realistic <strong>T</strong>imeline — to count as Qualified.
+        Click <strong>Qualify</strong> on any lead to score it.
       </div>
 
       <div class="toolbar">
@@ -32,6 +48,7 @@
     </main>
   </div>
 
+  <!-- Edit modal -->
   <div class="modal-backdrop-custom" id="modal">
     <div class="modal-box">
       <div class="modal-head"><h3 id="modal-title">New Lead</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
@@ -47,8 +64,63 @@
         </form>
       </div>
       <div class="modal-foot">
+        <button class="btn-ghost" onclick="openQualify(document.getElementById('f-id').value)" id="open-qualify-btn" style="margin-right:auto;">Run Qualification →</button>
         <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
         <button class="btn-ledger" onclick="saveLead()">Save Lead</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Qualification modal -->
+  <div class="modal-backdrop-custom" id="qualify-modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Qualify Lead</h3><button class="close-x" onclick="closeModal('qualify-modal')">✕</button></div>
+      <div class="modal-body">
+        <div class="muted" style="margin-bottom:6px; font-size:0.82rem;" id="qualify-subject"></div>
+
+        <div class="criteria-row">
+          <input type="checkbox" id="c-budget" onchange="updateScorePreview()" />
+          <div>
+            <label for="c-budget">Budget — confirmed</label>
+            <div class="hint">Buyer has stated a min/max budget that matches available inventory.</div>
+          </div>
+        </div>
+        <div class="criteria-row">
+          <input type="checkbox" id="c-access" onchange="updateScorePreview()" />
+          <div>
+            <label for="c-access">Access — reachable</label>
+            <div class="hint">Phone or WhatsApp on file and they've actually responded to a call/message.</div>
+          </div>
+        </div>
+        <div class="criteria-row">
+          <input type="checkbox" id="c-need" onchange="updateScorePreview()" />
+          <div>
+            <label for="c-need">Need — requirements defined</label>
+            <div class="hint">Specific property type, area, and size preference is on record.</div>
+          </div>
+        </div>
+        <div class="criteria-row">
+          <input type="checkbox" id="c-timeline" onchange="updateScorePreview()" />
+          <div>
+            <label for="c-timeline">Timeline — realistic</label>
+            <div class="hint">Buyer intends to transact within roughly the next 3 months, not "just browsing."</div>
+          </div>
+        </div>
+
+        <div class="score-preview">
+          <div>
+            <div style="font-size:0.76rem; color:var(--slate); font-weight:600;">RESULTING STATUS</div>
+            <div id="score-status" class="pill gold">Unqualified</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.76rem; color:var(--slate); font-weight:600;">SCORE</div>
+            <div class="num" id="score-num">0 / 100</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('qualify-modal')">Cancel</button>
+        <button class="btn-ledger" onclick="applyQualification()">Save Qualification</button>
       </div>
     </div>
   </div>
@@ -57,6 +129,7 @@
 <script src="/js/layout.js"></script>
 <script>
 let LEADS = [], CONTACTS = [];
+let qualifyingLeadId = null;
 
 async function load() {
   try {
@@ -64,11 +137,26 @@ async function load() {
     const sel = document.getElementById("f-contact_id");
     sel.innerHTML = CONTACTS.map((c) => `<option value="${c.id}">${escapeHtml(c.name)} (${titleCase(c.contact_type)})</option>`).join("");
     renderTable();
+    handleDeepLinks();
   } catch (err) { toast(err.message, true); }
 }
 
-function contactName(id) { const c = CONTACTS.find((x) => x.id === id); return c ? c.name : "Unknown"; }
-function contactPhone(id) { const c = CONTACTS.find((x) => x.id === id); return c ? (c.phone || c.whatsapp || "") : ""; }
+function handleDeepLinks() {
+  const params = new URLSearchParams(location.search);
+  const openId = params.get("open");
+  const filter = params.get("filter");
+  if (openId) openEdit(openId);
+  if (filter === "today") {
+    const today = new Date().toISOString().slice(0, 10);
+    LEADS = LEADS.filter((l) => (l.created_at || "").slice(0, 10) === today);
+    renderTable();
+    toast("Showing today's leads only");
+  }
+}
+
+function contact(id) { return CONTACTS.find((x) => x.id === id); }
+function contactName(id) { const c = contact(id); return c ? c.name : "Unknown"; }
+function contactPhone(id) { const c = contact(id); return c ? (c.phone || c.whatsapp || "") : ""; }
 
 const STATUS_PILL = { new: "gold", qualified: "", unqualified: "slate", converted: "" };
 
@@ -78,12 +166,13 @@ function renderTable() {
   document.getElementById("rows").innerHTML = rows.length
     ? rows.map((l) => `
       <tr>
-        <td><strong>${escapeHtml(contactName(l.contact_id))}</strong><div class="muted">${escapeHtml(contactPhone(l.contact_id))}</div></td>
-        <td>${escapeHtml(l.requirements || "—")}</td>
+        <td class="row-clickable" onclick="openEdit('${l.id}')"><strong>${escapeHtml(contactName(l.contact_id))}</strong><div class="muted">${escapeHtml(contactPhone(l.contact_id))}</div></td>
+        <td class="row-clickable" onclick="openEdit('${l.id}')">${escapeHtml(l.requirements || "—")}</td>
         <td>${l.lead_score ?? 0}</td>
         <td><span class="pill ${STATUS_PILL[l.status] || ""}">${titleCase(l.status)}</span></td>
         <td>${fmtDate(l.created_at)}</td>
         <td style="text-align:right; white-space:nowrap;">
+          <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openQualify('${l.id}')">Qualify</button>
           <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openEdit('${l.id}')">Edit</button>
           <button class="btn-danger-ghost" onclick="removeLead('${l.id}')">Delete</button>
         </td>
@@ -91,11 +180,58 @@ function renderTable() {
     : `<tr><td colspan="6" class="empty-state">No leads match. New inquiries from Zameen, OLX or WhatsApp go here.</td></tr>`;
 }
 
+// ---------- Qualification (BANT) ----------
+function openQualify(leadId) {
+  const lead = LEADS.find((x) => x.id === leadId);
+  if (!lead) { toast("Save this lead first before qualifying it", true); return; }
+  qualifyingLeadId = leadId;
+  const c = contact(lead.contact_id);
+  document.getElementById("qualify-subject").textContent = c ? `${c.name} — ${c.phone || c.whatsapp || "no phone on file"}` : "";
+
+  // Pre-check what we can infer automatically from the contact/lead record;
+  // Access and Timeline still need the agent's real-world judgment call.
+  document.getElementById("c-budget").checked = !!(c && (c.budget_min || c.budget_max));
+  document.getElementById("c-access").checked = !!(c && (c.phone || c.whatsapp));
+  document.getElementById("c-need").checked = !!(lead.requirements || (c && c.preferred_areas));
+  document.getElementById("c-timeline").checked = lead.status === "qualified" || lead.status === "converted";
+
+  updateScorePreview();
+  closeModal("modal");
+  openModal("qualify-modal");
+}
+
+function updateScorePreview() {
+  const checks = ["c-budget", "c-access", "c-need", "c-timeline"].map((id) => document.getElementById(id).checked);
+  const metCount = checks.filter(Boolean).length;
+  const score = metCount * 25;
+  document.getElementById("score-num").textContent = `${score} / 100`;
+  const statusEl = document.getElementById("score-status");
+  // 3 of 4 criteria met = qualified, matching the BANT threshold explained above the table
+  if (metCount >= 3) { statusEl.textContent = "Qualified"; statusEl.className = "pill"; }
+  else if (metCount >= 1) { statusEl.textContent = "Unqualified"; statusEl.className = "pill slate"; }
+  else { statusEl.textContent = "Unqualified"; statusEl.className = "pill rust"; }
+}
+
+async function applyQualification() {
+  if (!qualifyingLeadId) return;
+  const checks = ["c-budget", "c-access", "c-need", "c-timeline"].map((id) => document.getElementById(id).checked);
+  const metCount = checks.filter(Boolean).length;
+  const score = metCount * 25;
+  const status = metCount >= 3 ? "qualified" : "unqualified";
+  try {
+    await apiPut(`/leads/${qualifyingLeadId}`, { lead_score: score, status });
+    toast(`Lead scored ${score}/100 — ${titleCase(status)}`);
+    closeModal("qualify-modal");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
 function clearForm() {
   document.getElementById("f-id").value = "";
   document.getElementById("f-status").value = "new";
   document.getElementById("f-lead_score").value = "";
   document.getElementById("f-requirements").value = "";
+  document.getElementById("open-qualify-btn").style.display = "none";
 }
 
 function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Lead"; openModal("modal"); }
@@ -110,6 +246,7 @@ function openEdit(id) {
   document.getElementById("f-lead_score").value = l.lead_score ?? "";
   document.getElementById("f-requirements").value = l.requirements || "";
   document.getElementById("modal-title").textContent = "Edit Lead";
+  document.getElementById("open-qualify-btn").style.display = "inline-block";
   openModal("modal");
 }
 
