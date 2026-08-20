@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tasks · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="tasks">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Tasks</h1><div class="sub">Follow-ups, site visits, document checks</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ New Task</button>
+      </div>
+
+      <div class="toolbar">
+        <select class="search-input" id="filter-status" style="width:170px;" onchange="renderTable()">
+          <option value="">All statuses</option>
+          <option value="pending">Pending</option><option value="in_progress">In Progress</option>
+          <option value="completed">Completed</option><option value="cancelled">Cancelled</option>
+        </select>
+        <select class="search-input" id="filter-priority" style="width:170px;" onchange="renderTable()">
+          <option value="">All priorities</option>
+          <option value="urgent">Urgent</option><option value="high">High</option>
+          <option value="medium">Medium</option><option value="low">Low</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Task</th><th>Linked to</th><th>Due</th><th>Priority</th><th>Status</th><th></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="6" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3 id="modal-title">New Task</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field span-2"><label>Title *</label><input id="f-title" required /></div>
+          <div class="field"><label>Due date</label><input id="f-due_date" type="datetime-local" /></div>
+          <div class="field"><label>Priority</label>
+            <select id="f-priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option><option value="urgent">Urgent</option></select>
+          </div>
+          <div class="field"><label>Status</label>
+            <select id="f-status"><option value="pending">Pending</option><option value="in_progress">In Progress</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+          </div>
+          <div class="field"><label>Related type</label>
+            <select id="f-related_type" onchange="populateRelated()"><option value="">—</option><option value="contact">Contact</option><option value="property">Property</option><option value="deal">Deal</option></select>
+          </div>
+          <div class="field"><label>Related item</label><select id="f-related_id"><option value="">—</option></select></div>
+          <div class="field span-2"><label>Description</label><textarea id="f-description"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveTask()">Save Task</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let TASKS = [], CONTACTS = [], PROPS = [], DEALS = [];
+
+async function load() {
+  try {
+    [TASKS, CONTACTS, PROPS, DEALS] = await Promise.all([apiGet("/tasks"), apiGet("/contacts"), apiGet("/properties"), apiGet("/deals")]);
+    renderTable();
+  } catch (err) { toast(err.message, true); }
+}
+
+function relatedLabel(t) {
+  if (!t.related_type || !t.related_id) return "—";
+  if (t.related_type === "contact") { const c = CONTACTS.find((x) => x.id === t.related_id); return c ? `Contact: ${c.name}` : "Contact"; }
+  if (t.related_type === "property") { const p = PROPS.find((x) => x.id === t.related_id); return p ? `Property: ${[p.society,p.phase].filter(Boolean).join(" ")}` : "Property"; }
+  if (t.related_type === "deal") return "Deal";
+  return "—";
+}
+
+const PRIORITY_PILL = { urgent: "rust", high: "gold", medium: "", low: "slate" };
+const STATUS_PILL = { pending: "gold", in_progress: "", completed: "slate", cancelled: "slate" };
+
+function renderTable() {
+  const statusFilter = document.getElementById("filter-status").value;
+  const priorityFilter = document.getElementById("filter-priority").value;
+  const rows = TASKS.filter((t) => (!statusFilter || t.status === statusFilter) && (!priorityFilter || t.priority === priorityFilter));
+  document.getElementById("rows").innerHTML = rows.length
+    ? rows.map((t) => `
+      <tr>
+        <td><strong>${escapeHtml(t.title)}</strong>${t.description ? `<div class="muted">${escapeHtml(t.description)}</div>` : ""}</td>
+        <td class="muted">${escapeHtml(relatedLabel(t))}</td>
+        <td>${fmtDate(t.due_date)}</td>
+        <td><span class="pill ${PRIORITY_PILL[t.priority] || ""}">${titleCase(t.priority)}</span></td>
+        <td><span class="pill ${STATUS_PILL[t.status] || ""}">${titleCase(t.status)}</span></td>
+        <td style="text-align:right; white-space:nowrap;">
+          <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openEdit('${t.id}')">Edit</button>
+          <button class="btn-danger-ghost" onclick="removeTask('${t.id}')">Delete</button>
+        </td>
+      </tr>`).join("")
+    : `<tr><td colspan="6" class="empty-state">No tasks match. Add a follow-up or site visit reminder.</td></tr>`;
+}
+
+function populateRelated(selectedId) {
+  const type = document.getElementById("f-related_type").value;
+  const sel = document.getElementById("f-related_id");
+  const source = type === "contact" ? CONTACTS : type === "property" ? PROPS : type === "deal" ? DEALS : [];
+  const labelFor = (x) => type === "contact" ? x.name : type === "property" ? ([x.society, x.phase].filter(Boolean).join(" ") || titleCase(x.property_type)) : `Deal (${titleCase(x.stage)})`;
+  sel.innerHTML = `<option value="">—</option>` + source.map((x) => `<option value="${x.id}">${escapeHtml(labelFor(x))}</option>`).join("");
+  if (selectedId) sel.value = selectedId;
+}
+
+const FIELDS = ["id","title","description","due_date","priority","status","related_type","related_id"];
+
+function clearForm() {
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el) el.value = ""; });
+  document.getElementById("f-priority").value = "medium";
+  document.getElementById("f-status").value = "pending";
+  populateRelated();
+}
+
+function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Task"; openModal("modal"); }
+
+function openEdit(id) {
+  const t = TASKS.find((x) => x.id === id);
+  if (!t) return;
+  clearForm();
+  document.getElementById("f-id").value = t.id;
+  document.getElementById("f-title").value = t.title;
+  document.getElementById("f-description").value = t.description || "";
+  document.getElementById("f-due_date").value = t.due_date ? t.due_date.slice(0,16).replace(" ", "T") : "";
+  document.getElementById("f-priority").value = t.priority;
+  document.getElementById("f-status").value = t.status;
+  document.getElementById("f-related_type").value = t.related_type || "";
+  populateRelated(t.related_id);
+  document.getElementById("modal-title").textContent = "Edit Task";
+  openModal("modal");
+}
+
+async function saveTask() {
+  const id = document.getElementById("f-id").value;
+  const payload = {
+    title: document.getElementById("f-title").value,
+    description: document.getElementById("f-description").value || null,
+    due_date: document.getElementById("f-due_date").value || null,
+    priority: document.getElementById("f-priority").value,
+    status: document.getElementById("f-status").value,
+    related_type: document.getElementById("f-related_type").value || null,
+    related_id: document.getElementById("f-related_id").value || null,
+  };
+  if (!payload.title) { toast("Title is required", true); return; }
+  try {
+    if (id) await apiPut(`/tasks/${id}`, payload);
+    else await apiPost("/tasks", payload);
+    closeModal("modal");
+    toast("Task saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeTask(id) {
+  if (!(await confirmDelete("task"))) return;
+  try { await apiDelete(`/tasks/${id}`); toast("Task deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

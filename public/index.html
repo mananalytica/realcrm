@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="dashboard">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <div class="sub" id="today-label"></div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <a class="btn-ghost" href="/properties.html">+ Property</a>
+          <a class="btn-ledger" href="/contacts.html">+ Contact</a>
+        </div>
+      </div>
+
+      <div class="stat-grid" id="stat-grid">
+        <div class="stat-card"><div class="label">Pipeline Value</div><div class="value" id="stat-pipeline">—</div></div>
+        <div class="stat-card"><div class="label">New Leads Today</div><div class="value" id="stat-leads">—</div></div>
+        <div class="stat-card"><div class="label">Site Visits Scheduled</div><div class="value" id="stat-visits">—</div></div>
+        <div class="stat-card"><div class="label">Commission This Month</div><div class="value" id="stat-commission">—</div></div>
+        <div class="stat-card"><div class="label">Tasks Due (3 days)</div><div class="value rust" id="stat-tasks">—</div></div>
+      </div>
+
+      <div class="two-col">
+        <div class="card-panel" style="padding:18px;">
+          <div class="section-title">Deals by stage</div>
+          <div id="stage-bars"></div>
+        </div>
+        <div class="card-panel" style="padding:18px;">
+          <div class="section-title">Recent leads</div>
+          <div id="recent-leads"><div class="empty-state">No leads yet.</div></div>
+        </div>
+      </div>
+
+      <div class="card-panel" style="padding:18px; margin-top:18px;">
+        <div class="section-title">Upcoming site visits</div>
+        <div id="upcoming-visits"><div class="empty-state">Nothing scheduled.</div></div>
+      </div>
+    </main>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+document.getElementById("today-label").textContent = new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
+const STAGE_LABELS = {
+  new_inquiry: "New Inquiry", qualified: "Qualified", site_visit_scheduled: "Site Visit Scheduled",
+  site_visit_done: "Site Visit Done", offer_made: "Offer Made", token_bayana_received: "Token / Bayana Received",
+  due_diligence: "Due Diligence", sale_agreement: "Sale Agreement", transfer_registry: "Transfer / Registry",
+  commission_received: "Commission Received", closed_won: "Closed Won", closed_lost: "Closed Lost",
+};
+
+async function loadDashboard() {
+  try {
+    const d = await apiGet("/dashboard");
+    document.getElementById("stat-pipeline").textContent = fmtPKR(d.pipelineValue);
+    document.getElementById("stat-leads").textContent = d.newLeadsToday;
+    document.getElementById("stat-visits").textContent = d.siteVisitsScheduled;
+    document.getElementById("stat-commission").textContent = fmtPKR(d.commissionsThisMonth);
+    document.getElementById("stat-tasks").textContent = d.tasksDue;
+
+    const maxCount = Math.max(1, ...d.dealsByStage.map((s) => Number(s.count)));
+    document.getElementById("stage-bars").innerHTML = d.dealsByStage.length
+      ? d.dealsByStage.map((s) => `
+        <div style="margin-bottom:9px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:3px;">
+            <span>${STAGE_LABELS[s.stage] || titleCase(s.stage)}</span><span class="muted">${s.count}</span>
+          </div>
+          <div style="background:var(--file-manila); border-radius:6px; height:8px; overflow:hidden;">
+            <div style="background:var(--ledger-green-soft); height:100%; width:${(Number(s.count) / maxCount) * 100}%;"></div>
+          </div>
+        </div>`).join("")
+      : `<div class="empty-state">No deals yet — add one from the Deals Pipeline.</div>`;
+
+    document.getElementById("recent-leads").innerHTML = d.recentLeads.length
+      ? d.recentLeads.map((l) => `
+        <div class="list-row">
+          <div><strong>${escapeHtml(l.contact_name || "Unknown")}</strong><div class="muted">${escapeHtml(l.contact_phone || "")}</div></div>
+          <span class="pill">${titleCase(l.status)}</span>
+        </div>`).join("")
+      : `<div class="empty-state">No leads yet.</div>`;
+
+    document.getElementById("upcoming-visits").innerHTML = d.upcomingSiteVisits.length
+      ? d.upcomingSiteVisits.map((t) => `
+        <div class="list-row">
+          <div><strong>${escapeHtml(t.title)}</strong><div class="muted">${escapeHtml(t.contact_name || "")}</div></div>
+          <span class="pill gold">${fmtDate(t.due_date)}</span>
+        </div>`).join("")
+      : `<div class="empty-state">Nothing scheduled.</div>`;
+  } catch (err) {
+    toast(err.message, true);
+  }
+}
+loadDashboard();
+</script>
+</body>
+</html>

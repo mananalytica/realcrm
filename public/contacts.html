@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contacts · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="contacts">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Contacts</h1><div class="sub">Buyers, sellers, landlords, tenants & investors</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ New Contact</button>
+      </div>
+
+      <div class="toolbar">
+        <input class="search-input" id="search" placeholder="Search by name or phone…" oninput="renderTable()" />
+        <select class="search-input" id="filter-type" style="width:170px;" onchange="renderTable()">
+          <option value="">All types</option>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+          <option value="landlord">Landlord</option>
+          <option value="tenant">Tenant</option>
+          <option value="investor">Investor</option>
+          <option value="owner">Owner</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr>
+            <th>Name</th><th>Type</th><th>Phone / WhatsApp</th><th>City</th><th>Budget</th><th>Source</th><th></th>
+          </tr></thead>
+          <tbody id="rows"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3 id="modal-title">New Contact</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field"><label>Full name *</label><input id="f-name" required /></div>
+          <div class="field"><label>Contact type *</label>
+            <select id="f-contact_type" required>
+              <option value="buyer">Buyer</option><option value="seller">Seller</option>
+              <option value="landlord">Landlord</option><option value="tenant">Tenant</option>
+              <option value="investor">Investor</option><option value="owner">Owner</option>
+            </select>
+          </div>
+          <div class="field"><label>Phone</label><input id="f-phone" placeholder="0300 1234567" /></div>
+          <div class="field"><label>WhatsApp</label><input id="f-whatsapp" placeholder="0300 1234567" /></div>
+          <div class="field"><label>CNIC</label><input id="f-cnic" placeholder="35202-1234567-1" /></div>
+          <div class="field"><label>Email</label><input id="f-email" type="email" /></div>
+          <div class="field"><label>City</label><input id="f-city" /></div>
+          <div class="field"><label>Lead source</label>
+            <select id="f-lead_source">
+              <option value="">—</option>
+              <option value="Zameen">Zameen.com</option><option value="OLX">OLX</option>
+              <option value="Facebook">Facebook</option><option value="WhatsApp">WhatsApp</option>
+              <option value="Referral">Referral</option><option value="Walk-in">Walk-in</option>
+            </select>
+          </div>
+          <div class="field span-2"><label>Address</label><input id="f-address" /></div>
+          <div class="field"><label>Budget min (PKR)</label><input id="f-budget_min" type="number" /></div>
+          <div class="field"><label>Budget max (PKR)</label><input id="f-budget_max" type="number" /></div>
+          <div class="field"><label>Preferred size unit</label>
+            <select id="f-preferred_size_unit"><option value="">—</option><option>Marla</option><option>Kanal</option><option>Sq Ft</option><option>Sq Yd</option></select>
+          </div>
+          <div class="field"><label>Preferred size value</label><input id="f-preferred_size_value" type="number" /></div>
+          <div class="field span-2"><label>Preferred areas</label><input id="f-preferred_areas" placeholder="DHA Phase 6, Bahria Town…" /></div>
+          <div class="field"><label>Purpose</label>
+            <select id="f-purpose"><option value="">—</option><option value="buy">Buy</option><option value="sell">Sell</option><option value="rent">Rent</option><option value="invest">Invest</option></select>
+          </div>
+          <div class="field span-2"><label>Notes</label><textarea id="f-notes"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveContact()">Save Contact</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let CONTACTS = [];
+
+async function load() {
+  try {
+    CONTACTS = await apiGet("/contacts");
+    renderTable();
+  } catch (err) { toast(err.message, true); }
+}
+
+function renderTable() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const typeFilter = document.getElementById("filter-type").value;
+  const rows = CONTACTS.filter((c) =>
+    (!typeFilter || c.contact_type === typeFilter) &&
+    (!q || (c.name || "").toLowerCase().includes(q) || (c.phone || "").includes(q))
+  );
+  document.getElementById("rows").innerHTML = rows.length
+    ? rows.map((c) => `
+      <tr>
+        <td><strong>${escapeHtml(c.name)}</strong>${c.cnic ? `<div class="muted">${escapeHtml(c.cnic)}</div>` : ""}</td>
+        <td><span class="pill">${titleCase(c.contact_type)}</span></td>
+        <td>${escapeHtml(c.phone || c.whatsapp || "—")}</td>
+        <td>${escapeHtml(c.city || "—")}</td>
+        <td>${c.budget_min || c.budget_max ? `${fmtPKR(c.budget_min)} – ${fmtPKR(c.budget_max)}` : "—"}</td>
+        <td>${c.lead_source ? `<span class="pill slate">${escapeHtml(c.lead_source)}</span>` : "—"}</td>
+        <td style="text-align:right; white-space:nowrap;">
+          <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openEdit('${c.id}')">Edit</button>
+          <button class="btn-danger-ghost" onclick="removeContact('${c.id}')">Delete</button>
+        </td>
+      </tr>`).join("")
+    : `<tr><td colspan="7" class="empty-state">No contacts match. Add your first contact to get started.</td></tr>`;
+}
+
+function clearForm() {
+  ["id","name","phone","whatsapp","cnic","email","city","address","budget_min","budget_max",
+   "preferred_size_value","preferred_areas","notes"].forEach((k) => document.getElementById("f-"+k).value = "");
+  document.getElementById("f-contact_type").value = "buyer";
+  document.getElementById("f-lead_source").value = "";
+  document.getElementById("f-preferred_size_unit").value = "";
+  document.getElementById("f-purpose").value = "";
+}
+
+function openCreate() {
+  clearForm();
+  document.getElementById("modal-title").textContent = "New Contact";
+  openModal("modal");
+}
+
+function openEdit(id) {
+  const c = CONTACTS.find((x) => x.id === id);
+  if (!c) return;
+  clearForm();
+  Object.keys(c).forEach((k) => {
+    const el = document.getElementById("f-" + k);
+    if (el && c[k] !== null && c[k] !== undefined) el.value = c[k];
+  });
+  document.getElementById("modal-title").textContent = "Edit Contact";
+  openModal("modal");
+}
+
+async function saveContact() {
+  const id = document.getElementById("f-id").value;
+  const payload = {
+    name: document.getElementById("f-name").value,
+    contact_type: document.getElementById("f-contact_type").value,
+    phone: document.getElementById("f-phone").value || null,
+    whatsapp: document.getElementById("f-whatsapp").value || null,
+    cnic: document.getElementById("f-cnic").value || null,
+    email: document.getElementById("f-email").value || null,
+    city: document.getElementById("f-city").value || null,
+    address: document.getElementById("f-address").value || null,
+    budget_min: document.getElementById("f-budget_min").value || null,
+    budget_max: document.getElementById("f-budget_max").value || null,
+    preferred_size_unit: document.getElementById("f-preferred_size_unit").value || null,
+    preferred_size_value: document.getElementById("f-preferred_size_value").value || null,
+    preferred_areas: document.getElementById("f-preferred_areas").value || null,
+    purpose: document.getElementById("f-purpose").value || null,
+    lead_source: document.getElementById("f-lead_source").value || null,
+    notes: document.getElementById("f-notes").value || null,
+  };
+  if (!payload.name) { toast("Name is required", true); return; }
+  try {
+    if (id) await apiPut(`/contacts/${id}`, payload);
+    else await apiPost("/contacts", payload);
+    closeModal("modal");
+    toast("Contact saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeContact(id) {
+  if (!(await confirmDelete("contact"))) return;
+  try { await apiDelete(`/contacts/${id}`); toast("Contact deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

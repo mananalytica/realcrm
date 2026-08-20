@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leads · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="leads">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Leads</h1><div class="sub">Qualify and prioritize incoming inquiries</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ New Lead</button>
+      </div>
+
+      <div class="toolbar">
+        <select class="search-input" id="filter-status" style="width:170px;" onchange="renderTable()">
+          <option value="">All statuses</option>
+          <option value="new">New</option><option value="qualified">Qualified</option>
+          <option value="unqualified">Unqualified</option><option value="converted">Converted</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Contact</th><th>Requirements</th><th>Score</th><th>Status</th><th>Added</th><th></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="6" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3 id="modal-title">New Lead</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field span-2"><label>Contact *</label><select id="f-contact_id" required></select></div>
+          <div class="field"><label>Status</label>
+            <select id="f-status"><option value="new">New</option><option value="qualified">Qualified</option><option value="unqualified">Unqualified</option><option value="converted">Converted</option></select>
+          </div>
+          <div class="field"><label>Lead score (0–100)</label><input id="f-lead_score" type="number" min="0" max="100" /></div>
+          <div class="field span-2"><label>Requirements</label><textarea id="f-requirements" placeholder="10 Marla house in DHA Phase 6, budget 8–9 crore…"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveLead()">Save Lead</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let LEADS = [], CONTACTS = [];
+
+async function load() {
+  try {
+    [LEADS, CONTACTS] = await Promise.all([apiGet("/leads"), apiGet("/contacts")]);
+    const sel = document.getElementById("f-contact_id");
+    sel.innerHTML = CONTACTS.map((c) => `<option value="${c.id}">${escapeHtml(c.name)} (${titleCase(c.contact_type)})</option>`).join("");
+    renderTable();
+  } catch (err) { toast(err.message, true); }
+}
+
+function contactName(id) { const c = CONTACTS.find((x) => x.id === id); return c ? c.name : "Unknown"; }
+function contactPhone(id) { const c = CONTACTS.find((x) => x.id === id); return c ? (c.phone || c.whatsapp || "") : ""; }
+
+const STATUS_PILL = { new: "gold", qualified: "", unqualified: "slate", converted: "" };
+
+function renderTable() {
+  const statusFilter = document.getElementById("filter-status").value;
+  const rows = LEADS.filter((l) => !statusFilter || l.status === statusFilter);
+  document.getElementById("rows").innerHTML = rows.length
+    ? rows.map((l) => `
+      <tr>
+        <td><strong>${escapeHtml(contactName(l.contact_id))}</strong><div class="muted">${escapeHtml(contactPhone(l.contact_id))}</div></td>
+        <td>${escapeHtml(l.requirements || "—")}</td>
+        <td>${l.lead_score ?? 0}</td>
+        <td><span class="pill ${STATUS_PILL[l.status] || ""}">${titleCase(l.status)}</span></td>
+        <td>${fmtDate(l.created_at)}</td>
+        <td style="text-align:right; white-space:nowrap;">
+          <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openEdit('${l.id}')">Edit</button>
+          <button class="btn-danger-ghost" onclick="removeLead('${l.id}')">Delete</button>
+        </td>
+      </tr>`).join("")
+    : `<tr><td colspan="6" class="empty-state">No leads match. New inquiries from Zameen, OLX or WhatsApp go here.</td></tr>`;
+}
+
+function clearForm() {
+  document.getElementById("f-id").value = "";
+  document.getElementById("f-status").value = "new";
+  document.getElementById("f-lead_score").value = "";
+  document.getElementById("f-requirements").value = "";
+}
+
+function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Lead"; openModal("modal"); }
+
+function openEdit(id) {
+  const l = LEADS.find((x) => x.id === id);
+  if (!l) return;
+  clearForm();
+  document.getElementById("f-id").value = l.id;
+  document.getElementById("f-contact_id").value = l.contact_id;
+  document.getElementById("f-status").value = l.status;
+  document.getElementById("f-lead_score").value = l.lead_score ?? "";
+  document.getElementById("f-requirements").value = l.requirements || "";
+  document.getElementById("modal-title").textContent = "Edit Lead";
+  openModal("modal");
+}
+
+async function saveLead() {
+  const id = document.getElementById("f-id").value;
+  const payload = {
+    contact_id: document.getElementById("f-contact_id").value,
+    status: document.getElementById("f-status").value,
+    lead_score: document.getElementById("f-lead_score").value || 0,
+    requirements: document.getElementById("f-requirements").value || null,
+  };
+  if (!payload.contact_id) { toast("Select a contact first", true); return; }
+  try {
+    if (id) await apiPut(`/leads/${id}`, payload);
+    else await apiPost("/leads", payload);
+    closeModal("modal");
+    toast("Lead saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeLead(id) {
+  if (!(await confirmDelete("lead"))) return;
+  try { await apiDelete(`/leads/${id}`); toast("Lead deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

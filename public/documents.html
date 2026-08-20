@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Documents · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="documents">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Documents</h1><div class="sub">Fard, registry, NOC, CNIC copies, receipts & more</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ Add Document</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Document</th><th>Linked to</th><th>Verification</th><th>Expiry</th><th></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="5" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Add Document</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <div class="field"><label>Document type *</label>
+            <select id="f-doc_type" required>
+              <option value="cnic">CNIC Copy</option><option value="fard">Fard</option>
+              <option value="registry">Registry</option><option value="noc">NOC</option>
+              <option value="transfer_letter">Transfer Letter</option><option value="tax_receipt">Tax Receipt</option>
+              <option value="affidavit">Affidavit</option><option value="token_receipt">Token Receipt</option>
+            </select>
+          </div>
+          <div class="field"><label>File</label><input id="f-file" type="file" /></div>
+          <div class="field"><label>Related type</label>
+            <select id="f-related_type" onchange="populateRelated()"><option value="">—</option><option value="contact">Contact</option><option value="property">Property</option><option value="deal">Deal</option></select>
+          </div>
+          <div class="field"><label>Related item</label><select id="f-related_id"><option value="">—</option></select></div>
+          <div class="field"><label>Verification status</label>
+            <select id="f-verification_status"><option value="unverified">Unverified</option><option value="verified">Verified</option></select>
+          </div>
+          <div class="field"><label>Verified by</label><input id="f-verified_by" /></div>
+          <div class="field"><label>Expiry date</label><input id="f-expiry_date" type="date" /></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveDocument()">Save Document</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let DOCS = [], CONTACTS = [], PROPS = [], DEALS = [];
+
+async function load() {
+  try {
+    [DOCS, CONTACTS, PROPS, DEALS] = await Promise.all([apiGet("/documents"), apiGet("/contacts"), apiGet("/properties"), apiGet("/deals")]);
+    renderTable();
+  } catch (err) { toast(err.message, true); }
+}
+
+function relatedLabel(d) {
+  if (!d.related_type || !d.related_id) return "—";
+  if (d.related_type === "contact") { const c = CONTACTS.find((x) => x.id === d.related_id); return c ? `Contact: ${c.name}` : "Contact"; }
+  if (d.related_type === "property") { const p = PROPS.find((x) => x.id === d.related_id); return p ? `Property: ${[p.society,p.phase].filter(Boolean).join(" ")}` : "Property"; }
+  if (d.related_type === "deal") return "Deal";
+  return "—";
+}
+
+function renderTable() {
+  document.getElementById("rows").innerHTML = DOCS.length
+    ? DOCS.map((d) => `
+      <tr>
+        <td><strong>${titleCase(d.doc_type)}</strong>${d.file_url ? `<div class="muted"><a href="${d.file_url}" target="_blank">View file</a></div>` : ""}</td>
+        <td class="muted">${escapeHtml(relatedLabel(d))}</td>
+        <td><span class="pill ${d.verification_status === "verified" ? "" : "gold"}">${titleCase(d.verification_status)}</span>${d.verified_by ? `<div class="muted">by ${escapeHtml(d.verified_by)}</div>` : ""}</td>
+        <td>${fmtDate(d.expiry_date)}</td>
+        <td style="text-align:right;"><button class="btn-danger-ghost" onclick="removeDocument('${d.id}')">Delete</button></td>
+      </tr>`).join("")
+    : `<tr><td colspan="5" class="empty-state">No documents yet. Upload CNIC copies, Fard, Registry, or NOC files.</td></tr>`;
+}
+
+function populateRelated() {
+  const type = document.getElementById("f-related_type").value;
+  const sel = document.getElementById("f-related_id");
+  const source = type === "contact" ? CONTACTS : type === "property" ? PROPS : type === "deal" ? DEALS : [];
+  const labelFor = (x) => type === "contact" ? x.name : type === "property" ? ([x.society, x.phase].filter(Boolean).join(" ") || titleCase(x.property_type)) : `Deal (${titleCase(x.stage)})`;
+  sel.innerHTML = `<option value="">—</option>` + source.map((x) => `<option value="${x.id}">${escapeHtml(labelFor(x))}</option>`).join("");
+}
+
+function openCreate() {
+  document.getElementById("form").reset();
+  populateRelated();
+  openModal("modal");
+}
+
+async function saveDocument() {
+  const fileInput = document.getElementById("f-file");
+  let file_url = null;
+  try {
+    if (fileInput.files[0]) {
+      const fd = new FormData();
+      fd.append("file", fileInput.files[0]);
+      const res = await fetch("/api/v1/documents-upload", { method: "POST", body: fd });
+      if (!res.ok) throw new Error("Upload failed");
+      file_url = (await res.json()).file_url;
+    }
+    const payload = {
+      doc_type: document.getElementById("f-doc_type").value,
+      file_url,
+      related_type: document.getElementById("f-related_type").value || null,
+      related_id: document.getElementById("f-related_id").value || null,
+      verification_status: document.getElementById("f-verification_status").value,
+      verified_by: document.getElementById("f-verified_by").value || null,
+      expiry_date: document.getElementById("f-expiry_date").value || null,
+    };
+    await apiPost("/documents", payload);
+    closeModal("modal");
+    toast("Document saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeDocument(id) {
+  if (!(await confirmDelete("document"))) return;
+  try { await apiDelete(`/documents/${id}`); toast("Document deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

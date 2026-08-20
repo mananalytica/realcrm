@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Properties · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="properties">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Properties</h1><div class="sub">Plots, houses, apartments, commercial, agricultural & files</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ New Property</button>
+      </div>
+
+      <div class="toolbar">
+        <input class="search-input" id="search" placeholder="Search society, area, plot #…" oninput="renderTable()" />
+        <select class="search-input" id="filter-status" style="width:170px;" onchange="renderTable()">
+          <option value="">All statuses</option>
+          <option value="available">Available</option>
+          <option value="token_taken">Token Taken</option>
+          <option value="sold">Sold</option>
+          <option value="rented">Rented</option>
+          <option value="suspended">Suspended</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr>
+            <th>Property</th><th>Type</th><th>Size</th><th>Price</th><th>Verification</th><th>Status</th><th></th>
+          </tr></thead>
+          <tbody id="rows"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box" style="max-width:760px;">
+      <div class="modal-head"><h3 id="modal-title">New Property</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field"><label>Property type *</label>
+            <select id="f-property_type" required>
+              <option value="residential_plot">Residential Plot</option>
+              <option value="house">House</option>
+              <option value="apartment">Apartment</option>
+              <option value="commercial">Commercial</option>
+              <option value="agricultural">Agricultural</option>
+              <option value="file">File (Plot File)</option>
+            </select>
+          </div>
+          <div class="field"><label>Purpose *</label>
+            <select id="f-purpose" required><option value="sale">Sale</option><option value="rent">Rent</option></select>
+          </div>
+          <div class="field"><label>Size value</label><input id="f-size_value" type="number" step="any" /></div>
+          <div class="field"><label>Size unit</label>
+            <select id="f-size_unit"><option value="">—</option><option>Marla</option><option>Kanal</option><option>Sq Ft</option><option>Sq Yd</option></select>
+          </div>
+          <div class="field"><label>City</label><input id="f-city" /></div>
+          <div class="field"><label>Area</label><input id="f-area" /></div>
+          <div class="field"><label>Society</label><input id="f-society" placeholder="DHA, Bahria Town, CDA, LDA…" /></div>
+          <div class="field"><label>Phase</label><input id="f-phase" /></div>
+          <div class="field"><label>Block</label><input id="f-block" /></div>
+          <div class="field"><label>Plot number</label><input id="f-plot_number" /></div>
+          <div class="field"><label>File number</label><input id="f-file_number" /></div>
+          <div class="field"><label>File type</label>
+            <select id="f-file_type"><option value="">—</option><option value="open">Open</option><option value="closed">Closed</option><option value="ballot">Ballot</option><option value="transfer">Transfer</option></select>
+          </div>
+          <div class="field"><label>Payment plan status</label><input id="f-payment_plan_status" /></div>
+          <div class="field"><label>Transfer fee status</label><input id="f-transfer_fee_status" /></div>
+          <div class="field"><label>Development charges</label>
+            <select id="f-development_charges_status"><option value="">—</option><option value="pending">Pending</option><option value="paid">Paid</option></select>
+          </div>
+          <div class="field"><label>Asking price (PKR)</label><input id="f-asking_price" type="number" /></div>
+          <div class="field"><label>Rent price (PKR/month)</label><input id="f-rent_price" type="number" /></div>
+          <div class="field"><label>DC rate (PKR)</label><input id="f-dc_rate" type="number" /></div>
+          <div class="field"><label>Market rate (PKR)</label><input id="f-market_rate" type="number" /></div>
+          <div class="field"><label>Possession status</label>
+            <select id="f-possession_status">
+              <option value="">—</option><option value="file_only">File Only</option>
+              <option value="under_development">Under Development</option>
+              <option value="possession_ready">Possession Ready</option><option value="constructed">Constructed</option>
+            </select>
+          </div>
+          <div class="field"><label>Verification status</label>
+            <select id="f-verification_status">
+              <option value="not_verified">Not Verified</option><option value="fard_checked">Fard Checked</option>
+              <option value="noc_verified">NOC Verified</option><option value="registry_pending">Registry Pending</option>
+              <option value="transfer_complete">Transfer Complete</option>
+            </select>
+          </div>
+          <div class="field"><label>Status</label>
+            <select id="f-status">
+              <option value="available">Available</option><option value="token_taken">Token Taken</option>
+              <option value="sold">Sold</option><option value="rented">Rented</option><option value="suspended">Suspended</option>
+            </select>
+          </div>
+          <div class="field"><label>Owner contact</label>
+            <select id="f-owner_contact_id"><option value="">—</option></select>
+          </div>
+          <div class="field span-2"><label>Description</label><textarea id="f-description"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveProperty()">Save Property</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let PROPS = [];
+
+async function load() {
+  try {
+    PROPS = await apiGet("/properties");
+    renderTable();
+    const contacts = await apiGet("/contacts");
+    const sel = document.getElementById("f-owner_contact_id");
+    sel.innerHTML = `<option value="">—</option>` + contacts.map((c) => `<option value="${c.id}">${escapeHtml(c.name)}</option>`).join("");
+  } catch (err) { toast(err.message, true); }
+}
+
+const STATUS_PILL = { available: "", token_taken: "gold", sold: "rust", rented: "gold", suspended: "slate" };
+
+function renderTable() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const statusFilter = document.getElementById("filter-status").value;
+  const rows = PROPS.filter((p) =>
+    (!statusFilter || p.status === statusFilter) &&
+    (!q || [p.society, p.area, p.plot_number, p.file_number, p.block].filter(Boolean).join(" ").toLowerCase().includes(q))
+  );
+  document.getElementById("rows").innerHTML = rows.length
+    ? rows.map((p) => `
+      <tr>
+        <td><strong>${escapeHtml([p.society, p.phase, p.block].filter(Boolean).join(" · ") || titleCase(p.property_type))}</strong>
+          <div class="muted">${escapeHtml([p.area, p.city].filter(Boolean).join(", "))}${p.plot_number ? " · Plot " + escapeHtml(p.plot_number) : ""}${p.file_number ? " · File " + escapeHtml(p.file_number) : ""}</div>
+        </td>
+        <td><span class="pill">${titleCase(p.property_type)}</span><div class="muted">${titleCase(p.purpose)}</div></td>
+        <td>${p.size_value ? `${p.size_value} ${p.size_unit || ""}` : "—"}</td>
+        <td>${p.purpose === "rent" ? fmtPKR(p.rent_price) + "/mo" : fmtPKR(p.asking_price)}</td>
+        <td><span class="pill ${p.verification_status === "transfer_complete" ? "" : p.verification_status === "not_verified" ? "rust" : "gold"}">${titleCase(p.verification_status)}</span></td>
+        <td><span class="pill ${STATUS_PILL[p.status] || ""}">${titleCase(p.status)}</span></td>
+        <td style="text-align:right; white-space:nowrap;">
+          <button class="btn-ghost" style="padding:5px 10px; font-size:0.78rem;" onclick="openEdit('${p.id}')">Edit</button>
+          <button class="btn-danger-ghost" onclick="removeProperty('${p.id}')">Delete</button>
+        </td>
+      </tr>`).join("")
+    : `<tr><td colspan="7" class="empty-state">No properties match. Add your first listing to get started.</td></tr>`;
+}
+
+const FIELDS = ["id","property_type","purpose","size_value","size_unit","city","area","society","phase","block",
+  "plot_number","file_number","file_type","payment_plan_status","transfer_fee_status","development_charges_status",
+  "asking_price","rent_price","dc_rate","market_rate","possession_status","verification_status","status",
+  "owner_contact_id","description"];
+
+function clearForm() {
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el) el.value = ""; });
+  document.getElementById("f-property_type").value = "residential_plot";
+  document.getElementById("f-purpose").value = "sale";
+  document.getElementById("f-verification_status").value = "not_verified";
+  document.getElementById("f-status").value = "available";
+}
+
+function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Property"; openModal("modal"); }
+
+function openEdit(id) {
+  const p = PROPS.find((x) => x.id === id);
+  if (!p) return;
+  clearForm();
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el && p[k] !== null && p[k] !== undefined) el.value = p[k]; });
+  document.getElementById("modal-title").textContent = "Edit Property";
+  openModal("modal");
+}
+
+async function saveProperty() {
+  const id = document.getElementById("f-id").value;
+  const payload = {};
+  FIELDS.filter((k) => k !== "id").forEach((k) => { payload[k] = document.getElementById("f-"+k).value || null; });
+  try {
+    if (id) await apiPut(`/properties/${id}`, payload);
+    else await apiPost("/properties", payload);
+    closeModal("modal");
+    toast("Property saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeProperty(id) {
+  if (!(await confirmDelete("property"))) return;
+  try { await apiDelete(`/properties/${id}`); toast("Property deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

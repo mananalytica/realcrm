@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deals Pipeline · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="deals">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Deals Pipeline</h1><div class="sub">From first inquiry to commission received</div></div>
+        <button class="btn-ledger" onclick="openCreate()">+ New Deal</button>
+      </div>
+
+      <div class="kanban" id="kanban"></div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box" style="max-width:700px;">
+      <div class="modal-head"><h3 id="modal-title">New Deal</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field span-2"><label>Property</label><select id="f-property_id"><option value="">—</option></select></div>
+          <div class="field"><label>Buyer / Tenant contact</label><select id="f-buyer_contact_id"><option value="">—</option></select></div>
+          <div class="field"><label>Seller / Landlord contact</label><select id="f-seller_contact_id"><option value="">—</option></select></div>
+          <div class="field"><label>Deal type</label><select id="f-deal_type"><option value="sale">Sale</option><option value="rent">Rent</option></select></div>
+          <div class="field"><label>Stage</label>
+            <select id="f-stage">
+              <option value="new_inquiry">New Inquiry</option>
+              <option value="qualified">Qualified</option>
+              <option value="site_visit_scheduled">Site Visit Scheduled</option>
+              <option value="site_visit_done">Site Visit Done</option>
+              <option value="offer_made">Offer Made</option>
+              <option value="token_bayana_received">Token / Bayana Received</option>
+              <option value="due_diligence">Due Diligence</option>
+              <option value="sale_agreement">Sale Agreement</option>
+              <option value="transfer_registry">Transfer / Registry</option>
+              <option value="commission_received">Commission Received</option>
+              <option value="closed_won">Closed Won</option>
+              <option value="closed_lost">Closed Lost</option>
+            </select>
+          </div>
+          <div class="field"><label>Token / bayana amount (PKR)</label><input id="f-token_amount" type="number" /></div>
+          <div class="field"><label>Token date</label><input id="f-token_date" type="date" /></div>
+          <div class="field"><label>Token expiry</label><input id="f-token_expiry" type="date" /></div>
+          <div class="field"><label>Witness CNICs</label><input id="f-witness_cnics" placeholder="comma separated" /></div>
+          <div class="field"><label>Commission %</label><input id="f-commission_percentage" type="number" step="0.1" value="2" /></div>
+          <div class="field"><label>Commission amount (PKR)</label><input id="f-commission_amount" type="number" /></div>
+          <div class="field"><label>Expected close date</label><input id="f-expected_close_date" type="date" /></div>
+          <div class="field"><label>Actual close date</label><input id="f-actual_close_date" type="date" /></div>
+          <div class="field span-2"><label>Refund conditions</label><input id="f-refund_conditions" /></div>
+          <div class="field span-2"><label>Notes</label><textarea id="f-notes"></textarea></div>
+        </form>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-danger-ghost" id="delete-btn" style="display:none;" onclick="removeDeal()">Delete Deal</button>
+        <div style="flex:1"></div>
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveDeal()">Save Deal</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+const STAGES = [
+  ["new_inquiry", "New Inquiry"], ["qualified", "Qualified"], ["site_visit_scheduled", "Site Visit"],
+  ["offer_made", "Offer Made"], ["token_bayana_received", "Token / Bayana"], ["due_diligence", "Due Diligence"],
+  ["sale_agreement", "Sale Agreement"], ["transfer_registry", "Transfer / Registry"],
+  ["commission_received", "Commission Received"], ["closed_won", "Closed Won"], ["closed_lost", "Closed Lost"],
+];
+
+let DEALS = [], PROPS = [], CONTACTS = [];
+
+async function load() {
+  try {
+    [DEALS, PROPS, CONTACTS] = await Promise.all([apiGet("/deals"), apiGet("/properties"), apiGet("/contacts")]);
+    const propSel = document.getElementById("f-property_id");
+    propSel.innerHTML = `<option value="">—</option>` + PROPS.map((p) => `<option value="${p.id}">${escapeHtml([p.society, p.phase, p.block].filter(Boolean).join(" ") || titleCase(p.property_type))} — ${fmtPKR(p.asking_price || p.rent_price)}</option>`).join("");
+    ["f-buyer_contact_id", "f-seller_contact_id"].forEach((id) => {
+      document.getElementById(id).innerHTML = `<option value="">—</option>` + CONTACTS.map((c) => `<option value="${c.id}">${escapeHtml(c.name)}</option>`).join("");
+    });
+    renderKanban();
+  } catch (err) { toast(err.message, true); }
+}
+
+function propertyLabel(id) {
+  const p = PROPS.find((x) => x.id === id);
+  if (!p) return "No property linked";
+  return [p.society, p.phase, p.block].filter(Boolean).join(" ") || titleCase(p.property_type);
+}
+function contactName(id) { const c = CONTACTS.find((x) => x.id === id); return c ? c.name : null; }
+
+function renderKanban() {
+  const el = document.getElementById("kanban");
+  el.innerHTML = STAGES.map(([key, label]) => {
+    const deals = DEALS.filter((d) => d.stage === key);
+    return `
+      <div class="kanban-col">
+        <h4>${label}<span>${deals.length}</span></h4>
+        ${deals.map((d) => `
+          <div class="kanban-card" onclick="openEdit('${d.id}')">
+            <div>${escapeHtml(propertyLabel(d.property_id))}</div>
+            ${contactName(d.buyer_contact_id) ? `<div class="who">${escapeHtml(contactName(d.buyer_contact_id))}</div>` : ""}
+            <div class="amt">${fmtPKR(d.commission_amount || (d.commission_percentage || 2))}${d.commission_amount ? "" : "%"}</div>
+          </div>`).join("") || `<div class="muted" style="padding:6px;">Empty</div>`}
+      </div>`;
+  }).join("");
+}
+
+const FIELDS = ["id","property_id","buyer_contact_id","seller_contact_id","deal_type","stage","token_amount",
+  "token_date","token_expiry","witness_cnics","commission_percentage","commission_amount",
+  "expected_close_date","actual_close_date","refund_conditions","notes"];
+
+function clearForm() {
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el) el.value = ""; });
+  document.getElementById("f-deal_type").value = "sale";
+  document.getElementById("f-stage").value = "new_inquiry";
+  document.getElementById("f-commission_percentage").value = "2";
+  document.getElementById("delete-btn").style.display = "none";
+}
+
+function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Deal"; openModal("modal"); }
+
+function openEdit(id) {
+  const d = DEALS.find((x) => x.id === id);
+  if (!d) return;
+  clearForm();
+  FIELDS.forEach((k) => { const el = document.getElementById("f-"+k); if (el && d[k] !== null && d[k] !== undefined) el.value = String(d[k]).slice(0,10) === d[k] ? d[k] : d[k]; });
+  document.getElementById("modal-title").textContent = "Edit Deal";
+  document.getElementById("delete-btn").style.display = "inline-block";
+  openModal("modal");
+}
+
+async function saveDeal() {
+  const id = document.getElementById("f-id").value;
+  const payload = {};
+  FIELDS.filter((k) => k !== "id").forEach((k) => { payload[k] = document.getElementById("f-"+k).value || null; });
+  try {
+    if (id) await apiPut(`/deals/${id}`, payload);
+    else await apiPost("/deals", payload);
+    closeModal("modal");
+    toast("Deal saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeDeal() {
+  const id = document.getElementById("f-id").value;
+  if (!id || !(await confirmDelete("deal"))) return;
+  try { await apiDelete(`/deals/${id}`); closeModal("modal"); toast("Deal deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>
