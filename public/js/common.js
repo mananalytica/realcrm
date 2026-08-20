@@ -1,10 +1,24 @@
 // ===== API client =====
 const API = "/api/v1";
 
+// Handles non-JSON error responses gracefully - e.g. a Vercel timeout returns
+// an HTML page, not JSON, which would otherwise surface as a confusing
+// "Unexpected token '<'" parse error instead of a clear message.
+async function handleResponse(res) {
+  if (res.ok) return res.status === 204 ? null : res.json();
+  let message = `Request failed (${res.status})`;
+  const contentType = res.headers.get("content-type") || "";
+  if (contentType.includes("application/json")) {
+    try { message = (await res.json()).error || message; } catch { /* fall through to default */ }
+  } else if (res.status === 504) {
+    message = "Server timed out. The database connection may be slow to start up - try again in a few seconds.";
+  }
+  throw new Error(message);
+}
+
 async function apiGet(path) {
   const res = await fetch(`${API}${path}`);
-  if (!res.ok) throw new Error((await res.json()).error || "Request failed");
-  return res.json();
+  return handleResponse(res);
 }
 async function apiPost(path, body) {
   const res = await fetch(`${API}${path}`, {
@@ -12,8 +26,7 @@ async function apiPost(path, body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error((await res.json()).error || "Request failed");
-  return res.json();
+  return handleResponse(res);
 }
 async function apiPut(path, body) {
   const res = await fetch(`${API}${path}`, {
@@ -21,12 +34,11 @@ async function apiPut(path, body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error((await res.json()).error || "Request failed");
-  return res.json();
+  return handleResponse(res);
 }
 async function apiDelete(path) {
   const res = await fetch(`${API}${path}`, { method: "DELETE" });
-  if (!res.ok && res.status !== 204) throw new Error((await res.json()).error || "Request failed");
+  return handleResponse(res);
 }
 
 // ===== UI helpers =====

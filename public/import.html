@@ -102,8 +102,17 @@ async function doImport() {
   statusEl.textContent = "Uploading…";
   try {
     const res = await fetch(`/api/v1/import/${table}`, { method: "POST", body: fd });
+    const contentType = res.headers.get("content-type") || "";
+    if (!res.ok) {
+      let msg = `Request failed (${res.status})`;
+      if (contentType.includes("application/json")) {
+        try { msg = (await res.json()).error || msg; } catch {}
+      } else if (res.status === 504) {
+        msg = "Server timed out. The database connection may be slow to start up - try again in a few seconds.";
+      }
+      throw new Error(msg);
+    }
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || "Import failed");
     statusEl.textContent = `Imported ${data.inserted} rows${data.skipped ? `, skipped ${data.skipped}` : ""}.`;
     toast(`Imported ${data.inserted} rows into ${table}`);
     if (data.errors && data.errors.length) {

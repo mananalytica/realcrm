@@ -146,28 +146,44 @@ the rest of the Documents module doesn't care where the file physically lives.
 ### Troubleshooting: `/api/v1/health` hangs, or data doesn't show up in MotherDuck
 
 DuckDB has to download and install the "motherduck" extension from
-`extensions.duckdb.org` the first time it connects on a cold start. On
-Vercel's Hobby tier, the default function timeout is only **10 seconds**,
-which is sometimes not enough — the request gets silently killed mid-connect,
-which looks like the browser hanging forever with nothing in your logs
-(logging only happens after a response is sent).
+`extensions.duckdb.org` the first time it connects on a cold start. Vercel's
+default function timeout is only 10 seconds, which is often not enough.
 
-This app already sets `maxDuration: 60` in `api/index.js` to give it more
-room, and wraps the connection in an explicit 45-second timeout so a genuine
-hang surfaces as a clear error instead of an infinite spinner. If you still
-hit issues after redeploying:
+**Important:** this project's `vercel.json` uses Vercel's modern zero-config
+format (`"functions"` + `"rewrites"`) specifically because their older
+`"builds"`/`"routes"` format **does not reliably support `maxDuration`** —
+Vercel's own docs state the two are mutually exclusive, and mixing them
+either gets silently ignored or fails the deployment outright. If you're
+customizing `vercel.json`, keep it in this format:
 
-1. Hit `/api/v1/health` — it now reports `mode`, `configuredDatabase`,
+```json
+{
+  "functions": { "api/index.js": { "maxDuration": 60 } },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/public/$1" }
+  ]
+}
+```
+
+If you still hit timeouts after deploying this version:
+
+1. Hit `/api/v1/health` — it reports `mode`, `configuredDatabase`,
    `connectedDatabase` (queried live), and row counts per table. Compare
    `connectedDatabase` to what you see in the MotherDuck UI.
 2. If `mode` says `"local-duckdb"` instead of `"motherduck"`, your
-   `MOTHERDUCK_TOKEN` isn't reaching the deployed function — double check
-   it's set in Vercel's Environment Variables **and that you redeployed
-   after setting it** (Vercel doesn't apply new env vars to existing
-   deployments).
-3. Check Vercel's **Runtime Logs** (not just build/deployment logs) for the
-   actual `/api/v1/health` invocation — a timeout or connection error will
-   show up there with a specific message once you're on this version.
+   `MOTHERDUCK_TOKEN` isn't reaching the deployed function — check:
+   - It's set for the **Production** environment specifically in Vercel's
+     Environment Variables (not just Preview/Development).
+   - You **redeployed after setting it** — Vercel doesn't apply new/changed
+     env vars to existing deployments.
+3. Check Vercel's **Runtime Logs** (not build/deployment logs) for the
+   `/api/v1/health` invocation specifically — a timeout or connection error
+   will show a specific message there on this version, instead of a bare
+   504 with no detail.
+4. Every write endpoint (creating a contact, importing a CSV, etc.) shares
+   the same database connection logic, so if one hangs, they all will —
+   this isn't specific to any one feature.
 
 ## What's implemented vs. what's stubbed
 
