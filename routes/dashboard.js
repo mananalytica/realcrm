@@ -36,9 +36,11 @@ router.get("/", async (req, res) => {
     `);
 
     const upcomingSiteVisits = await db.all(`
-      SELECT t.*, ct.name AS contact_name
+      SELECT t.*, COALESCE(ct.name, dbuyer.name) AS contact_name
       FROM tasks t
       LEFT JOIN contacts ct ON ct.id = t.related_id AND t.related_type = 'contact'
+      LEFT JOIN deals d ON d.id = t.related_id AND t.related_type = 'deal'
+      LEFT JOIN contacts dbuyer ON dbuyer.id = d.buyer_contact_id
       WHERE LOWER(t.title) LIKE '%site visit%' AND t.status IN ('pending', 'in_progress')
       ORDER BY t.due_date ASC LIMIT 5
     `);

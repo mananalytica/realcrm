@@ -29,6 +29,30 @@ the whole `data/` folder) any time to start over with an empty database.
 No `.env` file is required for local testing. Copy `.env.example` to `.env`
 only if you want to change the port or the local DB file path.
 
+### Load sample data (10,000 contacts + realistic pipeline)
+
+Want to see the dashboard fully populated instead of starting from zero?
+
+```bash
+npm run seed
+```
+
+This wipes existing data and generates:
+- **10,000 contacts** — realistic Pakistani names, phone numbers, cities
+  (weighted toward Lahore/Karachi/Islamabad), societies (DHA, Bahria Town,
+  Gulberg, etc.), and lead sources (Zameen, OLX, Facebook, WhatsApp, referral)
+- **3,000 properties** across all types and cities
+- **~5,700 leads** from buyer/tenant/investor-type contacts
+- **1,500 deals** spread across all 12 pipeline stages
+- **~900 tasks** (site visits, follow-ups — some overdue, some upcoming)
+- **~500 financial entries** (commissions, token money held, marketing/fuel expenses)
+
+The conversion funnel is tuned to real-world real-estate benchmarks:
+**~26% of leads become an active deal**, and **~7% of deals close won** —
+netting roughly **1.7–2% overall lead-to-close**, which is a realistic range
+for a solo agent working mixed cold/warm inbound leads. Re-run `npm run seed`
+any time to regenerate a fresh random dataset.
+
 ## Project structure
 
 ```
