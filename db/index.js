@@ -8,6 +8,19 @@ const MD_TOKEN = process.env.MOTHERDUCK_TOKEN;
 const MD_DB_NAME = process.env.MOTHERDUCK_DATABASE || "pak_crm";
 const LOCAL_DB_PATH = process.env.LOCAL_DB_PATH || path.join(__dirname, "..", "data", "crm.duckdb");
 
+// On Vercel (and most serverless platforms) only /tmp is writable - the deployed
+// code bundle itself is read-only. DuckDB needs somewhere writable to download
+// and cache the "motherduck" extension on first connect. If HOME points to a
+// read-only location, that download silently fails or the connection errors.
+// This makes sure DuckDB's default extension cache dir (~/.duckdb) resolves
+// to a writable path regardless of platform.
+if (!process.env.HOME || !isWritable(process.env.HOME)) {
+  process.env.HOME = fs.existsSync("/tmp") ? "/tmp" : process.env.HOME;
+}
+function isWritable(dir) {
+  try { fs.accessSync(dir, fs.constants.W_OK); return true; } catch { return false; }
+}
+
 let connection;
 let ready;
 
@@ -17,8 +30,10 @@ async function init() {
   ready = (async () => {
     let instance;
     if (MD_TOKEN) {
-      process.env.motherduck_token = MD_TOKEN;
-      instance = await DuckDBInstance.create(`md:${MD_DB_NAME}`);
+      // Pass the token directly in the connection string rather than only via
+      // the `motherduck_token` env var - more reliable across cold starts and
+      // avoids any env-var casing/timing pitfalls in serverless environments.
+      instance = await DuckDBInstance.create(`md:${MD_DB_NAME}?motherduck_token=${encodeURIComponent(MD_TOKEN)}`);
     } else {
       const dataDir = path.dirname(LOCAL_DB_PATH);
       if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -31,6 +46,16 @@ async function init() {
   })();
 
   return ready;
+}
+
+// Diagnostic helper - actually queries which database/schema this connection
+// is attached to right now, so you can confirm it matches what you see in
+// the MotherDuck UI. Surfaced on GET /api/v1/health.
+async function whereAmI() {
+  await init();
+  const reader = await connection.runAndReadAll("SELECT current_database() AS db, current_schema() AS schema");
+  const rows = reader.getRowObjectsJson();
+  return rows[0] || {};
 }
 
 // Converts a `?` positional-placeholder SQL string + values array into
@@ -67,4 +92,4 @@ async function run(sql, params = []) {
   }
 }
 
-module.exports = { init, all, run };
+module.exports = { init, all, run, whereAmI };

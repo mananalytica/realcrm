@@ -32,8 +32,27 @@ app.use("/api/v1/import", require("./routes/import"));
 app.use("/api/v1/financials", require("./routes/financials"));
 app.use("/api/v1/dashboard", require("./routes/dashboard"));
 
-app.get("/api/v1/health", (req, res) =>
-  res.json({ ok: true, mode: process.env.MOTHERDUCK_TOKEN ? "motherduck" : "local-duckdb" })
-);
+app.get("/api/v1/health", async (req, res) => {
+  const mode = process.env.MOTHERDUCK_TOKEN ? "motherduck" : "local-duckdb";
+  try {
+    const db = require("./db");
+    const info = await db.whereAmI();
+    const counts = {};
+    for (const t of ["contacts", "properties", "leads", "deals", "tasks", "financials"]) {
+      const rows = await db.all(`SELECT COUNT(*) AS n FROM ${t}`);
+      counts[t] = Number(rows[0].n);
+    }
+    res.json({
+      ok: true,
+      mode,
+      configuredDatabase: process.env.MOTHERDUCK_DATABASE || "pak_crm",
+      connectedDatabase: info.db,
+      connectedSchema: info.schema,
+      rowCounts: counts,
+    });
+  } catch (err) {
+    res.status(500).json({ ok: false, mode, error: err.message });
+  }
+});
 
 module.exports = app;
