@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invoices · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+<style>
+  .row-clickable:hover td { background: var(--ledger-green-tint); cursor: pointer; }
+  .totals-box { background: var(--file-manila); border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
+  .totals-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 3px 0; }
+  .totals-row.net { font-weight: 700; font-size: 1rem; color: var(--ledger-green); border-top: 1px solid var(--line); margin-top: 6px; padding-top: 8px; }
+  .action-icons { display: flex; gap: 6px; justify-content: flex-end; }
+  .icon-btn {
+    background: var(--ledger-green-tint); color: var(--ledger-green); border: none; border-radius: 6px;
+    padding: 5px 9px; font-size: 0.74rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+  }
+  .icon-btn:hover { background: var(--ledger-green); color: #fff; }
+  .icon-btn.wa { background: #dcf3e0; color: #0d5a1e; }
+  .icon-btn.wa:hover { background: #128c1a; color: #fff; }
+</style>
+</head>
+<body data-page="invoices">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Invoices</h1><div class="sub">Commission invoices with Pakistani withholding tax breakdown (PKR)</div></div>
+        <div style="display:flex; gap:10px;">
+          <a class="btn-ghost" href="/settings.html">Business Profile</a>
+          <button class="btn-ledger" onclick="openCreate()">+ New Invoice</button>
+        </div>
+      </div>
+
+      <div class="stat-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-card"><div class="label">Outstanding</div><div class="value" id="stat-outstanding">—</div></div>
+        <div class="stat-card"><div class="label">Scheduled</div><div class="value" id="stat-scheduled">—</div></div>
+        <div class="stat-card"><div class="label">Paid (all time)</div><div class="value" id="stat-paid">—</div></div>
+        <div class="stat-card"><div class="label">Overdue</div><div class="value rust" id="stat-overdue">—</div></div>
+      </div>
+
+      <div class="toolbar">
+        <select class="search-input" id="filter-status" style="width:170px;" onchange="renderTable()">
+          <option value="">All statuses</option>
+          <option value="draft">Draft</option><option value="scheduled">Scheduled</option>
+          <option value="sent">Sent</option><option value="paid">Paid</option>
+          <option value="overdue">Overdue</option><option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Invoice #</th><th>Billed To</th><th>Description</th><th>Net Amount</th><th>Due</th><th>Status</th><th></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="7" class="empty-state">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop-custom" id="modal">
+    <div class="modal-box" style="max-width:680px;">
+      <div class="modal-head"><h3 id="modal-title">New Invoice</h3><button class="close-x" onclick="closeModal('modal')">✕</button></div>
+      <div class="modal-body">
+        <form id="form" class="form-grid">
+          <input type="hidden" id="f-id" />
+          <div class="field"><label>Bill to (contact) *</label><select id="f-contact_id" required onchange="prefillFromContact()"></select></div>
+          <div class="field"><label>Related deal (optional)</label><select id="f-deal_id" onchange="prefillFromDeal()"><option value="">—</option></select></div>
+          <div class="field span-2"><label>Description *</label><input id="f-description" placeholder="Commission - sale of DHA Phase 6 house" /></div>
+          <div class="field"><label>Gross amount (PKR) *</label><input id="f-subtotal" type="number" oninput="recalc()" /></div>
+          <div class="field"><label>Withholding tax</label>
+            <select id="f-tax_preset" onchange="applyTaxPreset()">
+              <option value="0">None / Exempt (0%)</option>
+              <option value="12" selected>Filer (12%) — Sec. 233</option>
+              <option value="24">Non-Filer (24%) — Sec. 233</option>
+              <option value="custom">Custom rate…</option>
+            </select>
+          </div>
+          <div class="field" id="custom-rate-field" style="display:none;"><label>Custom tax rate (%)</label><input id="f-tax_rate" type="number" step="0.1" oninput="recalc()" /></div>
+          <div class="field"><label>Issue date</label><input id="f-issue_date" type="date" /></div>
+          <div class="field"><label>Due date</label><input id="f-due_date" type="date" /></div>
+          <div class="field span-2"><label>Schedule to send on (optional)</label><input id="f-scheduled_send_at" type="datetime-local" /></div>
+          <div class="field span-2"><label>Notes</label><textarea id="f-notes"></textarea></div>
+        </form>
+        <div class="totals-box">
+          <div class="totals-row"><span>Gross Commission</span><span id="calc-subtotal">PKR 0</span></div>
+          <div class="totals-row"><span id="calc-tax-label">Less: Withholding Tax</span><span id="calc-tax">- PKR 0</span></div>
+          <div class="totals-row net"><span>Net Amount Payable</span><span id="calc-net">PKR 0</span></div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-danger-ghost" id="delete-btn" style="display:none;" onclick="removeInvoice()">Delete</button>
+        <div style="flex:1"></div>
+        <button class="btn-ghost" onclick="closeModal('modal')">Cancel</button>
+        <button class="btn-ledger" onclick="saveInvoice()">Save Invoice</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+let INVOICES = [], CONTACTS = [], DEALS = [];
+
+const TAX_LABELS = {
+  0: null,
+  12: "Withholding Tax (Filer, 12%) - Sec. 233",
+  24: "Withholding Tax (Non-Filer, 24%) - Sec. 233",
+};
+
+async function load() {
+  try {
+    [INVOICES, CONTACTS, DEALS] = await Promise.all([apiGet("/invoices"), apiGet("/contacts"), apiGet("/deals")]);
+    document.getElementById("f-contact_id").innerHTML = CONTACTS.map((c) => `<option value="${c.id}">${escapeHtml(c.name)} (${titleCase(c.contact_type)})</option>`).join("");
+    document.getElementById("f-deal_id").innerHTML = `<option value="">—</option>` + DEALS.map((d) => `<option value="${d.id}">Deal — ${titleCase(d.stage)} — ${fmtPKR(d.commission_amount)}</option>`).join("");
+    renderStats();
+    renderTable();
+    const params = new URLSearchParams(location.search);
+    const openId = params.get("open");
+    const fromDeal = params.get("fromDeal");
+    if (openId) openEdit(openId);
+    else if (fromDeal) {
+      openCreate();
+      document.getElementById("f-deal_id").value = fromDeal;
+      prefillFromDeal();
+    }
+  } catch (err) { toast(err.message, true); }
+}
+
+function renderStats() {
+  const outstanding = INVOICES.filter((i) => ["draft", "scheduled", "sent"].includes(i.status)).reduce((s, i) => s + Number(i.net_total || 0), 0);
+  const scheduled = INVOICES.filter((i) => i.status === "scheduled").length;
+  const paid = INVOICES.filter((i) => i.status === "paid").reduce((s, i) => s + Number(i.net_total || 0), 0);
+  const today = new Date().toISOString().slice(0, 10);
+  const overdue = INVOICES.filter((i) => i.status !== "paid" && i.status !== "cancelled" && i.due_date && i.due_date < today).length;
+  document.getElementById("stat-outstanding").textContent = fmtPKR(outstanding);
+  document.getElementById("stat-scheduled").textContent = scheduled;
+  document.getElementById("stat-paid").textContent = fmtPKR(paid);
+  document.getElementById("stat-overdue").textContent = overdue;
+}
+
+function contactName(id) { const c = CONTACTS.find((x) => x.id === id); return c ? c.name : "—"; }
+
+const STATUS_PILL = { draft: "slate", scheduled: "gold", sent: "", paid: "", overdue: "rust", cancelled: "slate" };
+
+function renderTable() {
+  const statusFilter = document.getElementById("filter-status").value;
+  const today = new Date().toISOString().slice(0, 10);
+  const rows = INVOICES.filter((i) => !statusFilter || i.status === statusFilter);
+  document.getElementById("rows").innerHTML = rows.length
+    ? rows.map((i) => {
+        const isOverdue = i.status !== "paid" && i.status !== "cancelled" && i.due_date && i.due_date < today;
+        const statusLabel = isOverdue ? "Overdue" : titleCase(i.status);
+        const statusClass = isOverdue ? "rust" : (STATUS_PILL[i.status] || "");
+        return `
+      <tr>
+        <td class="row-clickable" onclick="openEdit('${i.id}')"><strong>${escapeHtml(i.invoice_number || "")}</strong></td>
+        <td class="row-clickable" onclick="openEdit('${i.id}')">${escapeHtml(contactName(i.contact_id))}</td>
+        <td class="row-clickable" onclick="openEdit('${i.id}')">${escapeHtml(i.description || "—")}</td>
+        <td>${fmtPKR(i.net_total)}</td>
+        <td>${fmtDate(i.due_date)}</td>
+        <td><span class="pill ${statusClass}">${statusLabel}</span></td>
+        <td>
+          <div class="action-icons">
+            <button class="icon-btn" onclick="downloadPdf('${i.id}')">PDF</button>
+            <button class="icon-btn wa" onclick="forwardWhatsApp('${i.id}')">WhatsApp</button>
+            ${i.status !== "paid" ? `<button class="icon-btn" onclick="markPaid('${i.id}')">Mark Paid</button>` : ""}
+          </div>
+        </td>
+      </tr>`;
+      }).join("")
+    : `<tr><td colspan="7" class="empty-state">No invoices yet. Create one from a closed deal, or standalone.</td></tr>`;
+}
+
+function downloadPdf(id) {
+  window.open(`/api/v1/invoices/${id}/pdf`, "_blank");
+}
+
+async function forwardWhatsApp(id) {
+  try {
+    const data = await apiGet(`/invoices/${id}/whatsapp-link`);
+    window.open(data.link, "_blank");
+    await fetch(`/api/v1/invoices/${id}/mark-sent`, { method: "POST" });
+    toast("WhatsApp opened — invoice marked as sent");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function markPaid(id) {
+  try {
+    await fetch(`/api/v1/invoices/${id}/mark-paid`, { method: "POST" });
+    toast("Marked as paid");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+// ---------- Create/edit form ----------
+function prefillFromContact() {}
+
+function prefillFromDeal() {
+  const dealId = document.getElementById("f-deal_id").value;
+  const deal = DEALS.find((d) => d.id === dealId);
+  if (!deal) return;
+  if (deal.buyer_contact_id) document.getElementById("f-contact_id").value = deal.buyer_contact_id;
+  if (deal.commission_amount) document.getElementById("f-subtotal").value = deal.commission_amount;
+  if (!document.getElementById("f-description").value) {
+    document.getElementById("f-description").value = `Commission - ${titleCase(deal.deal_type)} deal`;
+  }
+  recalc();
+}
+
+function applyTaxPreset() {
+  const preset = document.getElementById("f-tax_preset").value;
+  document.getElementById("custom-rate-field").style.display = preset === "custom" ? "block" : "none";
+  if (preset !== "custom") document.getElementById("f-tax_rate").value = preset;
+  recalc();
+}
+
+function currentTaxRate() {
+  const preset = document.getElementById("f-tax_preset").value;
+  if (preset === "custom") return Number(document.getElementById("f-tax_rate").value || 0);
+  return Number(preset);
+}
+
+function recalc() {
+  const subtotal = Number(document.getElementById("f-subtotal").value || 0);
+  const rate = currentTaxRate();
+  const taxAmount = Math.round((subtotal * rate) / 100);
+  const net = subtotal - taxAmount;
+  document.getElementById("calc-subtotal").textContent = fmtPKR(subtotal);
+  document.getElementById("calc-tax-label").textContent = TAX_LABELS[rate] || `Less: Withholding Tax (${rate}%)`;
+  document.getElementById("calc-tax").textContent = `- ${fmtPKR(taxAmount)}`;
+  document.getElementById("calc-net").textContent = fmtPKR(net);
+}
+
+function clearForm() {
+  document.getElementById("f-id").value = "";
+  document.getElementById("f-deal_id").value = "";
+  document.getElementById("f-description").value = "";
+  document.getElementById("f-subtotal").value = "";
+  document.getElementById("f-tax_preset").value = "12";
+  document.getElementById("f-tax_rate").value = "";
+  document.getElementById("custom-rate-field").style.display = "none";
+  document.getElementById("f-issue_date").value = new Date().toISOString().slice(0, 10);
+  document.getElementById("f-due_date").value = "";
+  document.getElementById("f-scheduled_send_at").value = "";
+  document.getElementById("f-notes").value = "";
+  document.getElementById("delete-btn").style.display = "none";
+  recalc();
+}
+
+function openCreate() { clearForm(); document.getElementById("modal-title").textContent = "New Invoice"; openModal("modal"); }
+
+function openEdit(id) {
+  const inv = INVOICES.find((x) => x.id === id);
+  if (!inv) return;
+  clearForm();
+  document.getElementById("f-id").value = inv.id;
+  document.getElementById("f-contact_id").value = inv.contact_id || "";
+  document.getElementById("f-deal_id").value = inv.deal_id || "";
+  document.getElementById("f-description").value = inv.description || "";
+  document.getElementById("f-subtotal").value = inv.subtotal || "";
+  const rate = Number(inv.tax_rate || 0);
+  if ([0, 12, 24].includes(rate)) {
+    document.getElementById("f-tax_preset").value = String(rate);
+  } else {
+    document.getElementById("f-tax_preset").value = "custom";
+    document.getElementById("f-tax_rate").value = rate;
+    document.getElementById("custom-rate-field").style.display = "block";
+  }
+  document.getElementById("f-issue_date").value = inv.issue_date || "";
+  document.getElementById("f-due_date").value = inv.due_date || "";
+  document.getElementById("f-scheduled_send_at").value = inv.scheduled_send_at ? inv.scheduled_send_at.slice(0, 16).replace(" ", "T") : "";
+  document.getElementById("f-notes").value = inv.notes || "";
+  document.getElementById("modal-title").textContent = `Edit Invoice — ${inv.invoice_number}`;
+  document.getElementById("delete-btn").style.display = "inline-block";
+  recalc();
+  openModal("modal");
+}
+
+async function saveInvoice() {
+  const id = document.getElementById("f-id").value;
+  const rate = currentTaxRate();
+  const payload = {
+    contact_id: document.getElementById("f-contact_id").value,
+    deal_id: document.getElementById("f-deal_id").value || null,
+    description: document.getElementById("f-description").value || null,
+    subtotal: document.getElementById("f-subtotal").value || 0,
+    tax_rate: rate,
+    tax_label: TAX_LABELS[rate] || (rate ? `Withholding Tax (${rate}%)` : null),
+    issue_date: document.getElementById("f-issue_date").value || null,
+    due_date: document.getElementById("f-due_date").value || null,
+    scheduled_send_at: document.getElementById("f-scheduled_send_at").value || null,
+    notes: document.getElementById("f-notes").value || null,
+  };
+  if (!payload.contact_id) { toast("Select who this is billed to", true); return; }
+  if (!payload.subtotal) { toast("Enter a gross amount", true); return; }
+  try {
+    if (id) await apiPut(`/invoices/${id}`, payload);
+    else await apiPost("/invoices", payload);
+    closeModal("modal");
+    toast("Invoice saved");
+    load();
+  } catch (err) { toast(err.message, true); }
+}
+
+async function removeInvoice() {
+  const id = document.getElementById("f-id").value;
+  if (!id || !(await confirmDelete("invoice"))) return;
+  try { await apiDelete(`/invoices/${id}`); closeModal("modal"); toast("Invoice deleted"); load(); }
+  catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

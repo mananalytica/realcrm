@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Profile · Kaghazi CRM</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="settings">
+  <div class="shell">
+    <nav class="sidebar" id="sidebar-mount"></nav>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Business Profile</h1><div class="sub">This appears on the letterhead of every invoice you generate</div></div>
+      </div>
+
+      <div class="card-panel" style="padding:22px; max-width:640px;">
+        <form id="form" class="form-grid">
+          <div class="field span-2"><label>Business / Agency name *</label><input id="f-business_name" placeholder="Ahmed Properties" /></div>
+          <div class="field"><label>Owner name</label><input id="f-owner_name" placeholder="Ahmed Raza" /></div>
+          <div class="field"><label>Phone</label><input id="f-phone" placeholder="0300-1234567" /></div>
+          <div class="field span-2"><label>Office address</label><input id="f-address" placeholder="Office 12, DHA Phase 5, Lahore" /></div>
+          <div class="field"><label>Email</label><input id="f-email" type="email" /></div>
+          <div class="field"><label>NTN</label><input id="f-ntn" placeholder="1234567-8" /></div>
+          <div class="field span-2"><label>STRN (if sales-tax registered — optional)</label><input id="f-strn" /></div>
+          <div class="field span-2">
+            <label>Payment details</label>
+            <textarea id="f-bank_details" placeholder="Bank name, account title, account #, IBAN, and/or JazzCash / Easypaisa number"></textarea>
+          </div>
+          <div class="field span-2"><label>Invoice footer note</label><input id="f-invoice_footer_note" placeholder="e.g. Thank you for your business." /></div>
+        </form>
+      </div>
+      <div style="max-width:640px; margin-top:14px; display:flex; justify-content:flex-end;">
+        <button class="btn-ledger" onclick="save()">Save Business Profile</button>
+      </div>
+
+      <div class="card-panel" style="padding:16px 20px; max-width:640px; margin-top:20px; font-size:0.82rem; color:var(--ink-soft);">
+        <strong style="color:var(--ink);">Note on withholding tax:</strong> under Section 233 of the Income Tax Ordinance,
+        the client withholds tax on your commission at source (12% if you're a tax filer, 24% if not) and deposits it to
+        FBR against your NTN. That's why invoices show a "Net Amount Payable" below the gross commission — being a filer
+        is worth roughly double the after-tax amount on every deal.
+      </div>
+    </main>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/layout.js"></script>
+<script>
+const FIELDS = ["business_name", "owner_name", "address", "phone", "email", "ntn", "strn", "bank_details", "invoice_footer_note"];
+
+async function load() {
+  try {
+    const s = await apiGet("/settings");
+    FIELDS.forEach((f) => { document.getElementById("f-" + f).value = s[f] || ""; });
+  } catch (err) { toast(err.message, true); }
+}
+
+async function save() {
+  const payload = {};
+  FIELDS.forEach((f) => { payload[f] = document.getElementById("f-" + f).value || null; });
+  if (!payload.business_name) { toast("Business name is required", true); return; }
+  try {
+    await apiPut("/settings", payload);
+    toast("Business profile saved");
+  } catch (err) { toast(err.message, true); }
+}
+
+load();
+</script>
+</body>
+</html>

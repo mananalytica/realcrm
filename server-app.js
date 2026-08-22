@@ -29,6 +29,9 @@ app.use("/api/v1/tasks", require("./routes/tasks"));
 app.use("/api/v1/documents", require("./routes/documents"));
 app.use("/api/v1/documents-upload", require("./routes/upload"));
 app.use("/api/v1/import", require("./routes/import"));
+app.use("/api/v1/webhooks", require("./routes/webhooks"));
+app.use("/api/v1/invoices", require("./routes/invoices"));
+app.use("/api/v1/settings", require("./routes/settings"));
 app.use("/api/v1/financials", require("./routes/financials"));
 app.use("/api/v1/dashboard", require("./routes/dashboard"));
 

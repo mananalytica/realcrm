@@ -120,6 +120,45 @@ CREATE TABLE IF NOT EXISTS financials (
     created_at TIMESTAMP DEFAULT current_timestamp
 );
 
+CREATE TABLE IF NOT EXISTS invoices (
+    id VARCHAR PRIMARY KEY,
+    invoice_number VARCHAR,
+    deal_id VARCHAR,
+    contact_id VARCHAR,                     -- who the invoice is billed to
+    description VARCHAR,                    -- e.g. "Commission - sale of DHA Phase 6 house"
+    subtotal DOUBLE,                        -- gross commission/fee amount (PKR)
+    tax_label VARCHAR,                      -- e.g. "Withholding Tax (Filer, 12%) - Sec. 233"
+    tax_rate DOUBLE DEFAULT 0,              -- percentage, e.g. 12 or 24
+    tax_amount DOUBLE DEFAULT 0,
+    net_total DOUBLE,                       -- subtotal - tax_amount = amount actually payable
+    currency VARCHAR DEFAULT 'PKR',
+    issue_date DATE,
+    due_date DATE,
+    scheduled_send_at TIMESTAMP,            -- when the agent plans to send this
+    status VARCHAR DEFAULT 'draft',         -- draft, scheduled, sent, paid, overdue, cancelled
+    sent_at TIMESTAMP,
+    paid_at TIMESTAMP,
+    notes VARCHAR,
+    created_at TIMESTAMP DEFAULT current_timestamp,
+    updated_at TIMESTAMP DEFAULT current_timestamp
+);
+
+-- Single-row table holding the agency's own business profile, used as the
+-- letterhead/footer on generated invoice PDFs.
+CREATE TABLE IF NOT EXISTS settings (
+    id VARCHAR PRIMARY KEY DEFAULT 'default',
+    business_name VARCHAR,
+    owner_name VARCHAR,
+    address VARCHAR,
+    phone VARCHAR,
+    email VARCHAR,
+    ntn VARCHAR,
+    strn VARCHAR,
+    bank_details VARCHAR,                   -- bank account and/or JazzCash/Easypaisa details
+    invoice_footer_note VARCHAR,
+    next_invoice_seq INTEGER DEFAULT 1,
+    updated_at TIMESTAMP DEFAULT current_timestamp
+);
 CREATE TABLE IF NOT EXISTS messages (
     id VARCHAR PRIMARY KEY,
     contact_id VARCHAR,

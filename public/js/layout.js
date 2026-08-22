@@ -7,7 +7,9 @@ const NAV_ITEMS = [
   { key: "tasks", label: "Tasks", href: "/tasks.html" },
   { key: "documents", label: "Documents", href: "/documents.html" },
   { key: "financials", label: "Financials", href: "/financials.html" },
+  { key: "invoices", label: "Invoices", href: "/invoices.html" },
   { key: "import", label: "Import Data", href: "/import.html" },
+  { key: "settings", label: "Business Profile", href: "/settings.html" },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {

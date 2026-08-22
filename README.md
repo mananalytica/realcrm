@@ -61,6 +61,57 @@ leads, deals, tasks, financials) scales proportionally with the same
 realistic conversion-funnel shape described below. Files land in
 `./sample-data/` by default.
 
+### Connecting lead sources (Facebook, Google, website, property portals)
+
+Two webhook endpoints exist for automated lead capture:
+
+```
+POST /api/v1/webhooks/lead?source=<name>&key=<secret>
+```
+A flexible catch-all. Accepts a JSON body with common field-name variants
+(`name`/`full_name`, `phone`/`phone_number`, `email`, `message`/`requirements`,
+etc.) and creates a contact + linked lead in one call. Point any no-code
+connector (Zapier, Make, Pabbly) at this.
+
+```
+GET/POST /api/v1/webhooks/google-leads
+```
+Matches Google's native Lead Form webhook schema exactly (no Zapier needed).
+`GET` handles Google's setup verification handshake; `POST` receives real
+leads. Set `GOOGLE_LEAD_FORM_KEY` in your env to validate Google's
+`google_key` field.
+
+Set `LEAD_WEBHOOK_SECRET` in your environment to require a `?key=` (or
+`x-webhook-key` header) on the generic endpoint — do this before pointing
+real ad platforms at your production URL, or anyone who finds the URL could
+spam your contacts table.
+
+### Invoicing (Pakistani commission invoices)
+
+**Business Profile** (sidebar) — fill this in once: agency name, NTN, address,
+bank/JazzCash/Easypaisa details. It's the letterhead on every invoice PDF.
+
+**Invoices** (sidebar) — create standalone, or click "Generate Invoice →"
+inside a closed deal in the Pipeline (auto-fills the buyer and commission
+amount). Each invoice shows:
+- **Gross Commission** → **Less: Withholding Tax** → **Net Amount Payable** —
+  matching how Pakistani commission actually works: under Section 233 of the
+  Income Tax Ordinance, the client withholds tax at source and deposits it to
+  FBR against your NTN, so you receive the *net* figure. Presets for Filer
+  (12%) and Non-Filer (24%) are built in, or set a custom rate.
+- **Download** — generates a PDF on the fly (`GET /api/v1/invoices/:id/pdf`).
+- **Forward via WhatsApp** — opens a `wa.me` click-to-chat link with a
+  pre-filled message and a link to the invoice PDF, and marks the invoice as
+  sent. This works today with zero API setup; when you wire up the WhatsApp
+  Business API later, `GET /api/v1/invoices/:id/whatsapp-link` already
+  returns the message text + PDF URL in a shape you can reuse for
+  programmatic sending instead of the manual click-to-chat flow.
+- **Scheduling** — set a future "Schedule to send on" date/time and the
+  invoice's status becomes `scheduled`. There's no automatic dispatch yet
+  (that needs the WhatsApp Business API), so treat it as a due-list: check
+  the Invoices page for anything sitting in `scheduled` status that's due.
+- **Mark Paid** — one click, records `paid_at`.
+
 ### Load sample data straight into the database (no CSV, no Vercel)
 
 Want to see the dashboard fully populated on a *local* run instead of

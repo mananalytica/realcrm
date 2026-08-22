@@ -198,6 +198,9 @@ function renderQuickActions(deal) {
     buttons.push(`<button type="button" class="quick-btn won" onclick="quickMove('closed_won')">Mark Won</button>`);
     buttons.push(`<button type="button" class="quick-btn lost" onclick="quickMove('closed_lost')">Mark Lost</button>`);
   }
+  if (deal.commission_amount) {
+    buttons.push(`<button type="button" class="quick-btn" onclick="location.href='/invoices.html?fromDeal=${deal.id}'">Generate Invoice →</button>`);
+  }
   wrap.innerHTML = buttons.length ? `<div class="quick-actions">${buttons.join("")}</div>` : "";
 }
 
